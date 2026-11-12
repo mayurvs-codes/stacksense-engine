@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+*.zip
+extracted/
+heldout/
+gate_report.json
+.venv/
+node_modules/
