@@ -308,6 +308,9 @@ sup("cache", "Valkey (self-hosted)", self_host=True, r=(4, 5, 4, 5, 4, 3), ops=2
 sup("cache", "Amazon ElastiCache", cloud="aws", regions=ALLR, saas=True, r=(5, 3, 5, 5, 4, 4), ops=1, tags=("cache",), cost=((13, 150), (1, 10)), cap=100_000_000,
     strengths=("Managed Redis/Valkey/Memcached in AWS regions",), limits=("AWS lock-in", "Always-on node cost"),
     src=[("https://aws.amazon.com/elasticache/", "Amazon ElastiCache")])
+sup("cache", "Azure Managed Redis", cloud="azure", regions=ALLR, saas=True, r=(5, 3, 5, 5, 4, 4), ops=1, tags=("cache",), cost=((15, 150), (1, 10)), cap=100_000_000,
+    strengths=("Managed Redis-compatible in-memory data store on Azure",), limits=("Azure lock-in", "Always-on capacity cost"),
+    src=[("https://learn.microsoft.com/en-us/azure/redis/overview", "What is Azure Managed Redis")])
 sup("cache", "Google Cloud Memorystore", cloud="gcp", regions=ALLR, saas=True, r=(5, 3, 5, 5, 4, 4), ops=1, tags=("cache",), cost=((15, 150), (1, 10)), cap=100_000_000,
     strengths=("Managed Redis/Valkey on Google Cloud",), limits=("GCP lock-in", "Always-on instance cost"),
     src=[("https://cloud.google.com/memorystore/docs", "Memorystore docs")])
@@ -507,10 +510,12 @@ PROPRIETARY = {"Firestore", "Amazon DynamoDB", "AWS Lambda", "AWS Amplify Hostin
 FIXED_OVR = {"Google Cloud Run": (0, 15), "AWS Lambda": (0, 10), "AWS ECS on Fargate": (30, 120), "Azure App Service": (13, 60),
              "Azure Container Apps": (0, 40), "Vercel": (0, 20), "Netlify": (0, 19), "Render": (7, 25), "DigitalOcean Droplets": (6, 40),
              "AWS EC2": (8, 60), "Google Compute Engine": (8, 60), "Azure Virtual Machines": (8, 60), "AWS Amplify Hosting": (0, 15),
-             "Amazon ElastiCache": (13, 60), "Google Cloud Memorystore": (13, 60), "Google Cloud SQL for PostgreSQL": (10, 70),
+             "Amazon ElastiCache": (13, 60), "Google Cloud Memorystore": (13, 60), "Azure Managed Redis": (13, 60), "Google Cloud SQL for PostgreSQL": (10, 70),
              "Amazon RDS for PostgreSQL": (15, 80), "Azure SQL Database": (5, 60), "Azure Database for PostgreSQL": (15, 70),
              "Amazon CloudWatch": (0, 15), "Azure Monitor": (0, 15), "Google Cloud Operations Suite": (0, 15), "Cloudflare Pages": (0, 0),
-             "Cloudflare CDN": (0, 20), "Azure Static Web Apps": (0, 9), "Amazon CloudFront": (0, 20), "Google Cloud CDN": (0, 20)}
+             "Cloudflare CDN": (0, 20), "Azure Static Web Apps": (0, 9), "Amazon CloudFront": (0, 20), "Google Cloud CDN": (0, 20),
+             "Supabase Postgres": (0, 25), "MongoDB Atlas": (0, 57),
+             "Google Cloud Build": (0, 10), "AWS CodePipeline": (0, 5), "Azure DevOps Pipelines": (0, 15), "GitHub Actions": (0, 5)}
 PER1K_OVR = {"Cloudflare Pages": (0, 0.002), "Netlify": (0, 0.3), "GitHub Pages": (0, 0), "Azure Static Web Apps": (0, 0.1), "AWS Amplify Hosting": (0, 0.3)}
 
 

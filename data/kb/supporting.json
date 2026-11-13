@@ -429,6 +429,67 @@
   ]
  },
  {
+  "name": "Azure Managed Redis",
+  "layer": "cache",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [13, 60] + per-1k-users [0.1, 1.0] USD/month",
+  "cost": {
+   "fixed": [
+    13,
+    60
+   ],
+   "per_1k_users": [
+    0.1,
+    1.0
+   ]
+  },
+  "strengths": [
+   "Managed Redis-compatible in-memory data store on Azure"
+  ],
+  "limits": [
+   "Azure lock-in",
+   "Always-on capacity cost"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "cache"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/redis/overview",
+    "title": "What is Azure Managed Redis",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
   "name": "Google Cloud Memorystore",
   "layer": "cache",
   "lifecycle_status": "active",
@@ -841,11 +902,11 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "aws",
-  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0.0, 0.0] USD/month",
+  "cost_model": "estimate: fixed [0, 5] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
-    10
+    5
    ],
    "per_1k_users": [
     0.0,
@@ -899,11 +960,11 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "azure",
-  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0.0, 0.0] USD/month",
+  "cost_model": "estimate: fixed [0, 15] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
-    30
+    15
    ],
    "per_1k_users": [
     0.0,
@@ -957,11 +1018,11 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0.0, 0.0] USD/month",
+  "cost_model": "estimate: fixed [0, 5] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
-    10
+    5
    ],
    "per_1k_users": [
     0.0,
@@ -1069,11 +1130,11 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "gcp",
-  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0.0, 0.0] USD/month",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
-    20
+    10
    ],
    "per_1k_users": [
     0.0,

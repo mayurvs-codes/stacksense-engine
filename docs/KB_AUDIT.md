@@ -33,6 +33,7 @@ Generated 2026-11-13 by `tools/gen_kb_audit.py` from `data/kb/*.json`, `tools/ve
 | backend | Ruby on Rails | [Rails Guides](https://guides.rubyonrails.org/) (2026-11-13) | rails/rails: archived=False, last push 2026-11-13 |
 | backend | Spring Boot | [Spring Boot](https://spring.io/projects/spring-boot) (2026-11-13) | spring-projects/spring-boot: archived=False, last push 2026-11-13 |
 | cache | Amazon ElastiCache | [Amazon ElastiCache](https://aws.amazon.com/elasticache/) (2026-11-13) | n/a (commercial/managed service or standard) |
+| cache | Azure Managed Redis | [What is Azure Managed Redis](https://learn.microsoft.com/en-us/azure/redis/overview) (2026-11-13) | n/a (commercial/managed service or standard) |
 | cache | Google Cloud Memorystore | [Memorystore docs](https://cloud.google.com/memorystore/docs) (2026-11-13) | n/a (commercial/managed service or standard) |
 | cache | Redis (self-hosted) | [Redis docs](https://redis.io/docs/latest/) (2026-11-13) | redis/redis: archived=False, last push 2026-11-12 |
 | cache | Valkey (self-hosted) | [Valkey](https://valkey.io/) (2026-11-13) | valkey-io/valkey: archived=False, last push 2026-11-13 |

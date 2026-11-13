@@ -88,7 +88,12 @@ def main():
     n = sys.argv[1] if len(sys.argv) > 1 else "1"
     d = ROOT / "review" / f"round_{n}"
     d.mkdir(parents=True, exist_ok=True)
-    scns = build()
+    if n == "1":
+        scns = build()
+    else:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import importlib
+        scns = importlib.import_module(f"review_scenarios_r{n}").__dict__[f"build{n}"]()
     (d / "scenarios.json").write_text(json.dumps(scns, indent=1), encoding="utf-8")
     kb = oracle.load_kb()
     rows, bad = [], 0

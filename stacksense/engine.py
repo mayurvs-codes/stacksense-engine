@@ -75,6 +75,8 @@ def derive(n, A):
         if key not in x:
             A.append(f"Default applied: extra.{key} = {dflt}")
     f.tier = 0 if f.u12 <= 5000 else 1 if f.u12 <= 50000 else 2 if f.u12 <= 500000 else 3 if f.u12 <= 5_000_000 else 4
+    tpeak = 0 if f.peak <= 100 else 1 if f.peak <= 1000 else 2 if f.peak <= 10000 else 3 if f.peak <= 100000 else 4
+    f.tier = max(f.tier, tpeak)
     if f.rps is not None:
         trps = 0 if f.rps <= 5 else 1 if f.rps <= 50 else 2 if f.rps <= 500 else 3 if f.rps <= 5000 else 4
         f.tier = max(f.tier, trps)
@@ -299,6 +301,13 @@ def score_frontend(e, f, host, be, kb):
         s += 0.4
     if "nextjs" in host["tags"] and e["name"] == "Next.js":
         s += 0.6
+    if e["name"].startswith("HTMX"):
+        if f.tier >= 3:
+            s -= 1.0
+        if f.rt:
+            s -= 1.5
+        if f.type in ("social", "gaming", "realtime_collab"):
+            s -= 1.5
     if f.static_like and "ssr" in t:
         s -= 0.8
     if f.dynamic and f.type != "content_site" and t & {"static", "ssg"} and not t & {"ssr", "spa"}:
@@ -313,7 +322,7 @@ def db_fits_host(e, host, reuse=()):
     if e["name"] in reuse:
         return True
     if e["name"] == "SQLite":
-        return host["hosting_type"] in ("vm", "onprem", "paas", "container")
+        return host["hosting_type"] in ("vm", "onprem")  # containers and serverless have ephemeral disks
     if e["self_hostable"] and not e["saas_only"]:
         return host["hosting_type"] in ("vm", "onprem")
     return True
@@ -340,7 +349,7 @@ def score_database(e, f, host, kb, reuse):
         s += 0.7
     nonrel = bool(t & {"document", "kv"})
     if nonrel and not (f.offline or f.type in ("gaming", "social", "iot") or (f.workload == "write_heavy" and f.tier >= 3) or (f.rt and "realtime" in t)):
-        s -= 1.2  # relational integrity, ad-hoc queries and reporting are the sensible default
+        s -= 1.8  # relational integrity, ad-hoc queries and reporting are the sensible default
     if nonrel and (f.mt or f.fts or f.type in ("internal_tool", "saas_b2b", "healthtech", "data_analytics")):
         s -= 0.6
     if "relational" in t and f.type in ("saas_b2b", "internal_tool", "healthtech", "web_app", "api_platform", "other"):
@@ -451,8 +460,12 @@ def score_support(e, layer, f, host, be, db, picked, role=None):
     elif layer == "cache" or layer == "search" or layer == "storage":
         if f.deploy == "self_hosted_cloud_vm" and e["self_hostable"]:
             s += 0.3
-    if e["self_hostable"] and not e["saas_only"] and "library" not in t and host["hosting_type"] in ("static", "serverless", "paas", "container"):
-        s -= 1.5  # a separate stateful service would need its own compute
+    if e["self_hostable"] and not e["saas_only"] and "library" not in t:
+        ht = host["hosting_type"]
+        if ht in ("static", "serverless", "paas"):
+            s -= 1.5  # a separate service would need its own compute
+        elif ht == "container":
+            s -= 0.5  # runs as an extra container, but state needs care
     return s
 
 
@@ -483,7 +496,7 @@ def needed_supporting(f, be, db, host):
     if has_be and (f.tier >= 3 or "erp" in f.integr or "sms" in f.integr or "crm" in f.integr or (f.workload == "write_heavy" and f.tier >= 2) or f.ml == "training"):
         L.append("queue")
     web = "web" in f.platforms
-    if f.deploy not in ("on_premise", "air_gapped") and host["hosting_type"] != "static" and (((f.seo or (f.files and f.tier >= 1)) and web) or f.geo in ("global", "regional")):
+    if f.deploy not in ("on_premise", "air_gapped") and host["hosting_type"] != "static" and (((f.seo or (f.files and f.tier >= 1)) and web and f.type != "internal_tool") or f.geo in ("global", "regional")):
         L.append("cdn")
     if (has_be or f.team_eff >= 2) and host["hosting_type"] != "static":
         L.append("ci_cd")
@@ -503,7 +516,7 @@ def build(host, f, kb):
         if not cands:
             return None
         overlap = [e for e in cands if f.real_langs and set(x.lower() for x in e["languages"]) & set(f.real_langs)]
-        pool = overlap if overlap else ([e for e in cands if "mainstream" in e["tags"]] if f.real_langs else []) or cands
+        pool = overlap if overlap else [e for e in cands if "mainstream" in e["tags"]] or cands  # no skill signal: default to mainstream frameworks
         be_ranked = pick_top(pool, lambda e: score_backend(e, f, host, kb))
         be = be_ranked[0][1]
         pick["backend_mismatch"] = bool(f.real_langs) and not overlap

@@ -1,0 +1,136 @@
+{
+  "scenario_id": "P1",
+  "engine_version": "1.0.0",
+  "status": "ok",
+  "summary": "A static setup: Eleventy hosted on GitHub Pages with no backend or database. Chosen for a beginner team of 1 with a $0/month budget and 3,000 users in 12 months.",
+  "architecture_style": "static",
+  "stack": {
+    "frontend": {
+      "choice": "Eleventy",
+      "justification": "Eleventy targets web, covering project.platforms=[web]. It reuses the team's skills (team.languages=[css, html, javascript]). requirements.seo_critical=true: it pre-renders or server-renders pages so search engines see full HTML. A timeline.mvp_weeks=2-week timeline favours its time-to-market rating of 5/5.",
+      "driven_by": [
+        "project.platforms",
+        "team.languages",
+        "requirements.seo_critical",
+        "timeline.mvp_weeks"
+      ],
+      "alternatives": [
+        {
+          "choice": "Astro",
+          "why_not": "Ranked 0.4 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+        },
+        {
+          "choice": "React Native (Expo)",
+          "why_not": "Ranked 4.5 points lower: weaker on performance (rated 3 vs 5, which your priorities weight at 3/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Little built-in interactivity",
+        "Smaller ecosystem than React-based generators"
+      ],
+      "what_would_change": [
+        "If the target platforms change (today [web]), re-check coverage: Astro is the next option.",
+        "If SEO stopped being critical and the app became highly interactive, a SPA framework would become competitive."
+      ]
+    },
+    "backend": {
+      "choice": "None",
+      "justification": "No server-side code is needed for a project.type=content_site with no auth, payments, realtime, uploads, search or ML requirements. That avoids operating and securing a server for a team.experience=beginner team (team.size=1). No backend language is required (team.languages=[css, html, javascript]).",
+      "driven_by": [
+        "project.type",
+        "team.experience",
+        "team.languages"
+      ],
+      "alternatives": [
+        {
+          "choice": "Express",
+          "why_not": "Would add server code, hosting cost and an attack surface that this content-only project does not need."
+        }
+      ],
+      "tradeoffs": [
+        "Any later need for accounts, payments or custom logic requires adding a backend (or serverless functions)."
+      ],
+      "what_would_change": [
+        "If accounts, payments, uploads or realtime features are added, adopt Express matching the team's languages."
+      ]
+    },
+    "database": {
+      "choice": "None",
+      "justification": "Content lives in files or the repository (scale.data_volume_gb_12_months=1 GB), so no database is needed. scale.workload=read_heavy traffic is served as static files.",
+      "driven_by": [
+        "scale.data_volume_gb_12_months",
+        "scale.workload"
+      ],
+      "alternatives": [
+        {
+          "choice": "SQLite",
+          "why_not": "Adds a datastore to back up and migrate even though nothing needs to be queried at runtime."
+        }
+      ],
+      "tradeoffs": [
+        "Dynamic content later would require adding a datastore."
+      ],
+      "what_would_change": [
+        "If user-generated or queryable data appears, start with PostgreSQL (or SQLite for a single-node prototype)."
+      ]
+    },
+    "hosting": {
+      "choice": "GitHub Pages",
+      "justification": "GitHub Pages fits the monthly budget (budget.monthly_infra_usd=0 USD): estimated $0-0/month at scale.users_12_months=3000. Availability target requirements.availability=99% is reachable with the platform's managed redundancy. Operations burden 1 vs team capacity 1 (team.has_devops=false, team.experience=beginner). It was also weighed against scale.users_12_months=3000.",
+      "driven_by": [
+        "budget.monthly_infra_usd",
+        "requirements.availability",
+        "team.has_devops",
+        "scale.users_12_months"
+      ],
+      "alternatives": [
+        {
+          "choice": "Cloudflare Pages",
+          "why_not": "Ranked 0.4 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+        },
+        {
+          "choice": "Azure Static Web Apps",
+          "why_not": "Ranked 0.8 points lower: costs more (about $0-9/mo vs $0-0)."
+        },
+        {
+          "choice": "Docker Compose on a Linux VM",
+          "why_not": "Excluded by a hard constraint: on-premises hosting does not match managed_cloud."
+        },
+        {
+          "choice": "Linux server (systemd + Nginx)",
+          "why_not": "Excluded by a hard constraint: on-premises hosting does not match managed_cloud."
+        }
+      ],
+      "tradeoffs": [
+        "Static files only; usage limits apply",
+        "No server-side code or private data"
+      ],
+      "what_would_change": [
+        "If scale.users_12_months grew beyond about 2,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If the budget rose or operations capacity increased so that Cloudflare Pages was affordable and operable, it would be the next choice (it scored 0.4 lower today).",
+        "If the monthly budget exceeded about $100, managed multi-AZ database and observability tiers would become affordable."
+      ]
+    },
+    "supporting": []
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 0,
+    "max": 0,
+    "assumptions": [
+      "Order-of-magnitude band built from each component's fixed + per-1k-user price estimate at scale.users_12_months=3,000; not a quote.",
+      "Traffic pattern steady adds no burst allowance.",
+      "The upper bound assumes components are not all at their high estimates at once (60% of the summed spread). Excludes taxes, engineers' time, payment-gateway transaction fees and SMS/OTP fees."
+    ]
+  },
+  "warnings": [],
+  "assumptions": [
+    "Default applied: requirements.p95_latency_ms = null (no latency target assumed)",
+    "Default applied: extra.geo_distribution = single_region",
+    "Default applied: extra.vendor_lock_in_tolerance = medium",
+    "Default applied: extra.data_sensitivity = internal",
+    "Default applied: extra.sync_conflict_tolerance = last_write_wins"
+  ],
+  "validation_errors": [],
+  "compliance_notes": [],
+  "integration_notes": []
+}

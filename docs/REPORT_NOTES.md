@@ -5,7 +5,7 @@ come from the repository. Screenshots must be taken by the owner from the runnin
 
 ## 1. Abstract (draft, under 150 words)
 StackSense is a deterministic tech-stack recommendation engine. It validates a scenario, derives features (scale tier, operations capacity,
-priority weights), filters a curated 121-entry knowledge base with hard constraints (data residency, compliance, deployment model, explicit
+priority weights), filters a curated 123-entry knowledge base with hard constraints (data residency, compliance, deployment model, explicit
 cloud preference), jointly scores hosting, backend, frontend, database and supporting services, and explains every choice with the input fields
 that drove it, alternatives, trade-offs and counterfactuals. Contradictions become severity-labelled warnings, the budget is treated as a soft
 constraint with explicit relaxations, and costs are reported as bands with assumptions. No LLM is used, output is byte-for-byte deterministic,
@@ -47,7 +47,7 @@ Research: sources are listed per knowledge-base entry and audited in `docs/KB_AU
 ## 5. Knowledge base and decision logic
 - Representation: each entry has layer, languages, regions, self-hosting and SaaS flags, cloud, ratings (time to market, cost, scalability,
   performance, maintainability, security; 1-5 author judgements), operations burden, comfortable scale cap, cost band (fixed + per-1k-users), tags,
-  attestations, strengths, limits and sources. 121 entries: 15 frontend, 11 backend, 16 database, 19 hosting, 60 supporting.
+  attestations, strengths, limits and sources. 123 entries: 15 frontend, 11 backend, 16 database, 19 hosting, 62 supporting.
 - Hard constraints filter candidates (cloud tag must match an explicit preference; deployment model must be satisfied; data residency requires a
   verified region or self-hosting; attestation sets must be covered; no Kubernetes without DevOps and a team of 4; websocket support for realtime).
 - Soft scoring: weighted rating sum using priority weights, plus skill fit (a hard preference for backends in the team's languages), requirement and
@@ -63,12 +63,12 @@ Research: sources are listed per knowledge-base entry and audited in `docs/KB_AU
 ## 6. Sample recommendations (take screenshots from the running UI; walk through at least P2 and P4)
 Run `python -m stacksense run data/scenarios/<file> ...` for each public scenario (split the list file into six single-scenario files) and save
 the results as `outputs/P1_output.json ... P6_output.json`. Current engine results (re-run before submission):
-- P1 portfolio: Eleventy on GitHub Pages, no backend or database, cost 0.
-- P2 marketplace India: Expo client, NestJS on Google Cloud Run, managed PostgreSQL, Mumbai-capable services, Razorpay, Firebase Auth for phone OTP.
-- P3 whiteboard SaaS: Next.js, Go on Google Cloud Run, Cloud SQL for PostgreSQL, Yjs, Memorystore, Stripe.
-- P4 lending India: Expo, Spring Boot on AWS ECS Fargate, RDS/Aurora PostgreSQL in Mumbai, Cognito, SageMaker/ONNX, Razorpay, CloudWatch, with PCI/RBI/ISO notes.
-- P5 internal HR tool: Blazor and ASP.NET Core on Azure App Service, reusing on-premises SQL Server 2019 and Entra ID.
-- P6 offline crop survey: Expo client, offline-capable Firestore (Mumbai) with a Django API on Google Cloud Run, phone OTP.
+- P1 portfolio: Eleventy on GitHub Pages, no backend or database, estimated cost $0.
+- P2 marketplace India: React Native (Expo) client for web+Android, NestJS on Google Cloud Run, Supabase Postgres in Mumbai, Razorpay, Firebase Authentication (phone OTP), Socket.IO, with an SEO limitation warning for the client-rendered web app.
+- P3 whiteboard SaaS: Next.js, Go (Gin) on Google Cloud Run, Cloud SQL for PostgreSQL, Yjs for CRDT collaboration, Memorystore, Pub/Sub, Stripe.
+- P4 lending India: React Native (Expo), Spring Boot on AWS ECS Fargate, Amazon RDS for PostgreSQL (Mumbai), Cognito, SageMaker, Razorpay, CloudFront, CloudWatch, with PCI DSS/RBI/DPDP/ISO 27001 notes.
+- P5 internal HR tool: Blazor and ASP.NET Core on Azure App Service, reusing the on-premises SQL Server 2019 and Microsoft Entra ID, Azure Blob Storage.
+- P6 offline crop survey: React Native (Expo) client, offline-capable Firestore (Mumbai) with a Django API on Google Cloud Run, Firebase phone OTP.
 (Explain in the report why each component was chosen using the `driven_by`, `alternatives` and `what_would_change` fields.)
 
 ## 7. Edge-case handling (table for the report; add one screenshot per row)
@@ -93,7 +93,7 @@ the results as `outputs/P1_output.json ... P6_output.json`. Current engine resul
 
 ## 9. Limitations and future work
 - Ratings and costs are author estimates, not measurements; bands are order-of-magnitude.
-- The knowledge base has 121 entries; many valid options (for example Kubernetes services, Neon, PlanetScale, Hetzner, Fly.io) are absent because their
+- The knowledge base has 123 entries; many valid options (for example Kubernetes services, Neon, PlanetScale, Hetzner, Fly.io) are absent because their
   regions or lifecycle could not be verified within the time available.
 - Vendor compliance attestations are taken from public programmes and recorded coarsely.
 - Reuse detection of existing systems relies on name patterns; an on-premises Oracle estate cannot be reused because the KB has no Oracle entry.

@@ -1,0 +1,398 @@
+{
+  "scenario_id": "P4",
+  "engine_version": "1.0.0",
+  "status": "ok",
+  "summary": "A modular monolith on AWS ECS on Fargate using Spring Boot with Amazon RDS for PostgreSQL and a React Native (Expo) client. Chosen for a senior team of 8 with a $6000/month budget and 300,000 users in 12 months.",
+  "architecture_style": "modular_monolith",
+  "stack": {
+    "frontend": {
+      "choice": "React Native (Expo)",
+      "justification": "React Native (Expo) targets android, ios, web, covering project.platforms=[web, android, ios]. It reuses the team's skills (team.languages=[java, kotlin, typescript]).",
+      "driven_by": [
+        "project.platforms",
+        "team.languages"
+      ],
+      "alternatives": [
+        {
+          "choice": "Flutter",
+          "why_not": "Ranked 3.1 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 3/5)."
+        },
+        {
+          "choice": "Kotlin (Jetpack Compose)",
+          "why_not": "Ranked 5.8 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Native modules can force ejecting from the managed workflow",
+        "Lower raw performance than native"
+      ],
+      "what_would_change": [
+        "If the target platforms change (today [web, android, ios]), re-check coverage: Flutter is the next option.",
+        "If SEO stopped being critical and the app became highly interactive, a SPA framework would become competitive."
+      ]
+    },
+    "backend": {
+      "choice": "Spring Boot",
+      "justification": "The team already knows java, kotlin (team.languages=[java, kotlin, typescript]), which Spring Boot uses. A team.experience=senior team of team.size=8 gets Spring Boot's typed, structured API model (operations burden 3 vs capacity 5). requirements.ml_features=inference_api is easiest to integrate through a separate ML service. Its mature security and transaction tooling suits compliance=[dpdp, pci_dss, rbi_localisation, iso27001] (project.type=fintech). It can meet the requirements.p95_latency_ms=300 ms p95 target on AWS ECS on Fargate. It supports an MVP within timeline.mvp_weeks=16 weeks given its rating of 3/5 for time to market.",
+      "driven_by": [
+        "team.languages",
+        "team.experience",
+        "requirements.ml_features",
+        "compliance",
+        "requirements.p95_latency_ms",
+        "timeline.mvp_weeks"
+      ],
+      "alternatives": [
+        {
+          "choice": "NestJS",
+          "why_not": "Ranked 0.2 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 5/5)."
+        },
+        {
+          "choice": "Ktor",
+          "why_not": "Ranked 0.9 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 5/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Heavier memory/startup footprint",
+        "Steeper learning curve and more boilerplate"
+      ],
+      "what_would_change": [
+        "If the team changed languages (today [java, kotlin, typescript]), re-rank: NestJS is the next best fit.",
+        "If scale.users_12_months passed 50,000,000, Spring Boot would need horizontal scaling and caching (cap = its comfortable range)."
+      ]
+    },
+    "database": {
+      "choice": "Amazon RDS for PostgreSQL",
+      "justification": "Amazon RDS for PostgreSQL suits scale.workload=balanced traffic with scale.data_volume_gb_12_months=500 GB after 12 months. For infrastructure.data_residency=india: it can run in AWS Mumbai (ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india. It is acceptable under compliance=[dpdp, pci_dss, rbi_localisation, iso27001] (attestations: pci_dss, hipaa, soc2, iso27001, gdpr). Its comfortable range (20,000,000 users) covers scale.users_12_months=300000. requirements.payments=true: transactional integrity favours a relational engine.",
+      "driven_by": [
+        "scale.workload",
+        "infrastructure.data_residency",
+        "compliance",
+        "scale.users_12_months",
+        "requirements.payments"
+      ],
+      "alternatives": [
+        {
+          "choice": "Amazon Aurora PostgreSQL",
+          "why_not": "Ranked 0.1 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 3/5); costs more (about $360-2562/mo vs $135-1225)."
+        },
+        {
+          "choice": "Amazon DynamoDB",
+          "why_not": "Ranked 2.3 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
+        },
+        {
+          "choice": "Azure SQL Database",
+          "why_not": "Excluded by a hard constraint: belongs to azure but cloud_preference=aws."
+        },
+        {
+          "choice": "Azure Database for PostgreSQL",
+          "why_not": "Excluded by a hard constraint: belongs to azure but cloud_preference=aws."
+        }
+      ],
+      "tradeoffs": [
+        "Instance sizing is manual",
+        "AWS lock-in"
+      ],
+      "what_would_change": [
+        "If users exceeded 20,000,000, add read replicas or caching, or shard.",
+        "If requirements.offline_support became true, a store with device sync (Firestore or CouchDB) would gain priority."
+      ]
+    },
+    "hosting": {
+      "choice": "AWS ECS on Fargate",
+      "justification": "AWS ECS on Fargate fits the monthly budget (budget.monthly_infra_usd=6000 USD): estimated $270-2400/month at scale.users_12_months=300000. It honours the hard constraint infrastructure.cloud_preference=aws. For infrastructure.data_residency=india: it can run in AWS Asia Pacific (Mumbai, ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india. It is compatible with compliance=[dpdp, pci_dss, rbi_localisation, iso27001] (the knowledge base records vendor attestations for pci_dss, hipaa, soc2, iso27001, gdpr); the legal obligations remain with you. A p95 target of requirements.p95_latency_ms=300 ms is realistic here. Availability target requirements.availability=99.95% is reachable with the platform's managed redundancy. scale.traffic_pattern=spiky load is absorbed by container scaling.",
+      "driven_by": [
+        "budget.monthly_infra_usd",
+        "infrastructure.cloud_preference",
+        "infrastructure.data_residency",
+        "compliance",
+        "requirements.p95_latency_ms",
+        "requirements.availability",
+        "scale.traffic_pattern"
+      ],
+      "alternatives": [
+        {
+          "choice": "AWS Lambda",
+          "why_not": "Ranked 1.1 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 5/5)."
+        },
+        {
+          "choice": "AWS EC2",
+          "why_not": "Ranked 1.4 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 5/5)."
+        },
+        {
+          "choice": "Cloudflare Pages",
+          "why_not": "Excluded by a hard constraint: cloud_preference=aws requires a aws host."
+        },
+        {
+          "choice": "Google Cloud Run",
+          "why_not": "Excluded by a hard constraint: cloud_preference=aws requires a aws host."
+        }
+      ],
+      "tradeoffs": [
+        "AWS complexity: VPC, IAM, load balancers",
+        "Higher floor cost than simple PaaS"
+      ],
+      "what_would_change": [
+        "If scale.users_12_months grew beyond about 50,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If the budget rose or operations capacity increased so that AWS Lambda was affordable and operable, it would be the next choice (it scored 1.1 lower today)."
+      ]
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Amazon Cognito",
+        "justification": "requirements.auth=phone_otp is supported via SMS OTP (SMS fees apply). It stays within the same cloud as AWS ECS on Fargate. Amazon Cognito: Managed user pools with SMS OTP, social and SAML sign-in. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $0-325/month.",
+        "driven_by": [
+          "requirements.auth"
+        ],
+        "alternatives": [
+          {
+            "choice": "Firebase Authentication",
+            "why_not": "Ranked 0.7 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Microsoft Entra ID",
+            "why_not": "Ranked 2.8 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "Auth0",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          }
+        ],
+        "tradeoffs": [
+          "Customisation limits",
+          "AWS lock-in"
+        ]
+      },
+      {
+        "layer": "storage",
+        "choice": "Amazon S3",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in AWS Mumbai (ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india. For infrastructure.data_residency=india: it can run in AWS Mumbai (ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india. It stays within the same cloud as AWS ECS on Fargate. Amazon S3: Durable object storage with regions in Mumbai and Hyderabad. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $15-125/month.",
+        "driven_by": [
+          "requirements.file_media_storage",
+          "infrastructure.data_residency"
+        ],
+        "alternatives": [
+          {
+            "choice": "SeaweedFS",
+            "why_not": "Ranked 2.1 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
+          },
+          {
+            "choice": "Azure Blob Storage",
+            "why_not": "Excluded by a hard constraint: belongs to azure but cloud_preference=aws."
+          },
+          {
+            "choice": "Google Cloud Storage",
+            "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=aws."
+          }
+        ],
+        "tradeoffs": [
+          "Egress costs",
+          "AWS lock-in"
+        ]
+      },
+      {
+        "layer": "payments",
+        "choice": "Razorpay",
+        "justification": "requirements.payments=true: an India-based gateway keeps payment data in India (UPI/cards). compliance=[dpdp, pci_dss, rbi_localisation, iso27001]: card data stays with the PCI-certified gateway (Razorpay). Razorpay: UPI, cards, netbanking and EMI for Indian merchants. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated no fixed fee (usage- or transaction-based pricing).",
+        "driven_by": [
+          "requirements.payments",
+          "compliance"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cashfree Payments",
+            "why_not": "Ranked 0.5 points lower: weaker on scalability (rated 4 vs 5, which your priorities weight at 4/5)."
+          },
+          {
+            "choice": "PayU",
+            "why_not": "Ranked 0.9 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Stripe",
+            "why_not": "Excluded by a hard constraint: payment processing must stay in India (RBI/DPDP data residency)."
+          },
+          {
+            "choice": "Adyen",
+            "why_not": "Excluded by a hard constraint: payment processing must stay in India (RBI/DPDP data residency)."
+          }
+        ],
+        "tradeoffs": [
+          "India-focused; limited international coverage",
+          "Transaction-percentage fees"
+        ]
+      },
+      {
+        "layer": "ml",
+        "choice": "Amazon SageMaker",
+        "justification": "requirements.ml_features=inference_api: Amazon SageMaker provides the ML capability. It stays within the same cloud as AWS ECS on Fargate. Amazon SageMaker: Managed training and real-time inference endpoints. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $90-1875/month.",
+        "driven_by": [
+          "requirements.ml_features"
+        ],
+        "alternatives": [
+          {
+            "choice": "ONNX Runtime",
+            "why_not": "Ranked 0.8 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Ollama",
+            "why_not": "Ranked 1.9 points lower: weaker on scalability (rated 2 vs 5, which your priorities weight at 4/5)."
+          },
+          {
+            "choice": "Azure Machine Learning",
+            "why_not": "Excluded by a hard constraint: belongs to azure but cloud_preference=aws."
+          },
+          {
+            "choice": "Google Vertex AI",
+            "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=aws."
+          }
+        ],
+        "tradeoffs": [
+          "Cost and complexity",
+          "AWS lock-in"
+        ]
+      },
+      {
+        "layer": "cache",
+        "choice": "Amazon ElastiCache",
+        "justification": "Caching offloads reads at scale.users_12_months=300000 users and helps the requirements.p95_latency_ms=300 ms p95 target. It stays within the same cloud as AWS ECS on Fargate. Amazon ElastiCache: Managed Redis/Valkey/Memcached in AWS regions. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $43-450/month.",
+        "driven_by": [
+          "requirements.p95_latency_ms"
+        ],
+        "alternatives": [
+          {
+            "choice": "Redis (self-hosted)",
+            "why_not": "Ranked 1.7 points lower: weaker on security (rated 3 vs 4, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Valkey (self-hosted)",
+            "why_not": "Ranked 1.7 points lower: weaker on security (rated 3 vs 4, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Azure Managed Redis",
+            "why_not": "Excluded by a hard constraint: belongs to azure but cloud_preference=aws."
+          },
+          {
+            "choice": "Google Cloud Memorystore",
+            "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=aws."
+          }
+        ],
+        "tradeoffs": [
+          "AWS lock-in",
+          "Always-on node cost"
+        ]
+      },
+      {
+        "layer": "cdn",
+        "choice": "Amazon CloudFront",
+        "justification": "A CDN offloads delivery of uploaded media (requirements.file_media_storage=true) at scale.users_12_months=300000 users. It stays within the same cloud as AWS ECS on Fargate. Amazon CloudFront: Global CDN tightly integrated with S3 and AWS WAF. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $0-175/month.",
+        "driven_by": [
+          "requirements.file_media_storage"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cloudflare CDN",
+            "why_not": "Ranked 0.5 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "Google Cloud CDN",
+            "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=aws."
+          },
+          {
+            "choice": "Azure Front Door",
+            "why_not": "Excluded by a hard constraint: belongs to azure but cloud_preference=aws."
+          }
+        ],
+        "tradeoffs": [
+          "AWS lock-in",
+          "Egress-based pricing"
+        ]
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "AWS CodePipeline",
+        "justification": "Automated build/test/deploy suits a team of team.size=8. It stays within the same cloud as AWS ECS on Fargate. AWS CodePipeline: Managed release pipelines inside AWS. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $0-6/month.",
+        "driven_by": [
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "GitHub Actions",
+            "why_not": "Ranked 0.6 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "GitLab CI/CD (self-managed)",
+            "why_not": "Ranked 1.3 points lower: costs more (about $0-50/mo vs $0-6)."
+          },
+          {
+            "choice": "Azure DevOps Pipelines",
+            "why_not": "Excluded by a hard constraint: belongs to azure but cloud_preference=aws."
+          },
+          {
+            "choice": "Google Cloud Build",
+            "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=aws."
+          }
+        ],
+        "tradeoffs": [
+          "AWS lock-in",
+          "Less ergonomic than repo-native CI"
+        ]
+      },
+      {
+        "layer": "observability",
+        "choice": "Amazon CloudWatch",
+        "justification": "Monitoring is needed to hold requirements.availability=99.95% availability. It stays within the same cloud as AWS ECS on Fargate. Amazon CloudWatch: Native metrics, logs and alarms for AWS. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $0-169/month.",
+        "driven_by": [
+          "requirements.availability"
+        ],
+        "alternatives": [
+          {
+            "choice": "Grafana + Prometheus",
+            "why_not": "Ranked 1.9 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
+          },
+          {
+            "choice": "Sentry (self-hosted)",
+            "why_not": "Ranked 2.0 points lower: weaker on scalability (rated 3 vs 5, which your priorities weight at 4/5)."
+          },
+          {
+            "choice": "Azure Monitor",
+            "why_not": "Excluded by a hard constraint: belongs to azure but cloud_preference=aws."
+          },
+          {
+            "choice": "Google Cloud Operations Suite",
+            "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=aws."
+          }
+        ],
+        "tradeoffs": [
+          "AWS only",
+          "Log ingestion costs"
+        ]
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 553,
+    "max": 4271,
+    "assumptions": [
+      "Order-of-magnitude band built from each component's fixed + per-1k-user price estimate at scale.users_12_months=300,000; not a quote.",
+      "Traffic pattern spiky raises the upper bound by 25% for bursts.",
+      "The upper bound assumes components are not all at their high estimates at once (60% of the summed spread). Excludes taxes, engineers' time, payment-gateway transaction fees and SMS/OTP fees."
+    ]
+  },
+  "warnings": [],
+  "assumptions": [
+    "Default applied: extra.geo_distribution = single_region",
+    "Default applied: extra.vendor_lock_in_tolerance = medium",
+    "Default applied: extra.data_sensitivity = internal",
+    "Default applied: extra.sync_conflict_tolerance = last_write_wins"
+  ],
+  "validation_errors": [],
+  "compliance_notes": [
+    "DPDP Act (India): collect verifiable consent, honour access/erasure rights and notify breaches; the DPDP Act does not by itself require in-country storage, but the chosen India-capable regions keep options open.",
+    "PCI DSS: keep card data off your servers by using the gateway's hosted fields/redirect so your scope stays at SAQ A or A-EP; the hosting and gateway providers are PCI service providers.",
+    "RBI localisation: payment data must be stored only in India; hosting and data stores were restricted to India regions (it can run in AWS Asia Pacific (Mumbai, ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india).",
+    "ISO 27001 (iso27001): the cloud providers hold ISO 27001 certifications; certifying your own ISMS is a separate project.",
+    "Data residency india: primary data stores and hosting were limited to india-capable options (it can run in AWS Asia Pacific (Mumbai, ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india)."
+  ],
+  "integration_notes": []
+}

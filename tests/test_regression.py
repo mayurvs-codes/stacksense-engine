@@ -95,3 +95,36 @@ class Round1Regressions(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Round2Regressions(unittest.TestCase):
+    def test_peak_concurrency_raises_the_load_tier(self):
+        a = run(scale__users_12_months=5000, scale__peak_concurrent_users=50)
+        b = run(scale__users_12_months=5000, scale__peak_concurrent_users=90000, team__size=6, team__has_devops=True, team__experience="senior")
+        self.assertGreater(len(b["stack"]["supporting"]), len(a["stack"]["supporting"]))
+
+    def test_sqlite_never_runs_on_ephemeral_hosts(self):
+        k = kbmod.load()
+        for host in ("Google Cloud Run", "AWS Lambda", "AWS ECS on Fargate", "Azure Container Apps"):
+            from stacksense import engine
+            self.assertFalse(engine.db_fits_host(k.get("database", "SQLite"), k.get("hosting", host)), host)
+        self.assertTrue(engine.db_fits_host(k.get("database", "SQLite"), k.get("hosting", "AWS EC2")))
+
+    def test_azure_gets_a_managed_cache(self):
+        o = run(infrastructure__cloud_preference="azure", scale__users_12_months=600000, scale__peak_concurrent_users=20000, team__languages=["csharp"],
+                budget__monthly_infra_usd=20000, team__size=8, team__has_devops=True, team__experience="senior")
+        self.assertEqual(sup(o, "cache"), ["Azure Managed Redis"])
+
+    def test_htmx_not_chosen_for_realtime_social_apps(self):
+        o = run(project__type="social", requirements__realtime=True, team__languages=["java"], scale__users_12_months=100000, budget__monthly_infra_usd=3000)
+        self.assertNotEqual(o["stack"]["frontend"]["choice"], "HTMX with server-rendered templates")
+
+    def test_zero_budget_stays_in_free_tiers(self):
+        o = run(budget__monthly_infra_usd=0, scale__users_12_months=300, scale__users_at_launch=100, team__size=1, team__experience="beginner", team__languages=["python"])
+        self.assertLessEqual(o["estimated_monthly_cost_usd"]["max"], 40)
+        self.assertEqual(o["estimated_monthly_cost_usd"]["min"], 0)
+
+
+    def test_internal_tool_gets_no_cdn_unless_users_are_spread(self):
+        o = run(project__type="internal_tool", requirements__file_media_storage=True, scale__peak_concurrent_users=300, scale__users_12_months=1500)
+        self.assertEqual(sup(o, "cdn"), [])

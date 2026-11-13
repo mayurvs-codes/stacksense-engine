@@ -122,14 +122,14 @@
   "url": "https://cloud.google.com/build/docs/overview",
   "status": 200,
   "title": "Overview of Cloud Build &nbsp;|&nbsp; Google Cloud Documentation",
-  "bytes": 172287,
+  "bytes": 172291,
   "final": "https://docs.cloud.google.com/build/docs/overview"
  },
  {
   "url": "https://cloud.google.com/cdn/docs/overview",
   "status": 200,
   "title": "Cloud CDN overview &nbsp;|&nbsp; Google Cloud Documentation",
-  "bytes": 147775,
+  "bytes": 147723,
   "final": "https://docs.cloud.google.com/cdn/docs/overview"
  },
  {
@@ -514,7 +514,7 @@
   "url": "https://laravel.com/docs",
   "status": 200,
   "title": "Installation | Laravel 13.x - The clean stack for Artisans and agents",
-  "bytes": 184328,
+  "bytes": 184340,
   "final": "https://laravel.com/framework/docs"
  },
  {
@@ -593,6 +593,13 @@
   "title": "Azure Database for PostgreSQL documentation landing page | Microsoft Learn",
   "bytes": 55905,
   "final": "https://learn.microsoft.com/en-us/azure/postgresql/"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/redis/overview",
+  "status": 200,
+  "title": "What is Azure Managed Redis? - Azure Managed Redis | Microsoft Learn",
+  "bytes": 69535,
+  "final": "https://learn.microsoft.com/en-us/azure/redis/overview"
  },
  {
   "url": "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview",
@@ -850,7 +857,7 @@
   "url": "https://www.postgresql.org/about/",
   "status": 200,
   "title": "PostgreSQL: About",
-  "bytes": 16809,
+  "bytes": 17134,
   "final": "https://www.postgresql.org/about/"
  },
  {

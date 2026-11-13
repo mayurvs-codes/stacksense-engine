@@ -1,0 +1,254 @@
+{
+  "scenario_id": "P6",
+  "engine_version": "1.0.0",
+  "status": "ok",
+  "summary": "A monolith on Google Cloud Run using Django with Firestore and a React Native (Expo) client. Chosen for a mixed team of 2 with a $100/month budget and 2,000 users in 12 months.",
+  "architecture_style": "monolith",
+  "stack": {
+    "frontend": {
+      "choice": "React Native (Expo)",
+      "justification": "React Native (Expo) targets android, ios, web, covering project.platforms=[android]. It reuses the team's skills (team.languages=[javascript, python]). requirements.offline_support=true: it supports local storage and offline-first patterns on the device.",
+      "driven_by": [
+        "project.platforms",
+        "team.languages",
+        "requirements.offline_support"
+      ],
+      "alternatives": [
+        {
+          "choice": "Kotlin (Jetpack Compose)",
+          "why_not": "Ranked 2.8 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 4/5)."
+        },
+        {
+          "choice": "Flutter",
+          "why_not": "Ranked 3.1 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 4/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Native modules can force ejecting from the managed workflow",
+        "Lower raw performance than native"
+      ],
+      "what_would_change": [
+        "If the target platforms change (today [android]), re-check coverage: Kotlin (Jetpack Compose) is the next option.",
+        "If SEO stopped being critical and the app became highly interactive, a SPA framework would become competitive."
+      ]
+    },
+    "backend": {
+      "choice": "Django",
+      "justification": "The team already knows python (team.languages=[javascript, python]), which Django uses. A team.experience=mixed team of team.size=2 gets Django's batteries-included conventions (operations burden 2 vs capacity 2). It supports an MVP within timeline.mvp_weeks=10 weeks given its rating of 5/5 for time to market.",
+      "driven_by": [
+        "team.languages",
+        "team.experience",
+        "timeline.mvp_weeks"
+      ],
+      "alternatives": [
+        {
+          "choice": "FastAPI",
+          "why_not": "Ranked 0.0 points lower: weaker on maintainability (rated 4 vs 5, which your priorities weight at 4/5)."
+        },
+        {
+          "choice": "NestJS",
+          "why_not": "Ranked 0.0 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 4/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Monolithic conventions",
+        "Real-time features need Channels/ASGI add-ons"
+      ],
+      "what_would_change": [
+        "If the team changed languages (today [javascript, python]), re-rank: FastAPI is the next best fit.",
+        "If scale.users_12_months passed 2,000,000, Django would need horizontal scaling and caching (cap = its comfortable range)."
+      ]
+    },
+    "database": {
+      "choice": "Firestore",
+      "justification": "Firestore suits scale.workload=write_heavy traffic with scale.data_volume_gb_12_months=100 GB after 12 months. requirements.offline_support=true: it has built-in offline persistence and sync. Conflict handling uses extra.sync_conflict_tolerance=last_write_wins semantics, which suits eventual-consistency sync. For infrastructure.data_residency=india: it can run in Firestore location asia-south1 (Mumbai) to satisfy data_residency=india. It is acceptable under compliance=[dpdp] (attestations: soc2, iso27001, gdpr). Its comfortable range (50,000,000 users) covers scale.users_12_months=2000.",
+      "driven_by": [
+        "scale.workload",
+        "requirements.offline_support",
+        "extra.sync_conflict_tolerance",
+        "infrastructure.data_residency",
+        "compliance",
+        "scale.users_12_months"
+      ],
+      "alternatives": [
+        {
+          "choice": "(no other knowledge-base option)",
+          "why_not": "No other option in the knowledge base satisfies the hard constraints for this layer."
+        }
+      ],
+      "tradeoffs": [
+        "Limited querying (no joins/aggregations at scale)",
+        "Per-operation pricing can surprise write-heavy workloads"
+      ],
+      "what_would_change": [
+        "If users exceeded 50,000,000, add read replicas or caching, or shard.",
+        "If strict consistency became mandatory, a relational database would outrank this choice."
+      ]
+    },
+    "hosting": {
+      "choice": "Google Cloud Run",
+      "justification": "Google Cloud Run fits the monthly budget (budget.monthly_infra_usd=100 USD): estimated $0-25/month at scale.users_12_months=2000. For infrastructure.data_residency=india: it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. It is compatible with compliance=[dpdp]; the legal obligations remain with you. Availability target requirements.availability=99% is reachable with the platform's managed redundancy. Operations burden 2 vs team capacity 2 (team.has_devops=false, team.experience=mixed). scale.traffic_pattern=spiky load is absorbed by container scaling.",
+      "driven_by": [
+        "budget.monthly_infra_usd",
+        "infrastructure.data_residency",
+        "compliance",
+        "requirements.availability",
+        "team.has_devops",
+        "scale.traffic_pattern"
+      ],
+      "alternatives": [
+        {
+          "choice": "Google Compute Engine",
+          "why_not": "Ranked 2.9 points lower: weaker on time to market (rated 2 vs 5, which your priorities weight at 4/5); needs more operations effort (burden 4) than the team can absorb (capacity 2); costs more (about $9-81/mo vs $0-25)."
+        },
+        {
+          "choice": "AWS Lambda",
+          "why_not": "Ranked 3.4 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 4/5)."
+        },
+        {
+          "choice": "Render",
+          "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+        },
+        {
+          "choice": "Docker Compose on a Linux VM",
+          "why_not": "Excluded by a hard constraint: on-premises hosting does not match managed_cloud."
+        }
+      ],
+      "tradeoffs": [
+        "Cold starts for scale-to-zero services",
+        "GCP lock-in for surrounding services"
+      ],
+      "what_would_change": [
+        "If scale.users_12_months grew beyond about 50,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If the budget rose or operations capacity increased so that Google Compute Engine was affordable and operable, it would be the next choice (it scored 2.9 lower today)."
+      ]
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Firebase Authentication",
+        "justification": "requirements.auth=phone_otp is supported via SMS OTP (SMS fees apply). Firebase Authentication: Phone OTP, email/password and social sign-in with SDKs for web and mobile. Sized for 2,000 users (200 concurrent), a team of 2 (mixed), 99% availability and managed cloud deployment; estimated $0-14/month.",
+        "driven_by": [
+          "requirements.auth"
+        ],
+        "alternatives": [
+          {
+            "choice": "Microsoft Entra ID",
+            "why_not": "Ranked 2.2 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "Amazon Cognito",
+            "why_not": "Ranked 2.7 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 4/5); costs more (about $0-27/mo vs $0-14)."
+          },
+          {
+            "choice": "Auth0",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          }
+        ],
+        "tradeoffs": [
+          "Google-operated; SMS cost per verification",
+          "Data location is not region-pinnable on the basic tier"
+        ]
+      },
+      {
+        "layer": "storage",
+        "choice": "Google Cloud Storage",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. For infrastructure.data_residency=india: it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. It stays within the same cloud as Google Cloud Run. Google Cloud Storage: Object storage with Mumbai (asia-south1) and Delhi buckets. Sized for 2,000 users (200 concurrent), a team of 2 (mixed), 99% availability and managed cloud deployment; estimated $0-13/month.",
+        "driven_by": [
+          "requirements.file_media_storage",
+          "infrastructure.data_residency"
+        ],
+        "alternatives": [
+          {
+            "choice": "SeaweedFS",
+            "why_not": "Ranked 2.4 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 4/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-38/mo vs $0-13)."
+          },
+          {
+            "choice": "Amazon S3",
+            "why_not": "Ranked 3.3 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "Cloudflare R2",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "Google Cloud Build",
+        "justification": "Automated build/test/deploy suits a team of team.size=2. It stays within the same cloud as Google Cloud Run. Google Cloud Build: Serverless CI/CD running in your Google Cloud project. Sized for 2,000 users (200 concurrent), a team of 2 (mixed), 99% availability and managed cloud deployment; estimated $0-12/month.",
+        "driven_by": [
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "GitHub Actions",
+            "why_not": "Ranked 0.4 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "GitLab CI/CD (self-managed)",
+            "why_not": "Ranked 2.0 points lower: needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-50/mo vs $0-12)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "observability",
+        "choice": "Google Cloud Operations Suite",
+        "justification": "Monitoring is needed to hold requirements.availability=99% availability. It stays within the same cloud as Google Cloud Run. Google Cloud Operations Suite: Native logging, monitoring and tracing for Google Cloud. Sized for 2,000 users (200 concurrent), a team of 2 (mixed), 99% availability and managed cloud deployment; estimated $0-20/month.",
+        "driven_by": [
+          "requirements.availability"
+        ],
+        "alternatives": [
+          {
+            "choice": "Sentry (self-hosted)",
+            "why_not": "Ranked 2.3 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 4/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-50/mo vs $0-20)."
+          },
+          {
+            "choice": "Grafana + Prometheus",
+            "why_not": "Ranked 2.4 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 4/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-50/mo vs $0-20)."
+          },
+          {
+            "choice": "Sentry",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          },
+          {
+            "choice": "Datadog",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only"
+        ]
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 1,
+    "max": 74,
+    "assumptions": [
+      "Order-of-magnitude band built from each component's fixed + per-1k-user price estimate at scale.users_12_months=2,000; not a quote.",
+      "Traffic pattern spiky raises the upper bound by 25% for bursts.",
+      "The upper bound assumes components are not all at their high estimates at once (60% of the summed spread). Excludes taxes, engineers' time, payment-gateway transaction fees and SMS/OTP fees."
+    ]
+  },
+  "warnings": [],
+  "assumptions": [
+    "Default applied: requirements.p95_latency_ms = null (no latency target assumed)",
+    "Default applied: extra.geo_distribution = single_region",
+    "Default applied: extra.vendor_lock_in_tolerance = medium",
+    "Default applied: extra.data_sensitivity = internal",
+    "Default applied: extra.sync_conflict_tolerance = last_write_wins"
+  ],
+  "validation_errors": [],
+  "compliance_notes": [
+    "DPDP Act (India): collect verifiable consent, honour access/erasure rights and notify breaches; the DPDP Act does not by itself require in-country storage, but the chosen India-capable regions keep options open.",
+    "Data residency india: primary data stores and hosting were limited to india-capable options (it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india)."
+  ],
+  "integration_notes": []
+}

@@ -30,7 +30,7 @@
 - errors: []
 - oracle violations: []
 
-### R1-05 [contradiction] status=ok_with_warnings style=serverless cost=$8-120
+### R1-05 [contradiction] status=ok_with_warnings style=serverless cost=$8-99
 - stack: fr=React (Vite) | ba=Django | da=Supabase Postgres | ho=AWS Lambda
 - supporting: auth:Firebase Authentication, ci_cd:AWS CodePipeline, observability:Amazon CloudWatch
 - warnings: ['AVAILABILITY_VS_TEAM:critical', 'BUDGET_EXCEEDED:warning']
@@ -51,17 +51,17 @@
 - errors: []
 - oracle violations: []
 
-### R1-08 [overengineering] status=ok style=monolith cost=$0-42
-- stack: fr=HTMX with server-rendered templates | ba=Django | da=SQLite | ho=Google Cloud Run
+### R1-08 [overengineering] status=ok style=monolith cost=$0-57
+- stack: fr=HTMX with server-rendered templates | ba=Django | da=Supabase Postgres | ho=Google Cloud Run
 - supporting: auth:Microsoft Entra ID, ci_cd:Google Cloud Build, observability:Google Cloud Operations Suite
 - warnings: ['BUDGET_UPPER_BAND:info']
 - errors: []
 - oracle violations: []
 
-### R1-09 [overengineering] status=ok style=monolith cost=$0-74
+### R1-09 [overengineering] status=ok style=monolith cost=$0-53
 - stack: fr=React (Vite) | ba=Django | da=Supabase Postgres | ho=Google Cloud Run
 - supporting: auth:Firebase Authentication, ci_cd:Google Cloud Build, observability:Google Cloud Operations Suite
-- warnings: ['BUDGET_UPPER_BAND:info', 'LAUNCH_ABOVE_TWELVE_MONTHS:info', 'PEAK_ABOVE_USERS:info']
+- warnings: ['LAUNCH_ABOVE_TWELVE_MONTHS:info', 'PEAK_ABOVE_USERS:info']
 - errors: []
 - oracle violations: []
 
@@ -156,9 +156,9 @@
 - errors: []
 - oracle violations: []
 
-### R1-23 [realtime_scale] status=ok style=service_oriented cost=$3013-26619
+### R1-23 [realtime_scale] status=ok style=service_oriented cost=$1513-17409
 - stack: fr=SvelteKit | ba=Go (Gin) | da=Firestore | ho=Google Cloud Run
-- supporting: auth:Firebase Authentication, realtime:Ably, cache:Google Cloud Memorystore, queue:Google Cloud Pub/Sub, ci_cd:Google Cloud Build, observability:Google Cloud Operations Suite
+- supporting: auth:Firebase Authentication, realtime:Centrifugo, cache:Google Cloud Memorystore, queue:Google Cloud Pub/Sub, ci_cd:Google Cloud Build, observability:Google Cloud Operations Suite
 - warnings: []
 - errors: []
 - oracle violations: []
@@ -184,17 +184,17 @@
 - errors: []
 - oracle violations: []
 
-### R1-27 [extreme_budget] status=ok_with_warnings style=monolith cost=$0-28
-- stack: fr=React (Vite) | ba=Express | da=SQLite | ho=Google Cloud Run
+### R1-27 [extreme_budget] status=ok_with_warnings style=monolith cost=$0-44
+- stack: fr=React (Vite) | ba=Express | da=Supabase Postgres | ho=Google Cloud Run
 - supporting: auth:Firebase Authentication, ci_cd:Google Cloud Build
 - warnings: ['BUDGET_EXCEEDED:warning', 'LAUNCH_ABOVE_TWELVE_MONTHS:info', 'OPTIONAL_COMPONENT_DEFERRED:info']
 - errors: []
 - oracle violations: []
 
-### R1-28 [extreme_budget] status=ok style=microservices cost=$40013-284976
+### R1-28 [extreme_budget] status=ok style=microservices cost=$20013-185728
 - stack: fr=Next.js | ba=Spring Boot | da=Firestore | ho=Google Cloud Run
-- supporting: auth:Firebase Authentication, realtime:Ably, payments:Stripe, cache:Google Cloud Memorystore, queue:Google Cloud Pub/Sub, ci_cd:Google Cloud Build, observability:Google Cloud Operations Suite
-- warnings: ['BUDGET_UPPER_BAND:info']
+- supporting: auth:Firebase Authentication, realtime:Centrifugo, payments:Stripe, cache:Google Cloud Memorystore, queue:Google Cloud Pub/Sub, ci_cd:Google Cloud Build, observability:Google Cloud Operations Suite
+- warnings: []
 - errors: []
 - oracle violations: []
 
@@ -206,7 +206,7 @@
 - oracle violations: []
 
 ### R1-30 [minimal] status=ok style=modular_monolith cost=$18-107
-- stack: fr=HTMX with server-rendered templates | ba=ASP.NET Core | da=Azure SQL Database | ho=Azure App Service
+- stack: fr=HTMX with server-rendered templates | ba=Django | da=Azure SQL Database | ho=Azure App Service
 - supporting: ci_cd:Azure DevOps Pipelines, observability:Azure Monitor
 - warnings: []
 - errors: []

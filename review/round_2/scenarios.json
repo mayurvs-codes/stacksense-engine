@@ -1,0 +1,1609 @@
+[
+ {
+  "scenario_id": "R2-01",
+  "project": {
+   "name": "",
+   "type": "content_site",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "read_heavy",
+   "users_at_launch": 1000,
+   "users_12_months": 2000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 1,
+   "experience": "beginner",
+   "languages": [
+    "python"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 5
+  },
+  "timeline": {
+   "mvp_weeks": 1
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "none",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": true,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "hobby"
+ },
+ {
+  "scenario_id": "R2-02",
+  "project": {
+   "name": "",
+   "type": "ecommerce",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 40000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 4,
+   "experience": "intermediate",
+   "languages": [
+    "php"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 250
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "india",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": true,
+   "file_media_storage": true,
+   "payments": true,
+   "auth": "phone_otp",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": true,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "dpdp"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "india_shop"
+ },
+ {
+  "scenario_id": "R2-03",
+  "project": {
+   "name": "",
+   "type": "saas_b2b",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 30000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 5,
+   "experience": "intermediate",
+   "languages": [
+    "java"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 900
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "india",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "enterprise_sso",
+   "multi_tenant": true,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "dpdp",
+   "iso27001"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "saas_india"
+ },
+ {
+  "scenario_id": "R2-04",
+  "project": {
+   "name": "",
+   "type": "healthtech",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 80000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 6,
+   "experience": "intermediate",
+   "languages": [
+    "typescript"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 4000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "eu",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": true,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": true,
+   "payments": false,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "hipaa",
+   "gdpr"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "telemedicine"
+ },
+ {
+  "scenario_id": "R2-05",
+  "project": {
+   "name": "",
+   "type": "iot",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "write_heavy",
+   "users_at_launch": 1000,
+   "users_12_months": 5000,
+   "peak_concurrent_users": 100000,
+   "data_volume_gb_12_months": 20000
+  },
+  "team": {
+   "has_devops": true,
+   "size": 6,
+   "experience": "senior",
+   "languages": [
+    "go",
+    "python"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 8000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "self_hosted_cloud_vm",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "iot_fleet"
+ },
+ {
+  "scenario_id": "R2-06",
+  "project": {
+   "name": "",
+   "type": "social",
+   "description": "",
+   "platforms": [
+    "web",
+    "android",
+    "ios"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 2000000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 14,
+   "experience": "senior",
+   "languages": [
+    "go",
+    "kotlin",
+    "typescript"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 40000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": true,
+   "payments": false,
+   "auth": "social",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "video",
+  "extra": {
+   "geo_distribution": "global"
+  }
+ },
+ {
+  "scenario_id": "R2-07",
+  "project": {
+   "name": "",
+   "type": "api_platform",
+   "description": "",
+   "platforms": [
+    "api_only"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 100000,
+   "peak_concurrent_users": 20000,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 5,
+   "experience": "senior",
+   "languages": [
+    "go"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 6000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "none",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.99",
+   "p95_latency_ms": 40
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 5,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "api_perf"
+ },
+ {
+  "scenario_id": "R2-08",
+  "project": {
+   "name": "",
+   "type": "internal_tool",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 900,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 4,
+   "experience": "intermediate",
+   "languages": [
+    "java",
+    "sql"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 1500
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": [
+    "SAP ECC",
+    "Oracle Database 19c",
+    "Microsoft Entra ID"
+   ]
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "enterprise_sso",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "erp"
+ },
+ {
+  "scenario_id": "R2-09",
+  "project": {
+   "name": "",
+   "type": "internal_tool",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 2500,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 8,
+   "experience": "senior",
+   "languages": [
+    "java"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 3000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "air_gapped",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": true,
+   "file_media_storage": true,
+   "payments": false,
+   "auth": "enterprise_sso",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "iso27001"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "gov_airgap"
+ },
+ {
+  "scenario_id": "R2-10",
+  "project": {
+   "name": "",
+   "type": "social",
+   "description": "",
+   "platforms": [
+    "android",
+    "ios"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 500000,
+   "peak_concurrent_users": 40000,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 7,
+   "experience": "intermediate",
+   "languages": [
+    "kotlin",
+    "typescript"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 5000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "india",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": true,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": true,
+   "payments": false,
+   "auth": "phone_otp",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "dpdp"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "chat"
+ },
+ {
+  "scenario_id": "R2-11",
+  "project": {
+   "name": "",
+   "type": "ai_ml_product",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 60000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 4,
+   "experience": "intermediate",
+   "languages": [
+    "python",
+    "typescript"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 1200
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "aws",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "social",
+   "multi_tenant": false,
+   "ml_features": "llm_rag",
+   "seo_critical": true,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "edtech_llm"
+ },
+ {
+  "scenario_id": "R2-12",
+  "project": {
+   "name": "",
+   "type": "fintech",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 250000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 10,
+   "experience": "senior",
+   "languages": [
+    "csharp"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 12000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "azure",
+   "deployment_model": "managed_cloud",
+   "data_residency": "eu",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": true,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.95",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "pci_dss",
+   "gdpr",
+   "soc2"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "fintech_eu"
+ },
+ {
+  "scenario_id": "R2-13",
+  "project": {
+   "name": "",
+   "type": "gaming",
+   "description": "",
+   "platforms": [
+    "web",
+    "android",
+    "ios"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "spiky",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 900000,
+   "peak_concurrent_users": 60000,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 8,
+   "experience": "intermediate",
+   "languages": [
+    "csharp"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 9000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": true,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "game_lb"
+ },
+ {
+  "scenario_id": "R2-14",
+  "project": {
+   "name": "",
+   "type": "web_app",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 3000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 1,
+   "experience": "beginner",
+   "languages": [
+    "javascript"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 40
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "eu",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": true,
+   "auth": "none",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": true,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "gdpr"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "ngo"
+ },
+ {
+  "scenario_id": "R2-15",
+  "project": {
+   "name": "",
+   "type": "internal_tool",
+   "description": "",
+   "platforms": [
+    "desktop"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 800,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 3,
+   "experience": "intermediate",
+   "languages": [
+    "typescript"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 150
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": true,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "desktop_offline"
+ },
+ {
+  "scenario_id": "R2-16",
+  "project": {
+   "name": "",
+   "type": "data_analytics",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "read_heavy",
+   "users_at_launch": 1000,
+   "users_12_months": 300,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40000
+  },
+  "team": {
+   "has_devops": true,
+   "size": 5,
+   "experience": "senior",
+   "languages": [
+    "python",
+    "sql"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 6000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "self_hosted_cloud_vm",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "bi"
+ },
+ {
+  "scenario_id": "R2-17",
+  "project": {
+   "name": "",
+   "type": "marketplace",
+   "description": "",
+   "platforms": [
+    "web",
+    "android"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 150000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 4,
+   "experience": "intermediate",
+   "languages": [
+    "python"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 1800
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "gcp",
+   "deployment_model": "managed_cloud",
+   "data_residency": "eu",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": true,
+   "offline_support": false,
+   "full_text_search": true,
+   "file_media_storage": false,
+   "payments": true,
+   "auth": "social",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "gdpr"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "gcp_market"
+ },
+ {
+  "scenario_id": "R2-18",
+  "project": {
+   "name": "",
+   "type": "web_app",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 1500,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 1,
+   "experience": "beginner",
+   "languages": [
+    "php"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 30
+  },
+  "timeline": {
+   "mvp_weeks": 3
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": true,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "solo_mvp"
+ },
+ {
+  "scenario_id": "R2-19",
+  "project": {
+   "name": "",
+   "type": "web_app",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 70000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 6,
+   "experience": "intermediate",
+   "languages": [
+    "java",
+    "typescript"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 2500
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": [
+    "PostgreSQL 15",
+    "Okta SSO",
+    "Salesforce"
+   ]
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "enterprise_sso",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "soc2"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "modernize"
+ },
+ {
+  "scenario_id": "R2-20",
+  "project": {
+   "name": "",
+   "type": "saas_b2b",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 120000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 6,
+   "experience": "intermediate",
+   "languages": [
+    "python",
+    "go"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 3000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "enterprise_sso",
+   "multi_tenant": true,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "lockin_low",
+  "extra": {
+   "vendor_lock_in_tolerance": "low",
+   "geo_distribution": "regional"
+  }
+ },
+ {
+  "scenario_id": "R2-21",
+  "project": {
+   "name": "",
+   "type": "healthtech",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 45000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 5,
+   "experience": "intermediate",
+   "languages": [
+    "python"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 1500
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "india",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": true,
+   "payments": false,
+   "auth": "phone_otp",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [
+   "dpdp",
+   "hipaa"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "health_india"
+ },
+ {
+  "scenario_id": "R2-22",
+  "project": {
+   "name": "",
+   "type": "ecommerce",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "spiky",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 700000,
+   "peak_concurrent_users": 80000,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": true,
+   "size": 9,
+   "experience": "senior",
+   "languages": [
+    "java"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 15000
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "india",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": true,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": 200
+  },
+  "compliance": [
+   "rbi_localisation"
+  ],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "ticketing"
+ },
+ {
+  "scenario_id": "R2-23",
+  "project": {
+   "name": "",
+   "type": "web_app",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 400,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 2,
+   "experience": "intermediate",
+   "languages": [
+    "python"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 200
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "on_premise",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": true,
+   "file_media_storage": true,
+   "payments": false,
+   "auth": "enterprise_sso",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "wiki"
+ },
+ {
+  "scenario_id": "R2-24",
+  "project": {
+   "name": "",
+   "type": "other",
+   "description": "",
+   "platforms": [
+    "android"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 300,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 40
+  },
+  "team": {
+   "has_devops": false,
+   "size": 2,
+   "experience": "intermediate",
+   "languages": [
+    "javascript"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 60
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "any",
+   "deployment_model": "managed_cloud",
+   "data_residency": "india",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": true,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "none",
+   "multi_tenant": false,
+   "ml_features": "none",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "kiosk"
+ },
+ {
+  "scenario_id": "R2-25",
+  "project": {
+   "name": "",
+   "type": "ai_ml_product",
+   "description": "",
+   "platforms": [
+    "web"
+   ]
+  },
+  "scale": {
+   "traffic_pattern": "steady",
+   "workload": "balanced",
+   "users_at_launch": 1000,
+   "users_12_months": 5000,
+   "peak_concurrent_users": 500,
+   "data_volume_gb_12_months": 2000
+  },
+  "team": {
+   "has_devops": false,
+   "size": 3,
+   "experience": "intermediate",
+   "languages": [
+    "python"
+   ]
+  },
+  "budget": {
+   "monthly_infra_usd": 800
+  },
+  "timeline": {
+   "mvp_weeks": 12
+  },
+  "infrastructure": {
+   "cloud_preference": "gcp",
+   "deployment_model": "managed_cloud",
+   "data_residency": "none",
+   "existing_systems": []
+  },
+  "requirements": {
+   "realtime": false,
+   "offline_support": false,
+   "full_text_search": false,
+   "file_media_storage": false,
+   "payments": false,
+   "auth": "email_password",
+   "multi_tenant": false,
+   "ml_features": "training",
+   "seo_critical": false,
+   "availability": "99.9",
+   "p95_latency_ms": null
+  },
+  "compliance": [],
+  "priorities": {
+   "cost": 3,
+   "time_to_market": 3,
+   "scalability": 3,
+   "performance": 3,
+   "maintainability": 3,
+   "security": 3
+  },
+  "_class": "ml_train"
+ }
+]

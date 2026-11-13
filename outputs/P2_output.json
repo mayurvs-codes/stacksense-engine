@@ -1,0 +1,365 @@
+{
+  "scenario_id": "P2",
+  "engine_version": "1.0.0",
+  "status": "ok_with_warnings",
+  "summary": "A modular monolith on Google Cloud Run using NestJS with Supabase Postgres and a React Native (Expo) client. Chosen for an intermediate team of 3 with a $150/month budget and 30,000 users in 12 months.",
+  "architecture_style": "modular_monolith",
+  "stack": {
+    "frontend": {
+      "choice": "React Native (Expo)",
+      "justification": "React Native (Expo) targets android, ios, web, covering project.platforms=[web, android]. It reuses the team's skills (team.languages=[javascript, python, typescript]). requirements.seo_critical=true: client-side rendering is weak for SEO, so add pre-rendering for public pages.",
+      "driven_by": [
+        "project.platforms",
+        "team.languages",
+        "requirements.seo_critical"
+      ],
+      "alternatives": [
+        {
+          "choice": "Next.js",
+          "why_not": "Ranked 1.1 points lower: weaker on cost efficiency (rated 3 vs 4, which your priorities weight at 4/5)."
+        },
+        {
+          "choice": "SvelteKit",
+          "why_not": "Ranked 1.2 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Native modules can force ejecting from the managed workflow",
+        "Lower raw performance than native"
+      ],
+      "what_would_change": [
+        "If the target platforms change (today [web, android]), re-check coverage: Next.js is the next option.",
+        "If SEO stopped being critical and the app became highly interactive, a SPA framework would become competitive."
+      ]
+    },
+    "backend": {
+      "choice": "NestJS",
+      "justification": "The team already knows javascript, typescript (team.languages=[javascript, python, typescript]), which NestJS uses. A team.experience=intermediate team of team.size=3 gets NestJS's typed, structured API model (operations burden 2 vs capacity 2). NestJS handles websocket connections for requirements.realtime=true. It can meet the requirements.p95_latency_ms=500 ms p95 target on Google Cloud Run. It supports an MVP within timeline.mvp_weeks=8 weeks given its rating of 4/5 for time to market.",
+      "driven_by": [
+        "team.languages",
+        "team.experience",
+        "requirements.realtime",
+        "requirements.p95_latency_ms",
+        "timeline.mvp_weeks"
+      ],
+      "alternatives": [
+        {
+          "choice": "Express",
+          "why_not": "Ranked 0.3 points lower: weaker on maintainability (rated 3 vs 5, which your priorities weight at 3/5)."
+        },
+        {
+          "choice": "Django",
+          "why_not": "Ranked 0.4 points lower: weaker on performance (rated 3 vs 4, which your priorities weight at 3/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Opinionated and verbose for tiny services",
+        "Node single-thread limits for CPU-bound work"
+      ],
+      "what_would_change": [
+        "If the team changed languages (today [javascript, python, typescript]), re-rank: Express is the next best fit.",
+        "If scale.users_12_months passed 3,000,000, NestJS would need horizontal scaling and caching (cap = its comfortable range)."
+      ]
+    },
+    "database": {
+      "choice": "Supabase Postgres",
+      "justification": "Supabase Postgres suits scale.workload=balanced traffic with scale.data_volume_gb_12_months=50 GB after 12 months. requirements.full_text_search=true: it has built-in full-text search, so no separate search engine is added at this scale. For infrastructure.data_residency=india: it can run in Supabase South Asia (Mumbai, ap-south-1) to satisfy data_residency=india. It is acceptable under compliance=[dpdp] as a managed service whose vendor reports you should review. Its comfortable range (1,000,000 users) covers scale.users_12_months=30000. requirements.payments=true: transactional integrity favours a relational engine.",
+      "driven_by": [
+        "scale.workload",
+        "requirements.full_text_search",
+        "infrastructure.data_residency",
+        "compliance",
+        "scale.users_12_months",
+        "requirements.payments"
+      ],
+      "alternatives": [
+        {
+          "choice": "Google Cloud SQL for PostgreSQL",
+          "why_not": "Ranked 0.6 points lower: weaker on cost efficiency (rated 3 vs 4, which your priorities weight at 4/5); costs more (about $22-160/mo vs $9-100)."
+        },
+        {
+          "choice": "Firestore",
+          "why_not": "Ranked 1.0 points lower: weaker on maintainability (rated 3 vs 4, which your priorities weight at 3/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Smaller operator than hyperscalers; plan limits apply",
+        "Scaling beyond mid-size needs higher tiers"
+      ],
+      "what_would_change": [
+        "If users exceeded 1,000,000, add read replicas or caching, or shard.",
+        "If requirements.offline_support became true, a store with device sync (Firestore or CouchDB) would gain priority."
+      ]
+    },
+    "hosting": {
+      "choice": "Google Cloud Run",
+      "justification": "Google Cloud Run fits the monthly budget (budget.monthly_infra_usd=150 USD): estimated $6-90/month at scale.users_12_months=30000. For infrastructure.data_residency=india: it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. It is compatible with compliance=[dpdp]; the legal obligations remain with you. A p95 target of requirements.p95_latency_ms=500 ms is realistic here. It supports persistent websocket connections (requirements.realtime=true). Operations burden 2 vs team capacity 2 (team.has_devops=false, team.experience=intermediate).",
+      "driven_by": [
+        "budget.monthly_infra_usd",
+        "infrastructure.data_residency",
+        "compliance",
+        "requirements.p95_latency_ms",
+        "requirements.realtime",
+        "team.has_devops"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure App Service",
+          "why_not": "Ranked 1.0 points lower: weaker on cost efficiency (rated 3 vs 4, which your priorities weight at 4/5)."
+        },
+        {
+          "choice": "Azure Container Apps",
+          "why_not": "Ranked 1.4 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5); costs more (about $15-160/mo vs $6-90)."
+        },
+        {
+          "choice": "Cloudflare Pages",
+          "why_not": "Excluded by a hard constraint: no persistent websocket support (requirements.realtime=true)."
+        },
+        {
+          "choice": "Azure Static Web Apps",
+          "why_not": "Excluded by a hard constraint: no persistent websocket support (requirements.realtime=true)."
+        }
+      ],
+      "tradeoffs": [
+        "Cold starts for scale-to-zero services",
+        "GCP lock-in for surrounding services"
+      ],
+      "what_would_change": [
+        "If scale.users_12_months grew beyond about 50,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If the budget rose or operations capacity increased so that Azure App Service was affordable and operable, it would be the next choice (it scored 1.0 lower today)."
+      ]
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Firebase Authentication",
+        "justification": "requirements.auth=phone_otp is supported via SMS OTP (SMS fees apply). Firebase Authentication: Phone OTP, email/password and social sign-in with SDKs for web and mobile. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-28/month.",
+        "driven_by": [
+          "requirements.auth"
+        ],
+        "alternatives": [
+          {
+            "choice": "Microsoft Entra ID",
+            "why_not": "Ranked 2.2 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "Amazon Cognito",
+            "why_not": "Ranked 2.7 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Auth0",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          }
+        ],
+        "tradeoffs": [
+          "Google-operated; SMS cost per verification",
+          "Data location is not region-pinnable on the basic tier"
+        ]
+      },
+      {
+        "layer": "storage",
+        "choice": "Google Cloud Storage",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. For infrastructure.data_residency=india: it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. It stays within the same cloud as Google Cloud Run. Google Cloud Storage: Object storage with Mumbai (asia-south1) and Delhi buckets. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated $2-19/month.",
+        "driven_by": [
+          "requirements.file_media_storage",
+          "infrastructure.data_residency"
+        ],
+        "alternatives": [
+          {
+            "choice": "SeaweedFS",
+            "why_not": "Ranked 2.5 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 5/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-36/mo vs $2-19)."
+          },
+          {
+            "choice": "Amazon S3",
+            "why_not": "Ranked 3.3 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "Cloudflare R2",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "realtime",
+        "choice": "Socket.IO",
+        "justification": "requirements.realtime=true with up to 800 concurrent users. Socket.IO: Battle-tested websocket library with rooms and reconnection. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-6/month.",
+        "driven_by": [
+          "requirements.realtime"
+        ],
+        "alternatives": [
+          {
+            "choice": "Centrifugo",
+            "why_not": "Ranked 1.2 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5); costs more (about $0-46/mo vs $0-6)."
+          },
+          {
+            "choice": "Yjs",
+            "why_not": "Ranked 1.4 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5); costs more (about $0-46/mo vs $0-6)."
+          },
+          {
+            "choice": "Ably",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          },
+          {
+            "choice": "Pusher Channels",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          }
+        ],
+        "tradeoffs": [
+          "Scaling out needs a Redis adapter and sticky sessions"
+        ]
+      },
+      {
+        "layer": "payments",
+        "choice": "Razorpay",
+        "justification": "requirements.payments=true: an India-based gateway keeps payment data in India (UPI/cards). Razorpay: UPI, cards, netbanking and EMI for Indian merchants. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated no fixed fee (usage- or transaction-based pricing).",
+        "driven_by": [
+          "requirements.payments"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cashfree Payments",
+            "why_not": "Ranked 0.4 points lower: weaker on scalability (rated 4 vs 5, which your priorities weight at 3/5)."
+          },
+          {
+            "choice": "PayU",
+            "why_not": "Ranked 0.8 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Stripe",
+            "why_not": "Excluded by a hard constraint: payment processing must stay in India (RBI/DPDP data residency)."
+          },
+          {
+            "choice": "Adyen",
+            "why_not": "Excluded by a hard constraint: payment processing must stay in India (RBI/DPDP data residency)."
+          }
+        ],
+        "tradeoffs": [
+          "India-focused; limited international coverage",
+          "Transaction-percentage fees"
+        ]
+      },
+      {
+        "layer": "cdn",
+        "choice": "Google Cloud CDN",
+        "justification": "A CDN speeds public pages for search engines and users (requirements.seo_critical=true). It stays within the same cloud as Google Cloud Run. Google Cloud CDN: Edge caching for Google Cloud load-balanced backends. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-32/month.",
+        "driven_by": [
+          "requirements.seo_critical"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cloudflare CDN",
+            "why_not": "Ranked 0.5 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "Amazon CloudFront",
+            "why_not": "Ranked 3.3 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "Google Cloud Build",
+        "justification": "Automated build/test/deploy suits a team of team.size=3. It stays within the same cloud as Google Cloud Run. Google Cloud Build: Serverless CI/CD running in your Google Cloud project. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-10/month.",
+        "driven_by": [
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "GitHub Actions",
+            "why_not": "Ranked 0.4 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "GitLab CI/CD (self-managed)",
+            "why_not": "Ranked 1.8 points lower: needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-40/mo vs $0-10)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "observability",
+        "choice": "Google Cloud Operations Suite",
+        "justification": "Monitoring is needed to hold requirements.availability=99.9% availability. It stays within the same cloud as Google Cloud Run. Google Cloud Operations Suite: Native logging, monitoring and tracing for Google Cloud. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-27/month.",
+        "driven_by": [
+          "requirements.availability"
+        ],
+        "alternatives": [
+          {
+            "choice": "Sentry (self-hosted)",
+            "why_not": "Ranked 2.2 points lower: weaker on scalability (rated 3 vs 5, which your priorities weight at 3/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-46/mo vs $0-27)."
+          },
+          {
+            "choice": "Grafana + Prometheus",
+            "why_not": "Ranked 2.3 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 5/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-46/mo vs $0-27)."
+          },
+          {
+            "choice": "Sentry",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          },
+          {
+            "choice": "Datadog",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only"
+        ]
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 16,
+    "max": 194,
+    "assumptions": [
+      "Order-of-magnitude band built from each component's fixed + per-1k-user price estimate at scale.users_12_months=30,000; not a quote.",
+      "Traffic pattern steady adds no burst allowance.",
+      "The upper bound assumes components are not all at their high estimates at once (60% of the summed spread). Excludes taxes, engineers' time, payment-gateway transaction fees and SMS/OTP fees."
+    ]
+  },
+  "warnings": [
+    {
+      "code": "SEO_LIMITATION",
+      "severity": "warning",
+      "message": "React Native (Expo) renders on the client, which is weak for SEO although requirements.seo_critical=true; pre-render or server-render the public pages (for example a separate marketing site).",
+      "fields": [
+        "requirements.seo_critical"
+      ]
+    },
+    {
+      "code": "BUDGET_UPPER_BAND",
+      "severity": "info",
+      "message": "The upper cost band ($194) exceeds the budget ($150); the lower band ($16) fits.",
+      "fields": [
+        "budget.monthly_infra_usd"
+      ]
+    },
+    {
+      "code": "OPTIONAL_COMPONENT_DEFERRED",
+      "severity": "info",
+      "message": "Google Cloud Memorystore (cache) was left out to respect budget.monthly_infra_usd=150; revisit it as traffic grows.",
+      "fields": [
+        "budget.monthly_infra_usd"
+      ]
+    }
+  ],
+  "assumptions": [
+    "Default applied: extra.geo_distribution = single_region",
+    "Default applied: extra.vendor_lock_in_tolerance = medium",
+    "Default applied: extra.data_sensitivity = internal",
+    "Default applied: extra.sync_conflict_tolerance = last_write_wins",
+    "Relaxed (budget): the optional cache component (Google Cloud Memorystore) was deferred to keep the estimate near the budget; add it when usage grows."
+  ],
+  "validation_errors": [],
+  "compliance_notes": [
+    "DPDP Act (India): collect verifiable consent, honour access/erasure rights and notify breaches; the DPDP Act does not by itself require in-country storage, but the chosen India-capable regions keep options open.",
+    "Data residency india: primary data stores and hosting were limited to india-capable options (it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india)."
+  ],
+  "integration_notes": []
+}

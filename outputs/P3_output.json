@@ -1,0 +1,345 @@
+{
+  "scenario_id": "P3",
+  "engine_version": "1.0.0",
+  "status": "ok",
+  "summary": "A modular monolith on Google Cloud Run using Go (Gin) with Google Cloud SQL for PostgreSQL and a Next.js client. Chosen for a senior team of 5 with a $1500/month budget and 50,000 users in 12 months.",
+  "architecture_style": "modular_monolith",
+  "stack": {
+    "frontend": {
+      "choice": "Next.js",
+      "justification": "Next.js targets web, covering project.platforms=[web]. It reuses the team's skills (team.languages=[go, typescript]).",
+      "driven_by": [
+        "project.platforms",
+        "team.languages"
+      ],
+      "alternatives": [
+        {
+          "choice": "Angular",
+          "why_not": "Ranked 0.1 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
+        },
+        {
+          "choice": "SvelteKit",
+          "why_not": "Ranked 0.4 points lower: weaker on scalability (rated 4 vs 5, which your priorities weight at 5/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Needs a Node runtime for SSR",
+        "Framework complexity and frequent major changes"
+      ],
+      "what_would_change": [
+        "If the target platforms change (today [web]), re-check coverage: Angular is the next option.",
+        "If SEO stopped being critical and the app became highly interactive, a SPA framework would become competitive."
+      ]
+    },
+    "backend": {
+      "choice": "Go (Gin)",
+      "justification": "The team already knows go (team.languages=[go, typescript]), which Go (Gin) uses. A team.experience=senior team of team.size=5 gets Go (Gin)'s typed, structured API model (operations burden 2 vs capacity 5). Go (Gin) handles websocket connections for requirements.realtime=true. It can meet the requirements.p95_latency_ms=100 ms p95 target on Google Cloud Run. It supports an MVP within timeline.mvp_weeks=12 weeks given its rating of 3/5 for time to market.",
+      "driven_by": [
+        "team.languages",
+        "team.experience",
+        "requirements.realtime",
+        "requirements.p95_latency_ms",
+        "timeline.mvp_weeks"
+      ],
+      "alternatives": [
+        {
+          "choice": "NestJS",
+          "why_not": "Ranked 0.6 points lower: weaker on scalability (rated 4 vs 5, which your priorities weight at 5/5)."
+        },
+        {
+          "choice": "Express",
+          "why_not": "Ranked 1.4 points lower: weaker on scalability (rated 3 vs 5, which your priorities weight at 5/5)."
+        }
+      ],
+      "tradeoffs": [
+        "More boilerplate than dynamic frameworks",
+        "Smaller batteries-included ecosystem"
+      ],
+      "what_would_change": [
+        "If the team changed languages (today [go, typescript]), re-rank: NestJS is the next best fit.",
+        "If scale.users_12_months passed 20,000,000, Go (Gin) would need horizontal scaling and caching (cap = its comfortable range)."
+      ]
+    },
+    "database": {
+      "choice": "Google Cloud SQL for PostgreSQL",
+      "justification": "Google Cloud SQL for PostgreSQL suits scale.workload=write_heavy traffic with scale.data_volume_gb_12_months=200 GB after 12 months. requirements.multi_tenant=true: row-level security / schema-per-tenant patterns isolate tenants. It is acceptable under compliance=[gdpr] (attestations: pci_dss, hipaa, soc2, iso27001, gdpr). Its comfortable range (20,000,000 users) covers scale.users_12_months=50000. requirements.payments=true: transactional integrity favours a relational engine.",
+      "driven_by": [
+        "scale.workload",
+        "requirements.multi_tenant",
+        "compliance",
+        "scale.users_12_months",
+        "requirements.payments"
+      ],
+      "alternatives": [
+        {
+          "choice": "Supabase Postgres",
+          "why_not": "Ranked 0.2 points lower: weaker on scalability (rated 3 vs 4, which your priorities weight at 5/5)."
+        },
+        {
+          "choice": "Firestore",
+          "why_not": "Ranked 0.9 points lower: weaker on maintainability (rated 3 vs 4, which your priorities weight at 4/5)."
+        }
+      ],
+      "tradeoffs": [
+        "GCP lock-in",
+        "Instance sizing is manual"
+      ],
+      "what_would_change": [
+        "If users exceeded 20,000,000, add read replicas or caching, or shard.",
+        "If requirements.offline_support became true, a store with device sync (Firestore or CouchDB) would gain priority."
+      ]
+    },
+    "hosting": {
+      "choice": "Google Cloud Run",
+      "justification": "Google Cloud Run fits the monthly budget (budget.monthly_infra_usd=1500 USD): estimated $10-175/month at scale.users_12_months=50000. It is compatible with compliance=[gdpr]; the legal obligations remain with you. A p95 target of requirements.p95_latency_ms=100 ms is realistic here. It supports persistent websocket connections (requirements.realtime=true). scale.traffic_pattern=spiky load is absorbed by container scaling.",
+      "driven_by": [
+        "budget.monthly_infra_usd",
+        "compliance",
+        "requirements.p95_latency_ms",
+        "requirements.realtime",
+        "scale.traffic_pattern"
+      ],
+      "alternatives": [
+        {
+          "choice": "AWS ECS on Fargate",
+          "why_not": "Ranked 0.1 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5); costs more (about $70-525/mo vs $10-175)."
+        },
+        {
+          "choice": "Azure Container Apps",
+          "why_not": "Ranked 0.5 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 3/5); costs more (about $25-300/mo vs $10-175)."
+        },
+        {
+          "choice": "Cloudflare Pages",
+          "why_not": "Excluded by a hard constraint: no persistent websocket support (requirements.realtime=true)."
+        },
+        {
+          "choice": "Azure Static Web Apps",
+          "why_not": "Excluded by a hard constraint: no persistent websocket support (requirements.realtime=true)."
+        }
+      ],
+      "tradeoffs": [
+        "Cold starts for scale-to-zero services",
+        "GCP lock-in for surrounding services"
+      ],
+      "what_would_change": [
+        "If scale.users_12_months grew beyond about 50,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If the budget rose or operations capacity increased so that AWS ECS on Fargate was affordable and operable, it would be the next choice (it scored 0.1 lower today)."
+      ]
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Firebase Authentication",
+        "justification": "requirements.auth=social is supported. Firebase Authentication: Phone OTP, email/password and social sign-in with SDKs for web and mobile. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated $0-50/month.",
+        "driven_by": [
+          "requirements.auth"
+        ],
+        "alternatives": [
+          {
+            "choice": "Auth0",
+            "why_not": "Ranked 0.1 points lower: weaker on cost efficiency (rated 2 vs 4, which your priorities weight at 2/5); costs more (about $15-550/mo vs $0-50)."
+          },
+          {
+            "choice": "Microsoft Entra ID",
+            "why_not": "Ranked 2.2 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          }
+        ],
+        "tradeoffs": [
+          "Google-operated; SMS cost per verification",
+          "Data location is not region-pinnable on the basic tier"
+        ]
+      },
+      {
+        "layer": "storage",
+        "choice": "Google Cloud Storage",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it keeps files off the app servers. It stays within the same cloud as Google Cloud Run. Google Cloud Storage: Object storage with Mumbai (asia-south1) and Delhi buckets. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated $2-31/month.",
+        "driven_by": [
+          "requirements.file_media_storage"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cloudflare R2",
+            "why_not": "Ranked 1.0 points lower: weaker on maintainability (rated 4 vs 5, which your priorities weight at 4/5)."
+          },
+          {
+            "choice": "SeaweedFS",
+            "why_not": "Ranked 2.0 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "realtime",
+        "choice": "Yjs",
+        "justification": "requirements.realtime=true with up to 5,000 concurrent users and collaborative editing semantics (CRDT). Yjs: CRDT library for conflict-free collaborative editing with live presence. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated $0-62/month.",
+        "driven_by": [
+          "requirements.realtime"
+        ],
+        "alternatives": [
+          {
+            "choice": "Ably",
+            "why_not": "Ranked 1.7 points lower: weaker on cost efficiency (rated 2 vs 5, which your priorities weight at 2/5); costs more (about $25-400/mo vs $0-62)."
+          },
+          {
+            "choice": "Centrifugo",
+            "why_not": "Ranked 2.1 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          }
+        ],
+        "tradeoffs": [
+          "Needs a websocket provider/persistence layer"
+        ]
+      },
+      {
+        "layer": "payments",
+        "choice": "Stripe",
+        "justification": "requirements.payments=true: a global gateway handles cards and subscriptions. Stripe: Best-in-class developer experience; subscriptions and per-seat billing. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated no fixed fee (usage- or transaction-based pricing).",
+        "driven_by": [
+          "requirements.payments"
+        ],
+        "alternatives": [
+          {
+            "choice": "Adyen",
+            "why_not": "Ranked 0.4 points lower: weaker on maintainability (rated 4 vs 5, which your priorities weight at 4/5)."
+          },
+          {
+            "choice": "Razorpay",
+            "why_not": "Ranked 2.0 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          }
+        ],
+        "tradeoffs": [
+          "Transaction-percentage fees",
+          "Not the default choice for India-only UPI flows"
+        ]
+      },
+      {
+        "layer": "cache",
+        "choice": "Google Cloud Memorystore",
+        "justification": "Caching offloads reads at scale.users_12_months=50000 users and helps the requirements.p95_latency_ms=100 ms p95 target. It stays within the same cloud as Google Cloud Run. Google Cloud Memorystore: Managed Redis/Valkey on Google Cloud. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated $18-138/month.",
+        "driven_by": [
+          "requirements.p95_latency_ms"
+        ],
+        "alternatives": [
+          {
+            "choice": "Redis (self-hosted)",
+            "why_not": "Ranked 1.6 points lower: weaker on scalability (rated 4 vs 5, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Valkey (self-hosted)",
+            "why_not": "Ranked 1.6 points lower: weaker on scalability (rated 4 vs 5, which your priorities weight at 5/5)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in",
+          "Always-on instance cost"
+        ]
+      },
+      {
+        "layer": "queue",
+        "choice": "Google Cloud Pub/Sub",
+        "justification": "Background jobs and retries (scale.workload=write_heavy, tier 2) are decoupled from request handling. It stays within the same cloud as Google Cloud Run. Google Cloud Pub/Sub: Managed global messaging with push and pull delivery. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated $0-38/month.",
+        "driven_by": [
+          "scale.workload"
+        ],
+        "alternatives": [
+          {
+            "choice": "RabbitMQ",
+            "why_not": "Ranked 1.6 points lower: weaker on scalability (rated 4 vs 5, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Apache Kafka",
+            "why_not": "Ranked 2.0 points lower: weaker on time to market (rated 2 vs 5, which your priorities weight at 3/5); costs more (about $50-812/mo vs $0-38)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "cdn",
+        "choice": "Google Cloud CDN",
+        "justification": "A CDN offloads delivery of uploaded media (requirements.file_media_storage=true) at scale.users_12_months=50000 users. It stays within the same cloud as Google Cloud Run. Google Cloud CDN: Edge caching for Google Cloud load-balanced backends. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated $0-50/month.",
+        "driven_by": [
+          "requirements.file_media_storage"
+        ],
+        "alternatives": [
+          {
+            "choice": "Cloudflare CDN",
+            "why_not": "Ranked 0.5 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "Amazon CloudFront",
+            "why_not": "Ranked 3.3 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "Google Cloud Build",
+        "justification": "Automated build/test/deploy suits a team of team.size=5. It stays within the same cloud as Google Cloud Run. Google Cloud Build: Serverless CI/CD running in your Google Cloud project. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated $0-12/month.",
+        "driven_by": [
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "GitHub Actions",
+            "why_not": "Ranked 0.6 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "GitLab CI/CD (self-managed)",
+            "why_not": "Ranked 1.3 points lower: costs more (about $0-50/mo vs $0-12)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP lock-in"
+        ]
+      },
+      {
+        "layer": "observability",
+        "choice": "Google Cloud Operations Suite",
+        "justification": "Monitoring is needed to hold requirements.availability=99.9% availability. It stays within the same cloud as Google Cloud Run. Google Cloud Operations Suite: Native logging, monitoring and tracing for Google Cloud. Sized for 50,000 users (5,000 concurrent), a team of 5 (senior), 99.9% availability and managed cloud deployment; estimated $0-44/month.",
+        "driven_by": [
+          "requirements.availability"
+        ],
+        "alternatives": [
+          {
+            "choice": "Sentry",
+            "why_not": "Ranked 0.8 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 3/5); costs more (about $0-131/mo vs $0-44)."
+          },
+          {
+            "choice": "Datadog",
+            "why_not": "Ranked 1.0 points lower: weaker on cost efficiency (rated 2 vs 4, which your priorities weight at 2/5); costs more (about $30-812/mo vs $0-44)."
+          }
+        ],
+        "tradeoffs": [
+          "GCP only"
+        ]
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 60,
+    "max": 549,
+    "assumptions": [
+      "Order-of-magnitude band built from each component's fixed + per-1k-user price estimate at scale.users_12_months=50,000; not a quote.",
+      "Traffic pattern spiky raises the upper bound by 25% for bursts.",
+      "The upper bound assumes components are not all at their high estimates at once (60% of the summed spread). Excludes taxes, engineers' time, payment-gateway transaction fees and SMS/OTP fees."
+    ]
+  },
+  "warnings": [],
+  "assumptions": [
+    "Default applied: extra.geo_distribution = single_region",
+    "Default applied: extra.vendor_lock_in_tolerance = medium",
+    "Default applied: extra.data_sensitivity = internal",
+    "Default applied: extra.sync_conflict_tolerance = last_write_wins"
+  ],
+  "validation_errors": [],
+  "compliance_notes": [
+    "GDPR: process EU personal data lawfully (consent/legitimate interest), sign data-processing agreements with each vendor and keep EU user data in an EU region where feasible."
+  ],
+  "integration_notes": []
+}

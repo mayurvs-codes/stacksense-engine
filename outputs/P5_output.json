@@ -1,0 +1,282 @@
+{
+  "scenario_id": "P5",
+  "engine_version": "1.0.0",
+  "status": "ok",
+  "summary": "A monolith on Azure App Service using ASP.NET Core with Microsoft SQL Server and a Blazor client. Chosen for an intermediate team of 2 with a $300/month budget and 1,500 users in 12 months.",
+  "architecture_style": "monolith",
+  "stack": {
+    "frontend": {
+      "choice": "Blazor",
+      "justification": "Blazor targets web, covering project.platforms=[web]. It reuses the team's skills (team.languages=[csharp, javascript, sql]).",
+      "driven_by": [
+        "project.platforms",
+        "team.languages"
+      ],
+      "alternatives": [
+        {
+          "choice": "HTMX with server-rendered templates",
+          "why_not": "Ranked 0.3 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+        },
+        {
+          "choice": "Next.js",
+          "why_not": "Ranked 0.5 points lower: weaker on maintainability (rated 4 vs 5, which your priorities weight at 5/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Smaller ecosystem than JavaScript frameworks",
+        "Interactive server mode needs persistent connections"
+      ],
+      "what_would_change": [
+        "If the target platforms change (today [web]), re-check coverage: HTMX with server-rendered templates is the next option.",
+        "If SEO stopped being critical and the app became highly interactive, a SPA framework would become competitive."
+      ]
+    },
+    "backend": {
+      "choice": "ASP.NET Core",
+      "justification": "The team already knows csharp (team.languages=[csharp, javascript, sql]), which ASP.NET Core uses. A team.experience=intermediate team of team.size=2 gets ASP.NET Core's typed, structured API model (operations burden 2 vs capacity 2). Its mature security and transaction tooling suits compliance=[iso27001] (project.type=internal_tool). It can meet the requirements.p95_latency_ms=800 ms p95 target on Azure App Service. It supports an MVP within timeline.mvp_weeks=6 weeks given its rating of 4/5 for time to market. It integrates natively with the existing Microsoft systems (infrastructure.existing_systems=[Microsoft 365, Microsoft Entra ID (Azure AD), On-prem SQL Server 2019]).",
+      "driven_by": [
+        "team.languages",
+        "team.experience",
+        "compliance",
+        "requirements.p95_latency_ms",
+        "timeline.mvp_weeks",
+        "infrastructure.existing_systems"
+      ],
+      "alternatives": [
+        {
+          "choice": "NestJS",
+          "why_not": "Ranked 0.9 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 4/5)."
+        },
+        {
+          "choice": "Express",
+          "why_not": "Ranked 1.4 points lower: weaker on maintainability (rated 3 vs 5, which your priorities weight at 5/5)."
+        }
+      ],
+      "tradeoffs": [
+        "Smaller open-source ecosystem than Java/JS",
+        "Licensing/hosting choices bias toward Microsoft stack"
+      ],
+      "what_would_change": [
+        "If the team changed languages (today [csharp, javascript]), re-rank: NestJS is the next best fit.",
+        "If scale.users_12_months passed 50,000,000, ASP.NET Core would need horizontal scaling and caching (cap = its comfortable range)."
+      ]
+    },
+    "database": {
+      "choice": "Microsoft SQL Server",
+      "justification": "Microsoft SQL Server suits scale.workload=read_heavy traffic with scale.data_volume_gb_12_months=20 GB after 12 months. It reuses the existing database (infrastructure.existing_systems=[Microsoft 365, Microsoft Entra ID (Azure AD), On-prem SQL Server 2019]), avoiding a migration. For infrastructure.data_residency=india: it is self-hosted, so you choose the data location to satisfy data_residency=india. It is acceptable under compliance=[iso27001] as a self-managed store you must harden and audit. Its comfortable range (50,000,000 users) covers scale.users_12_months=1500.",
+      "driven_by": [
+        "scale.workload",
+        "infrastructure.existing_systems",
+        "infrastructure.data_residency",
+        "compliance",
+        "scale.users_12_months"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure SQL Database",
+          "why_not": "Ranked 0.4 points lower: costs more (about $5-64/mo vs $0-0)."
+        },
+        {
+          "choice": "Azure Database for PostgreSQL",
+          "why_not": "Ranked 1.3 points lower: weaker on maintainability (rated 4 vs 5, which your priorities weight at 5/5); costs more (about $16-74/mo vs $0-0)."
+        },
+        {
+          "choice": "Amazon RDS for PostgreSQL",
+          "why_not": "Excluded by a hard constraint: belongs to aws but cloud_preference=azure."
+        },
+        {
+          "choice": "Google Cloud SQL for PostgreSQL",
+          "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=azure."
+        }
+      ],
+      "tradeoffs": [
+        "Licensing cost unless existing licences are reused",
+        "Linux/container operations less common"
+      ],
+      "what_would_change": [
+        "If users exceeded 50,000,000, add read replicas or caching, or shard.",
+        "If requirements.offline_support became true, a store with device sync (Firestore or CouchDB) would gain priority."
+      ]
+    },
+    "hosting": {
+      "choice": "Azure App Service",
+      "justification": "Azure App Service fits the monthly budget (budget.monthly_infra_usd=300 USD): estimated $13-64/month at scale.users_12_months=1500. It honours the hard constraint infrastructure.cloud_preference=azure. For infrastructure.data_residency=india: it can run in Azure Central India (Pune), India South Central (Hyderabad), South India (Chennai) or West India (Mumbai) to satisfy data_residency=india. It is compatible with compliance=[iso27001] (the knowledge base records vendor attestations for pci_dss, hipaa, soc2, iso27001, gdpr); the legal obligations remain with you. A p95 target of requirements.p95_latency_ms=800 ms is realistic here. Operations burden 1 vs team capacity 2 (team.has_devops=false, team.experience=intermediate).",
+      "driven_by": [
+        "budget.monthly_infra_usd",
+        "infrastructure.cloud_preference",
+        "infrastructure.data_residency",
+        "compliance",
+        "requirements.p95_latency_ms",
+        "team.has_devops"
+      ],
+      "alternatives": [
+        {
+          "choice": "Azure Container Apps",
+          "why_not": "Ranked 0.5 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5)."
+        },
+        {
+          "choice": "Azure Static Web Apps",
+          "why_not": "Ranked 2.6 points lower: weaker on maintainability (rated 4 vs 5, which your priorities weight at 5/5)."
+        },
+        {
+          "choice": "Cloudflare Pages",
+          "why_not": "Excluded by a hard constraint: cloud_preference=azure requires a azure host."
+        },
+        {
+          "choice": "Google Cloud Run",
+          "why_not": "Excluded by a hard constraint: cloud_preference=azure requires a azure host."
+        }
+      ],
+      "tradeoffs": [
+        "Azure lock-in",
+        "Scaling tiers jump in price"
+      ],
+      "what_would_change": [
+        "If scale.users_12_months grew beyond about 5,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If the budget rose or operations capacity increased so that Azure Container Apps was affordable and operable, it would be the next choice (it scored 0.5 lower today)."
+      ]
+    },
+    "supporting": [
+      {
+        "layer": "auth",
+        "choice": "Microsoft Entra ID",
+        "justification": "requirements.auth=enterprise_sso is supported. It reuses the existing identity provider (infrastructure.existing_systems=[Microsoft 365, Microsoft Entra ID (Azure AD), On-prem SQL Server 2019]). Microsoft Entra ID: Enterprise single sign-on for Microsoft 365 organisations. Sized for 1,500 users (300 concurrent), a team of 2 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-20/month.",
+        "driven_by": [
+          "requirements.auth",
+          "infrastructure.existing_systems"
+        ],
+        "alternatives": [
+          {
+            "choice": "Keycloak",
+            "why_not": "Ranked 4.6 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 5/5); needs more operations effort (burden 3) than the team can absorb (capacity 2)."
+          },
+          {
+            "choice": "ASP.NET Core Identity",
+            "why_not": "Ranked 4.7 points lower: weaker on maintainability (rated 4 vs 5, which your priorities weight at 5/5)."
+          },
+          {
+            "choice": "Auth0",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          },
+          {
+            "choice": "Amazon Cognito",
+            "why_not": "Excluded by a hard constraint: belongs to aws but cloud_preference=azure."
+          }
+        ],
+        "tradeoffs": [
+          "Designed for workforce identity, not consumer sign-up"
+        ]
+      },
+      {
+        "layer": "storage",
+        "choice": "Azure Blob Storage",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Azure Central India (Pune) or another Indian Azure region to satisfy data_residency=india. For infrastructure.data_residency=india: it can run in Azure Central India (Pune) or another Indian Azure region to satisfy data_residency=india. It stays within the same cloud as Azure App Service. Azure Blob Storage: Object storage with Indian regions and Entra ID access control. Sized for 1,500 users (300 concurrent), a team of 2 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-10/month.",
+        "driven_by": [
+          "requirements.file_media_storage",
+          "infrastructure.data_residency"
+        ],
+        "alternatives": [
+          {
+            "choice": "SeaweedFS",
+            "why_not": "Ranked 3.6 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 5/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-30/mo vs $0-10)."
+          },
+          {
+            "choice": "Amazon S3",
+            "why_not": "Excluded by a hard constraint: belongs to aws but cloud_preference=azure."
+          },
+          {
+            "choice": "Google Cloud Storage",
+            "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=azure."
+          }
+        ],
+        "tradeoffs": [
+          "Azure lock-in"
+        ]
+      },
+      {
+        "layer": "ci_cd",
+        "choice": "Azure DevOps Pipelines",
+        "justification": "Automated build/test/deploy suits a team of team.size=2. It stays within the same cloud as Azure App Service. Azure DevOps Pipelines: CI/CD integrated with Azure Boards, Repos and Entra ID. Sized for 1,500 users (300 concurrent), a team of 2 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-15/month.",
+        "driven_by": [
+          "team.size"
+        ],
+        "alternatives": [
+          {
+            "choice": "GitHub Actions",
+            "why_not": "Ranked 0.4 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+          },
+          {
+            "choice": "GitLab CI/CD (self-managed)",
+            "why_not": "Ranked 2.8 points lower: needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-40/mo vs $0-15)."
+          },
+          {
+            "choice": "AWS CodePipeline",
+            "why_not": "Excluded by a hard constraint: belongs to aws but cloud_preference=azure."
+          },
+          {
+            "choice": "Google Cloud Build",
+            "why_not": "Excluded by a hard constraint: belongs to gcp but cloud_preference=azure."
+          }
+        ],
+        "tradeoffs": [
+          "Best inside the Microsoft ecosystem"
+        ]
+      },
+      {
+        "layer": "observability",
+        "choice": "Azure Monitor",
+        "justification": "Monitoring is needed to hold requirements.availability=99.9% availability. It stays within the same cloud as Azure App Service. Azure Monitor: Native monitoring, Application Insights and alerts for Azure. Sized for 1,500 users (300 concurrent), a team of 2 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-16/month.",
+        "driven_by": [
+          "requirements.availability"
+        ],
+        "alternatives": [
+          {
+            "choice": "Sentry (self-hosted)",
+            "why_not": "Ranked 3.2 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-40/mo vs $0-16)."
+          },
+          {
+            "choice": "Grafana + Prometheus",
+            "why_not": "Ranked 3.4 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 5/5); needs more operations effort (burden 3) than the team can absorb (capacity 2); costs more (about $0-40/mo vs $0-16)."
+          },
+          {
+            "choice": "Sentry",
+            "why_not": "Excluded by a hard constraint: no verified india region (data_residency=india)."
+          },
+          {
+            "choice": "Amazon CloudWatch",
+            "why_not": "Excluded by a hard constraint: belongs to aws but cloud_preference=azure."
+          }
+        ],
+        "tradeoffs": [
+          "Azure only"
+        ]
+      }
+    ]
+  },
+  "estimated_monthly_cost_usd": {
+    "min": 14,
+    "max": 80,
+    "assumptions": [
+      "Order-of-magnitude band built from each component's fixed + per-1k-user price estimate at scale.users_12_months=1,500; not a quote.",
+      "Traffic pattern steady adds no burst allowance.",
+      "The upper bound assumes components are not all at their high estimates at once (60% of the summed spread). Excludes taxes, engineers' time, payment-gateway transaction fees and SMS/OTP fees."
+    ]
+  },
+  "warnings": [],
+  "assumptions": [
+    "Default applied: extra.geo_distribution = single_region",
+    "Default applied: extra.vendor_lock_in_tolerance = medium",
+    "Default applied: extra.data_sensitivity = internal",
+    "Default applied: extra.sync_conflict_tolerance = last_write_wins"
+  ],
+  "validation_errors": [],
+  "compliance_notes": [
+    "ISO 27001 (iso27001): the cloud providers hold ISO 27001 certifications; certifying your own ISMS is a separate project.",
+    "Data residency india: primary data stores and hosting were limited to india-capable options (it can run in Azure Central India (Pune), India South Central (Hyderabad), South India (Chennai) or West India (Mumbai) to satisfy data_residency=india)."
+  ],
+  "integration_notes": [
+    "Microsoft 365: integrate through Microsoft Graph for mail, calendar and Teams notifications using an Entra app registration.",
+    "Microsoft Entra ID (Azure AD): reuse as the identity provider through OpenID Connect so staff sign in with existing accounts; no new user database is needed.",
+    "On-prem SQL Server 2019: kept as the system of record; connect from Azure App Service over a private network (VPN/ExpressRoute or hybrid connection) and plan a later move to a managed SQL service. Confirm the server's physical location satisfies data_residency=india."
+  ]
+}

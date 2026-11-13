@@ -710,11 +710,11 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 60] + per-1k-users [0.5, 4.0] USD/month",
+  "cost_model": "estimate: fixed [0, 57] + per-1k-users [0.5, 4.0] USD/month",
   "cost": {
    "fixed": [
     0,
-    60
+    57
    ],
    "per_1k_users": [
     0.5,
@@ -955,11 +955,11 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 60] + per-1k-users [0.3, 2.5] USD/month",
+  "cost_model": "estimate: fixed [0, 25] + per-1k-users [0.3, 2.5] USD/month",
   "cost": {
    "fixed": [
     0,
-    60
+    25
    ],
    "per_1k_users": [
     0.3,
