@@ -775,6 +775,8 @@ def compliance_notes(f, host, db, picks, kb):
             notes.append("SOC 2 (soc2): the cloud providers publish SOC 2 reports; your own organisation still needs its own controls and audit.")
         elif c == "iso27001":
             notes.append("ISO 27001 (iso27001): the cloud providers hold ISO 27001 certifications; certifying your own ISMS is a separate project.")
+    if f.res not in ("none", f.eff_res):
+        notes.append(f"Requested data_residency={f.res} conflicts with rbi_localisation; India was used because RBI requires payment data to stay in India.")
     if f.eff_res != "none":
         notes.append(f"Data residency {f.eff_res}: primary data stores and hosting were limited to {f.eff_res}-capable options" + (f" ({region_phrase(host, f, kb)})" if region_phrase(host, f, kb) else "") + ".")
     return notes
@@ -1031,7 +1033,9 @@ def assemble(f, kb, n, A, W, best, picks):
             c.why("", f"It stays within the same cloud as {host['name']}.")
         if f.lock == "low" and e["self_hostable"]:
             c.why("extra.vendor_lock_in_tolerance", f"{v('extra.vendor_lock_in_tolerance', f.lock)}: it is open source/portable.")
-        c.why("", f"{e['name']}: {e['strengths'][0]}.")
+        lo_c, hi_c = cost_of(e, f)
+        c.why("", f"{e['name']}: {e['strengths'][0]}. Sized for {f.u12:,} users ({f.peak:,} concurrent), a team of {f.team} ({f.exp}), {f.avail}% availability and "
+                  f"{f.deploy.replace('_', ' ')} deployment; estimated ${lo_c:.0f}-{hi_c:.0f}/month.")
         c.tradeoffs = list(e["limits"])
         top = sp["ranked"][0][0] if sp["ranked"] else 0.0
         c.alts = alternatives(e, sp["ranked"], excluded_list(kb, layer, f, host, e), f)
