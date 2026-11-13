@@ -140,8 +140,8 @@
             "why_not": "Ranked 0.1 points lower: weaker on cost efficiency (rated 2 vs 4, which your priorities weight at 2/5); costs more (about $15-550/mo vs $0-50)."
           },
           {
-            "choice": "Microsoft Entra ID",
-            "why_not": "Ranked 2.2 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+            "choice": "Keycloak",
+            "why_not": "Ranked 0.8 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
           }
         ],
         "tradeoffs": [

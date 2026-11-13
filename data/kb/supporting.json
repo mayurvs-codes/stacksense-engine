@@ -172,7 +172,8 @@
    "social",
    "email",
    "sso",
-   "phone_otp"
+   "phone_otp",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -292,7 +293,9 @@
   "tags": [
    "auth",
    "sso",
-   "enterprise"
+   "enterprise",
+   "social",
+   "email"
   ],
   "platforms": [],
   "runtimes": [],
@@ -351,7 +354,8 @@
   "tags": [
    "auth",
    "sso",
-   "enterprise"
+   "enterprise",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],

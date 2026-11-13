@@ -347,7 +347,7 @@ sup("search", "Algolia", saas=True, regions=("us", "eu"), r=(5, 2, 5, 5, 5, 4), 
     strengths=("Hosted search with excellent relevance tooling",), limits=("Usage-based pricing grows fast", "Data leaves your infrastructure"),
     src=[("https://www.algolia.com/doc/", "Algolia docs")])
 # auth
-sup("auth", "Keycloak", self_host=True, r=(3, 5, 4, 4, 4, 5), ops=3, tags=("auth", "sso", "enterprise"), cost=((0, 30), (0, 1)), cap=50_000_000,
+sup("auth", "Keycloak", self_host=True, r=(3, 5, 4, 4, 4, 5), ops=3, tags=("auth", "sso", "enterprise", "social", "email"), cost=((0, 30), (0, 1)), cap=50_000_000,
     strengths=("Self-hostable identity and SSO (OIDC/SAML) with social login",), limits=("You operate and upgrade it", "Phone OTP needs custom SPI/SMS provider"),
     src=[("https://www.keycloak.org/documentation", "Keycloak docs")])
 sup("auth", "Firebase Authentication", cloud="neutral", saas=True, regions=("global",), r=(5, 4, 5, 4, 4, 4), ops=1, tags=("auth", "phone_otp", "social", "email"), cost=((0, 10), (0, 6)), cap=100_000_000,
@@ -503,7 +503,7 @@ LIB = {"Socket.IO", "BullMQ", "Yjs", "scikit-learn (self-hosted inference)", "ON
 CLIENT_LIB = {"Yjs"}
 MAINSTREAM = {"Django", "NestJS", "Spring Boot"}  # default picks when the team's languages match no backend
 PROPRIETARY = {"Firestore", "Amazon DynamoDB", "AWS Lambda", "AWS Amplify Hosting", "Azure Static Web Apps", "Firebase Authentication", "Amazon Cognito",
-               "Google Cloud Pub/Sub", "Amazon SQS", "Azure Service Bus", "Amazon SageMaker", "Google Vertex AI", "Azure Machine Learning", "Cloudflare Pages", "Vercel"}
+               "Google Cloud Pub/Sub", "Amazon SQS", "Azure Service Bus", "Microsoft Entra ID", "Auth0", "Amazon SageMaker", "Google Vertex AI", "Azure Machine Learning", "Cloudflare Pages", "Vercel"}
 
 
 # fixed monthly cost calibration for small deployments (min, max) USD; per-user growth comes from per_1k_users

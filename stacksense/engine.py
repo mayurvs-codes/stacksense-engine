@@ -96,7 +96,7 @@ def derive(n, A):
     f.pw = p
     f.rbi_res = "rbi_localisation" in f.comp
     f.eff_res = "india" if f.rbi_res else f.res
-    f.dynamic = bool(f.auth != "none" or f.pay or f.rt or f.ml != "none" or f.files or f.mt or f.offline or f.fts or f.type in DYNAMIC_TYPES or f.type == "other" and f.u12 > 0 and False)
+    f.dynamic = bool(f.auth != "none" or f.pay or f.rt or f.ml != "none" or f.files or f.mt or f.offline or (f.fts and f.type != "content_site") or f.type in DYNAMIC_TYPES)
     f.needs_backend = f.dynamic
     f.static_like = not f.dynamic
     return f
@@ -190,7 +190,7 @@ def penalties(e, f):
         p += max(0.0, min(3.0, (mid / f.budget - 0.15) * 3.0)) * (0.4 + 0.12 * f.prio["cost"])
     if f.lock == "low":
         if "proprietary" in e["tags"]:
-            p += 1.2
+            p += 1.8
         elif e["cloud"] != "neutral" or e["saas_only"]:
             p += 0.4
     elif f.lock == "high" and e["saas_only"]:
@@ -552,7 +552,7 @@ def build(host, f, kb):
     # frontend
     fe, fe_ranked = None, []
     if not f.api_only:
-        cands = [e for e in kb.layer("frontend") if host_ok_for_frontend(host, e, be)]
+        cands = [e for e in kb.layer("frontend") if host_ok_for_frontend(host, e, be) and not (f.rt and f.tier >= 1 and e["name"].startswith("HTMX"))]
         if not f.platforms:
             return None
         fe_ranked = pick_top(cands, lambda e: score_frontend(e, f, host, be, kb))

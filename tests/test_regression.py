@@ -169,3 +169,22 @@ class Round4Regressions(unittest.TestCase):
     def test_single_onprem_server_cannot_promise_high_availability(self):
         o = run(infrastructure__deployment_model="on_premise", requirements__availability="99.95", team__size=3, team__experience="senior", team__has_devops=False)
         self.assertIn("SINGLE_VM_AVAILABILITY", {w["code"] for w in o["warnings"]})
+
+
+class Round7Regressions(unittest.TestCase):
+    def test_docs_site_with_search_stays_static(self):
+        o = run(project__type="content_site", requirements__auth="none", requirements__full_text_search=True, scale__users_12_months=3000,
+                infrastructure__deployment_model="on_premise", team__languages=["python"], team__size=2, budget__monthly_infra_usd=50)
+        self.assertEqual(o["stack"]["backend"]["choice"], "None")
+        self.assertEqual(o["architecture_style"], "static")
+        self.assertTrue(sup(o, "search"))
+
+    def test_htmx_not_used_for_realtime_beyond_tiny_scale(self):
+        o = run(requirements__realtime=True, team__languages=["java"], scale__users_12_months=120000, scale__peak_concurrent_users=5000, budget__monthly_infra_usd=4000)
+        self.assertNotEqual(o["stack"]["frontend"]["choice"], "HTMX with server-rendered templates")
+
+    def test_low_lock_in_prefers_open_identity(self):
+        o = run(extra=None) if False else None
+        raw = mod(requirements__auth="social", infrastructure__cloud_preference="aws", infrastructure__deployment_model="self_hosted_cloud_vm", team__size=5, team__has_devops=True, budget__monthly_infra_usd=2000, scale__users_12_months=40000)
+        raw["extra"] = {"vendor_lock_in_tolerance": "low"}
+        self.assertEqual(sup(recommend(raw), "auth"), ["Keycloak"])
