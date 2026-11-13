@@ -33,7 +33,7 @@
     },
     "backend": {
       "choice": "Go (Gin)",
-      "justification": "The team already knows go (team.languages=[go, typescript]), which Go (Gin) uses. A team.experience=senior team of team.size=5 gets Go (Gin)'s typed, structured API model (operations burden 2 vs capacity 5). Go (Gin) handles websocket connections for requirements.realtime=true. It can meet the requirements.p95_latency_ms=100 ms p95 target on Google Cloud Run. It supports an MVP within timeline.mvp_weeks=12 weeks given its rating of 3/5 for time to market.",
+      "justification": "The team already knows go (team.languages=[go, typescript]), which Go (Gin) uses. For a senior team of 5 engineers (team.experience=senior, team.size=5), Go (Gin) offers a typed, structured API model (operations burden 2 vs capacity 5). Go (Gin) handles websocket connections for requirements.realtime=true. It can meet the requirements.p95_latency_ms=100 ms p95 target on Google Cloud Run. It supports an MVP within timeline.mvp_weeks=12 weeks given its rating of 3/5 for time to market.",
       "driven_by": [
         "team.languages",
         "team.experience",
@@ -122,7 +122,7 @@
         "GCP lock-in for surrounding services"
       ],
       "what_would_change": [
-        "If scale.users_12_months grew beyond about 50,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If scale.users_12_months grew far beyond 50,000,000, plan multi-region deployment, a split of the busiest services and a sharded or globally distributed datastore.",
         "If the budget rose or operations capacity increased so that AWS ECS on Fargate was affordable and operable, it would be the next choice (it scored 0.1 lower today)."
       ]
     },

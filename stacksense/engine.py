@@ -41,6 +41,9 @@ def derive(n, A):
     f.platforms = [p for p in n["project"]["platforms"] if p != "api_only"]
     f.api_only = n["project"]["platforms"] == ["api_only"]
     f.u12, f.u0 = s["users_12_months"], s["users_at_launch"]
+    if f.u12 > 10_000_000_000 or f.u0 > 10_000_000_000:
+        A.append("Scale was clamped to 10 billion users for estimation (more than the world population); check scale.users_12_months.")
+        f.u12, f.u0 = min(f.u12, 10_000_000_000), min(f.u0, 10_000_000_000)
     f.peak = s["peak_concurrent_users"]
     if f.peak is None:
         f.peak = max(1, int(f.u12 * 0.1))
@@ -732,8 +735,10 @@ def explain_host(h, f, kb, comp):
 
 def host_wwc(h, ranked, f):
     out = []
-    if f.u12 * 4 > h["scale_cap_users"] * 0.5 or True:
-        out.append(f"If scale.users_12_months grew beyond about {h['scale_cap_users']:,} (its comfortable cap), move to a container or serverless platform on a hyperscaler.")
+    if h["scale_cap_users"] >= 20_000_000:
+        out.append(f"If scale.users_12_months grew far beyond {h['scale_cap_users']:,}, plan multi-region deployment, a split of the busiest services and a sharded or globally distributed datastore.")
+    else:
+        out.append(f"If scale.users_12_months grew beyond about {h['scale_cap_users']:,} (its comfortable cap), move to container or serverless hosting on a hyperscaler.")
     if ranked and len(ranked) > 1:
         alt = ranked[1][1]
         out.append(f"If the budget rose or operations capacity increased so that {alt['name']} was affordable and operable, it would be the next choice (it scored {ranked[0][0] - ranked[1][0]:.1f} lower today).")
@@ -979,7 +984,7 @@ def assemble(f, kb, n, A, W, best, picks):
             cb.why("team.languages", f"No backend framework in the knowledge base matches {v('team.languages', f.langs)} under your constraints; {be['name']} ({', '.join(be['languages'])}) has the best overall fit, which is a skill trade-off.")
         else:
             cb.why("team.languages", f"The team already knows {', '.join(sorted(set(be['languages']) & set(f.real_langs)))} ({v('team.languages', f.langs)}), which {be['name']} uses.")
-        cb.why("team.experience", f"A {v('team.experience', f.exp)} team of {v('team.size', f.team)} gets {be['name']}'s {'batteries-included conventions' if 'fullstack' in be['tags'] else 'typed, structured API model'} (operations burden {be['ops_burden']} vs capacity {f.ops_cap}).")
+        cb.why("team.experience", f"For a {f.exp} team of {f.team} engineers ({v('team.experience', f.exp)}, {v('team.size', f.team)}), {be['name']} offers {'batteries-included conventions' if 'fullstack' in be['tags'] else 'a typed, structured API model'} (operations burden {be['ops_burden']} vs capacity {f.ops_cap}).")
         if f.ml != "none":
             cb.why("requirements.ml_features", f"{v('requirements.ml_features', f.ml)} is easiest to integrate " + ("natively (Python)." if "ml_friendly" in be["tags"] else "through a separate ML service."))
         if f.rt:
@@ -1107,7 +1112,7 @@ def assemble(f, kb, n, A, W, best, picks):
             c.why("team.size", f"Automated build/test/deploy suits a team of {v('team.size', f.team)}.")
         elif layer == "observability":
             c.why("requirements.availability", f"Monitoring is needed to hold {v('requirements.availability', f.avail)}% availability.")
-        if f.eff_res != "none" and layer in ("storage", "cache", "queue", "search"):
+        if f.eff_res != "none" and layer in ("cache", "queue", "search"):
             rp = region_phrase(e, f, kb)
             if rp:
                 c.why("infrastructure.data_residency", f"For {v('infrastructure.data_residency', f.res)}: {rp}.")

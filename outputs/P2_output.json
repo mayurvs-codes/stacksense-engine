@@ -34,7 +34,7 @@
     },
     "backend": {
       "choice": "NestJS",
-      "justification": "The team already knows javascript, typescript (team.languages=[javascript, python, typescript]), which NestJS uses. A team.experience=intermediate team of team.size=3 gets NestJS's typed, structured API model (operations burden 2 vs capacity 2). NestJS handles websocket connections for requirements.realtime=true. It can meet the requirements.p95_latency_ms=500 ms p95 target on Google Cloud Run. It supports an MVP within timeline.mvp_weeks=8 weeks given its rating of 4/5 for time to market.",
+      "justification": "The team already knows javascript, typescript (team.languages=[javascript, python, typescript]), which NestJS uses. For a intermediate team of 3 engineers (team.experience=intermediate, team.size=3), NestJS offers a typed, structured API model (operations burden 2 vs capacity 2). NestJS handles websocket connections for requirements.realtime=true. It can meet the requirements.p95_latency_ms=500 ms p95 target on Google Cloud Run. It supports an MVP within timeline.mvp_weeks=8 weeks given its rating of 4/5 for time to market.",
       "driven_by": [
         "team.languages",
         "team.experience",
@@ -125,7 +125,7 @@
         "GCP lock-in for surrounding services"
       ],
       "what_would_change": [
-        "If scale.users_12_months grew beyond about 50,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If scale.users_12_months grew far beyond 50,000,000, plan multi-region deployment, a split of the busiest services and a sharded or globally distributed datastore.",
         "If the budget rose or operations capacity increased so that Azure App Service was affordable and operable, it would be the next choice (it scored 1.0 lower today)."
       ]
     },
@@ -159,10 +159,9 @@
       {
         "layer": "storage",
         "choice": "Google Cloud Storage",
-        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. For infrastructure.data_residency=india: it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. It stays within the same cloud as Google Cloud Run. Google Cloud Storage: Object storage with Mumbai (asia-south1) and Delhi buckets. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated $2-19/month.",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. It stays within the same cloud as Google Cloud Run. Google Cloud Storage: Object storage with Mumbai (asia-south1) and Delhi buckets. Sized for 30,000 users (800 concurrent), a team of 3 (intermediate), 99.9% availability and managed cloud deployment; estimated $2-19/month.",
         "driven_by": [
-          "requirements.file_media_storage",
-          "infrastructure.data_residency"
+          "requirements.file_media_storage"
         ],
         "alternatives": [
           {

@@ -106,7 +106,7 @@
         "No server-side code or private data"
       ],
       "what_would_change": [
-        "If scale.users_12_months grew beyond about 2,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If scale.users_12_months grew beyond about 2,000,000 (its comfortable cap), move to container or serverless hosting on a hyperscaler.",
         "If the budget rose or operations capacity increased so that Cloudflare Pages was affordable and operable, it would be the next choice (it scored 0.4 lower today).",
         "If the monthly budget exceeded about $100, managed multi-AZ database and observability tiers would become affordable."
       ]

@@ -33,7 +33,7 @@
     },
     "backend": {
       "choice": "Spring Boot",
-      "justification": "The team already knows java, kotlin (team.languages=[java, kotlin, typescript]), which Spring Boot uses. A team.experience=senior team of team.size=8 gets Spring Boot's typed, structured API model (operations burden 3 vs capacity 5). requirements.ml_features=inference_api is easiest to integrate through a separate ML service. Its mature security and transaction tooling suits compliance=[dpdp, pci_dss, rbi_localisation, iso27001] (project.type=fintech). It can meet the requirements.p95_latency_ms=300 ms p95 target on AWS ECS on Fargate. It supports an MVP within timeline.mvp_weeks=16 weeks given its rating of 3/5 for time to market.",
+      "justification": "The team already knows java, kotlin (team.languages=[java, kotlin, typescript]), which Spring Boot uses. For a senior team of 8 engineers (team.experience=senior, team.size=8), Spring Boot offers a typed, structured API model (operations burden 3 vs capacity 5). requirements.ml_features=inference_api is easiest to integrate through a separate ML service. Its mature security and transaction tooling suits compliance=[dpdp, pci_dss, rbi_localisation, iso27001] (project.type=fintech). It can meet the requirements.p95_latency_ms=300 ms p95 target on AWS ECS on Fargate. It supports an MVP within timeline.mvp_weeks=16 weeks given its rating of 3/5 for time to market.",
       "driven_by": [
         "team.languages",
         "team.experience",
@@ -133,7 +133,7 @@
         "Higher floor cost than simple PaaS"
       ],
       "what_would_change": [
-        "If scale.users_12_months grew beyond about 50,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If scale.users_12_months grew far beyond 50,000,000, plan multi-region deployment, a split of the busiest services and a sharded or globally distributed datastore.",
         "If the budget rose or operations capacity increased so that AWS Lambda was affordable and operable, it would be the next choice (it scored 1.1 lower today)."
       ]
     },
@@ -167,10 +167,9 @@
       {
         "layer": "storage",
         "choice": "Amazon S3",
-        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in AWS Mumbai (ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india. For infrastructure.data_residency=india: it can run in AWS Mumbai (ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india. It stays within the same cloud as AWS ECS on Fargate. Amazon S3: Durable object storage with regions in Mumbai and Hyderabad. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $15-125/month.",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in AWS Mumbai (ap-south-1) or Hyderabad (ap-south-2) to satisfy data_residency=india. It stays within the same cloud as AWS ECS on Fargate. Amazon S3: Durable object storage with regions in Mumbai and Hyderabad. Sized for 300,000 users (10,000 concurrent), a team of 8 (senior), 99.95% availability and managed cloud deployment; estimated $15-125/month.",
         "driven_by": [
-          "requirements.file_media_storage",
-          "infrastructure.data_residency"
+          "requirements.file_media_storage"
         ],
         "alternatives": [
           {

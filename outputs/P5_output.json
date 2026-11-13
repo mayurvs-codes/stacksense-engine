@@ -33,7 +33,7 @@
     },
     "backend": {
       "choice": "ASP.NET Core",
-      "justification": "The team already knows csharp (team.languages=[csharp, javascript, sql]), which ASP.NET Core uses. A team.experience=intermediate team of team.size=2 gets ASP.NET Core's typed, structured API model (operations burden 2 vs capacity 2). Its mature security and transaction tooling suits compliance=[iso27001] (project.type=internal_tool). It can meet the requirements.p95_latency_ms=800 ms p95 target on Azure App Service. It supports an MVP within timeline.mvp_weeks=6 weeks given its rating of 4/5 for time to market. It integrates natively with the existing Microsoft systems (infrastructure.existing_systems=[Microsoft 365, Microsoft Entra ID (Azure AD), On-prem SQL Server 2019]).",
+      "justification": "The team already knows csharp (team.languages=[csharp, javascript, sql]), which ASP.NET Core uses. For a intermediate team of 2 engineers (team.experience=intermediate, team.size=2), ASP.NET Core offers a typed, structured API model (operations burden 2 vs capacity 2). Its mature security and transaction tooling suits compliance=[iso27001] (project.type=internal_tool). It can meet the requirements.p95_latency_ms=800 ms p95 target on Azure App Service. It supports an MVP within timeline.mvp_weeks=6 weeks given its rating of 4/5 for time to market. It integrates natively with the existing Microsoft systems (infrastructure.existing_systems=[Microsoft 365, Microsoft Entra ID (Azure AD), On-prem SQL Server 2019]).",
       "driven_by": [
         "team.languages",
         "team.experience",
@@ -132,7 +132,7 @@
         "Scaling tiers jump in price"
       ],
       "what_would_change": [
-        "If scale.users_12_months grew beyond about 5,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If scale.users_12_months grew beyond about 5,000,000 (its comfortable cap), move to container or serverless hosting on a hyperscaler.",
         "If the budget rose or operations capacity increased so that Azure Container Apps was affordable and operable, it would be the next choice (it scored 0.5 lower today)."
       ]
     },
@@ -170,10 +170,9 @@
       {
         "layer": "storage",
         "choice": "Azure Blob Storage",
-        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Azure Central India (Pune) or another Indian Azure region to satisfy data_residency=india. For infrastructure.data_residency=india: it can run in Azure Central India (Pune) or another Indian Azure region to satisfy data_residency=india. It stays within the same cloud as Azure App Service. Azure Blob Storage: Object storage with Indian regions and Entra ID access control. Sized for 1,500 users (300 concurrent), a team of 2 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-10/month.",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Azure Central India (Pune) or another Indian Azure region to satisfy data_residency=india. It stays within the same cloud as Azure App Service. Azure Blob Storage: Object storage with Indian regions and Entra ID access control. Sized for 1,500 users (300 concurrent), a team of 2 (intermediate), 99.9% availability and managed cloud deployment; estimated $0-10/month.",
         "driven_by": [
-          "requirements.file_media_storage",
-          "infrastructure.data_residency"
+          "requirements.file_media_storage"
         ],
         "alternatives": [
           {

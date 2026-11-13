@@ -200,3 +200,20 @@ class Round8Regressions(unittest.TestCase):
     def test_client_side_search_not_used_with_a_backend(self):
         o = run(requirements__full_text_search=True, scale__users_12_months=200000, budget__monthly_infra_usd=3000)
         self.assertNotIn("Pagefind", sup(o, "search"))
+
+
+class Round9Regressions(unittest.TestCase):
+    def test_storage_justification_states_residency_once(self):
+        o = run(requirements__file_media_storage=True, infrastructure__data_residency="india", infrastructure__cloud_preference="aws")
+        st = [c for c in o["stack"]["supporting"] if c["layer"] == "storage"][0]["justification"]
+        self.assertEqual(st.count("satisfy data_residency=india"), 1)
+
+    def test_absurd_scale_is_clamped_not_exploding(self):
+        o = run(scale__users_12_months=10**30, scale__users_at_launch=0)
+        self.assertLess(o["estimated_monthly_cost_usd"]["max"], 10**15)
+        self.assertTrue(any("clamped" in a for a in o["assumptions"]))
+
+    def test_hyperscaler_counterfactual_is_not_circular(self):
+        o = run(infrastructure__cloud_preference="aws", scale__users_12_months=300000, team__size=8, team__has_devops=True, budget__monthly_infra_usd=6000)
+        text = " ".join(o["stack"]["hosting"]["what_would_change"])
+        self.assertNotIn("move to a container or serverless platform on a hyperscaler", text)

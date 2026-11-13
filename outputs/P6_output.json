@@ -34,7 +34,7 @@
     },
     "backend": {
       "choice": "Django",
-      "justification": "The team already knows python (team.languages=[javascript, python]), which Django uses. A team.experience=mixed team of team.size=2 gets Django's batteries-included conventions (operations burden 2 vs capacity 2). It supports an MVP within timeline.mvp_weeks=10 weeks given its rating of 5/5 for time to market.",
+      "justification": "The team already knows python (team.languages=[javascript, python]), which Django uses. For a mixed team of 2 engineers (team.experience=mixed, team.size=2), Django offers batteries-included conventions (operations burden 2 vs capacity 2). It supports an MVP within timeline.mvp_weeks=10 weeks given its rating of 5/5 for time to market.",
       "driven_by": [
         "team.languages",
         "team.experience",
@@ -119,7 +119,7 @@
         "GCP lock-in for surrounding services"
       ],
       "what_would_change": [
-        "If scale.users_12_months grew beyond about 50,000,000 (its comfortable cap), move to a container or serverless platform on a hyperscaler.",
+        "If scale.users_12_months grew far beyond 50,000,000, plan multi-region deployment, a split of the busiest services and a sharded or globally distributed datastore.",
         "If the budget rose or operations capacity increased so that Google Compute Engine was affordable and operable, it would be the next choice (it scored 2.9 lower today)."
       ]
     },
@@ -153,10 +153,9 @@
       {
         "layer": "storage",
         "choice": "Google Cloud Storage",
-        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. For infrastructure.data_residency=india: it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. It stays within the same cloud as Google Cloud Run. Google Cloud Storage: Object storage with Mumbai (asia-south1) and Delhi buckets. Sized for 2,000 users (200 concurrent), a team of 2 (mixed), 99% availability and managed cloud deployment; estimated $0-13/month.",
+        "justification": "requirements.file_media_storage=true needs durable object storage; it can run in Google Cloud Mumbai (asia-south1) or Delhi (asia-south2) to satisfy data_residency=india. It stays within the same cloud as Google Cloud Run. Google Cloud Storage: Object storage with Mumbai (asia-south1) and Delhi buckets. Sized for 2,000 users (200 concurrent), a team of 2 (mixed), 99% availability and managed cloud deployment; estimated $0-13/month.",
         "driven_by": [
-          "requirements.file_media_storage",
-          "infrastructure.data_residency"
+          "requirements.file_media_storage"
         ],
         "alternatives": [
           {
