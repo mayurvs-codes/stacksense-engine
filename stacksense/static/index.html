@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StackSense: tech stack recommendation engine</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#16202a;--mute:#5b6773;--line:#dfe3e8;--accent:#0b6bcb;--ok:#177245;--warn:#a05a00;--crit:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#10151b;--card:#18202a;--ink:#e8edf2;--mute:#9aa7b4;--line:#2a3441;--accent:#5aa9ff;--ok:#4cc38a;--warn:#f0b24d;--crit:#ff7b72}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif}
+header{padding:18px 24px;border-bottom:1px solid var(--line);background:var(--card)}header h1{margin:0;font-size:20px}header p{margin:2px 0 0;color:var(--mute);font-size:13px}
+main{display:grid;grid-template-columns:minmax(300px,420px) 1fr;gap:18px;padding:18px 24px;max-width:1400px;margin:0 auto}
+@media (max-width:900px){main{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.card h2{margin:0 0 8px;font-size:15px}
+label{display:block;font-size:12px;color:var(--mute);margin:8px 0 2px}
+input,select,textarea{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:8px}.chk{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:13px}.chk label{display:flex;align-items:center;gap:4px;margin:0;color:var(--ink)}.chk input{width:auto}
+button{background:var(--accent);color:#fff;border:0;border-radius:6px;padding:8px 14px;font:inherit;cursor:pointer;margin:6px 6px 0 0}button.sec{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.pill{display:inline-block;padding:1px 8px;border-radius:99px;font-size:12px;border:1px solid var(--line);margin-right:6px}
+.st-ok{color:var(--ok)}.st-ok_with_warnings{color:var(--warn)}.st-infeasible,.st-invalid_input{color:var(--crit)}
+.comp h3{margin:0;font-size:14px}.comp .choice{font-weight:600}.comp p{margin:4px 0}.small{font-size:13px;color:var(--mute)}
+.warn-info{border-left:3px solid var(--accent)}.warn-warning{border-left:3px solid var(--warn)}.warn-critical{border-left:3px solid var(--crit)}
+.warn{padding:4px 10px;margin:6px 0;background:var(--bg);border-radius:4px;font-size:13px}pre{white-space:pre-wrap;word-break:break-word;font-size:12px}
+details summary{cursor:pointer;color:var(--accent);font-size:13px}ul{margin:4px 0 4px 18px;padding:0}
+</style>
+</head>
+<body>
+<header><h1>StackSense</h1><p>Deterministic tech stack recommendation engine. Runs fully offline: no LLM, no external calls.</p></header>
+<main>
+<section id="left">
+ <div class="card"><h2>Scenario</h2>
+  <label>Load a scenario JSON file</label><input type="file" id="file" accept=".json,application/json">
+  <button class="sec" id="sample" type="button">Fill with an example</button>
+ </div>
+ <form id="form" class="card" onsubmit="return false">
+  <h2>Project</h2>
+  <label>Name</label><input id="name">
+  <div class="row"><div><label>Type *</label><select id="type"></select></div><div><label>Workload</label><select id="workload"><option>balanced</option><option>read_heavy</option><option>write_heavy</option></select></div></div>
+  <label>Platforms *</label><div class="chk" id="platforms"></div>
+  <h2 style="margin-top:12px">Scale</h2>
+  <div class="row"><div><label>Users at launch *</label><input type="number" min="0" id="u0"></div><div><label>Users after 12 months *</label><input type="number" min="0" id="u12"></div></div>
+  <div class="row"><div><label>Peak concurrent users</label><input type="number" min="0" id="peak"></div><div><label>Data volume (GB, 12 months)</label><input type="number" min="0" id="gb"></div></div>
+  <label>Traffic pattern</label><select id="traffic"><option>steady</option><option>spiky</option><option>seasonal</option></select>
+  <h2 style="margin-top:12px">Team, budget, timeline</h2>
+  <div class="row"><div><label>Engineers *</label><input type="number" min="1" id="size"></div><div><label>Experience *</label><select id="exp"><option>beginner</option><option>intermediate</option><option>senior</option><option>mixed</option></select></div></div>
+  <label>Languages (comma separated)</label><input id="langs" placeholder="python, typescript">
+  <div class="chk"><label><input type="checkbox" id="devops"> someone can operate infrastructure</label></div>
+  <div class="row"><div><label>Monthly infra budget (USD) *</label><input type="number" min="0" id="budget"></div><div><label>MVP weeks *</label><input type="number" min="1" id="weeks"></div></div>
+  <h2 style="margin-top:12px">Infrastructure</h2>
+  <div class="row"><div><label>Cloud preference</label><select id="cloud"><option>any</option><option>aws</option><option>gcp</option><option>azure</option><option>none</option></select></div>
+  <div><label>Deployment model</label><select id="deploy"><option>managed_cloud</option><option>self_hosted_cloud_vm</option><option>on_premise</option><option>air_gapped</option></select></div></div>
+  <label>Data residency</label><select id="res"><option>none</option><option>india</option><option>eu</option><option>us</option><option>other</option></select>
+  <label>Existing systems (one per line)</label><textarea id="existing" rows="2"></textarea>
+  <h2 style="margin-top:12px">Requirements</h2>
+  <div class="chk" id="reqs"></div>
+  <div class="row"><div><label>Auth</label><select id="auth"><option>none</option><option>email_password</option><option>social</option><option>phone_otp</option><option>enterprise_sso</option></select></div>
+  <div><label>ML features</label><select id="ml"><option>none</option><option>inference_api</option><option>llm_rag</option><option>training</option></select></div></div>
+  <div class="row"><div><label>Availability %</label><select id="avail"><option>99</option><option selected>99.9</option><option>99.95</option><option>99.99</option></select></div><div><label>p95 latency (ms)</label><input type="number" min="1" id="p95"></div></div>
+  <label>Compliance</label><div class="chk" id="comp"></div>
+  <h2 style="margin-top:12px">Priorities (1-5)</h2><div class="row" id="prio"></div>
+  <details><summary>Extra parameters (optional)</summary>
+   <label>Expected requests/second</label><input type="number" min="0" id="x_rps">
+   <div class="row"><div><label>Geo distribution</label><select id="x_geo"><option value="">(default)</option><option>single_region</option><option>regional</option><option>global</option></select></div>
+   <div><label>Vendor lock-in tolerance</label><select id="x_lock"><option value="">(default)</option><option>low</option><option>medium</option><option>high</option></select></div></div>
+   <div class="row"><div><label>Data sensitivity</label><select id="x_sens"><option value="">(default)</option><option>public</option><option>internal</option><option>confidential</option><option>restricted</option></select></div>
+   <div><label>Sync conflict tolerance</label><select id="x_sync"><option value="">(default)</option><option>last_write_wins</option><option>merge</option><option>strict_consistency</option></select></div></div>
+   <label>Hiring plan (engineers in 6 months)</label><input type="number" min="0" id="x_hire">
+   <label>Existing licences (comma separated)</label><input id="x_lic">
+   <label>Integration needs (comma separated: erp, crm, sms, ...)</label><input id="x_int">
+  </details>
+  <button id="go" type="button">Recommend a stack</button>
+ </form>
+</section>
+<section id="right"><div class="card" id="out"><h2>Result</h2><p class="small">Fill in the form (or load a scenario file) and press Recommend.</p></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const TYPES=["content_site","web_app","saas_b2b","ecommerce","marketplace","social","realtime_collab","fintech","healthtech","data_analytics","iot","ai_ml_product","internal_tool","gaming","api_platform","other"];
+const PLAT=["web","android","ios","desktop","api_only"],REQ=["realtime","offline_support","full_text_search","file_media_storage","payments","multi_tenant","seo_critical"],COMP=["gdpr","dpdp","hipaa","pci_dss","rbi_localisation","soc2","iso27001"],PRIO=["cost","time_to_market","scalability","performance","maintainability","security"];
+$("type").innerHTML=TYPES.map(t=>`<option>${t}</option>`).join("");
+$("platforms").innerHTML=PLAT.map(p=>`<label><input type="checkbox" name="plat" value="${p}">${p}</label>`).join("");
+$("reqs").innerHTML=REQ.map(p=>`<label><input type="checkbox" name="req" value="${p}">${p}</label>`).join("");
+$("comp").innerHTML=COMP.map(p=>`<label><input type="checkbox" name="comp" value="${p}">${p}</label>`).join("");
+$("prio").innerHTML=PRIO.map(p=>`<div><label>${p}</label><input type="number" min="1" max="5" value="3" id="pr_${p}"></div>`).join("");
+const num=id=>$(id).value===""?undefined:Number($(id).value);
+const checked=n=>[...document.querySelectorAll(`input[name=${n}]:checked`)].map(e=>e.value);
+const list=s=>s.split(/[,\n]/).map(x=>x.trim()).filter(Boolean);
+function build(){
+  const s={project:{name:$("name").value,type:$("type").value,platforms:checked("plat")},
+    scale:{traffic_pattern:$("traffic").value,workload:$("workload").value,users_at_launch:num("u0"),users_12_months:num("u12")},
+    team:{size:num("size"),experience:$("exp").value,languages:list($("langs").value),has_devops:$("devops").checked},
+    budget:{monthly_infra_usd:num("budget")},timeline:{mvp_weeks:num("weeks")},
+    infrastructure:{cloud_preference:$("cloud").value,deployment_model:$("deploy").value,data_residency:$("res").value,existing_systems:list($("existing").value)},
+    requirements:{auth:$("auth").value,ml_features:$("ml").value,availability:$("avail").value},compliance:checked("comp"),priorities:{}};
+  if(num("peak")!==undefined)s.scale.peak_concurrent_users=num("peak");
+  if(num("gb")!==undefined)s.scale.data_volume_gb_12_months=num("gb");
+  if(num("p95")!==undefined)s.requirements.p95_latency_ms=num("p95");
+  REQ.forEach(r=>s.requirements[r]=checked("req").includes(r));
+  PRIO.forEach(p=>s.priorities[p]=Number($("pr_"+p).value));
+  const x={};if(num("x_rps")!==undefined)x.expected_rps=num("x_rps");
+  [["x_geo","geo_distribution"],["x_lock","vendor_lock_in_tolerance"],["x_sens","data_sensitivity"],["x_sync","sync_conflict_tolerance"]].forEach(([i,k])=>{if($(i).value)x[k]=$(i).value});
+  if(num("x_hire")!==undefined)x.hiring_plan_6m=num("x_hire");if($("x_lic").value)x.existing_licences=list($("x_lic").value);if($("x_int").value)x.integration_needs=list($("x_int").value);
+  if(Object.keys(x).length)s.extra=x;return s;}
+function fill(s){const g=(o,p)=>p.split(".").reduce((a,k)=>a==null?a:a[k],o);const set=(id,v)=>{if(v!==undefined&&v!==null)$(id).value=v};
+  set("name",g(s,"project.name"));set("type",g(s,"project.type"));set("workload",g(s,"scale.workload"));set("traffic",g(s,"scale.traffic_pattern"));
+  set("u0",g(s,"scale.users_at_launch"));set("u12",g(s,"scale.users_12_months"));set("peak",g(s,"scale.peak_concurrent_users"));set("gb",g(s,"scale.data_volume_gb_12_months"));
+  set("size",g(s,"team.size"));set("exp",g(s,"team.experience"));set("langs",(g(s,"team.languages")||[]).join(", "));$("devops").checked=!!g(s,"team.has_devops");
+  set("budget",g(s,"budget.monthly_infra_usd"));set("weeks",g(s,"timeline.mvp_weeks"));set("cloud",g(s,"infrastructure.cloud_preference"));set("deploy",g(s,"infrastructure.deployment_model"));
+  set("res",g(s,"infrastructure.data_residency"));set("existing",(g(s,"infrastructure.existing_systems")||[]).join("\n"));set("auth",g(s,"requirements.auth"));set("ml",g(s,"requirements.ml_features"));
+  set("avail",g(s,"requirements.availability"));set("p95",g(s,"requirements.p95_latency_ms"));
+  document.querySelectorAll("input[name=plat]").forEach(e=>e.checked=(g(s,"project.platforms")||[]).includes(e.value));
+  document.querySelectorAll("input[name=req]").forEach(e=>e.checked=!!g(s,"requirements."+e.value));
+  document.querySelectorAll("input[name=comp]").forEach(e=>e.checked=(s.compliance||[]).includes(e.value));
+  PRIO.forEach(p=>set("pr_"+p,g(s,"priorities."+p)));
+  const x=s.extra||{};set("x_rps",x.expected_rps);set("x_geo",x.geo_distribution);set("x_lock",x.vendor_lock_in_tolerance);set("x_sens",x.data_sensitivity);set("x_sync",x.sync_conflict_tolerance);set("x_hire",x.hiring_plan_6m);set("x_lic",(x.existing_licences||[]).join(", "));set("x_int",(x.integration_needs||[]).join(", "));}
+const esc=t=>String(t).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+function comp(layer,c){if(!c)return"";return `<div class="card comp"><h3>${esc(layer)}: <span class="choice">${esc(c.choice)}</span></h3><p>${esc(c.justification)}</p>
+ <p class="small">Driven by: ${(c.driven_by||[]).map(esc).join(", ")||"n/a"}</p>
+ <details><summary>Alternatives, trade-offs, what would change</summary><ul>${(c.alternatives||[]).map(a=>`<li><b>${esc(a.choice)}</b>: ${esc(a.why_not)}</li>`).join("")}</ul>
+ ${(c.tradeoffs||[]).length?`<p class="small">Trade-offs:</p><ul>${c.tradeoffs.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}
+ ${(c.what_would_change||[]).length?`<p class="small">What would change this choice:</p><ul>${c.what_would_change.map(t=>`<li>${esc(t)}</li>`).join("")}</ul>`:""}</details></div>`}
+let last=null;
+function render(o){last=o;let h=`<h2>Result <span class="pill st-${o.status}">${o.status}</span><span class="pill">${esc(o.architecture_style)}</span></h2><p>${esc(o.summary)}</p>`;
+ if(o.validation_errors&&o.validation_errors.length)h+=`<h2>Validation errors</h2>`+o.validation_errors.map(e=>`<div class="warn warn-critical"><b>${esc(e.field)}</b>: ${esc(e.message)}</div>`).join("");
+ if(o.stack){const s=o.stack;["frontend","backend","database","hosting"].forEach(k=>h+=comp(k,s[k]));(s.supporting||[]).forEach(c=>h+=comp(c.layer,c))}
+ const c=o.estimated_monthly_cost_usd;h+=`<div class="card"><h2>Estimated monthly cost: $${c.min} to $${c.max}</h2><ul>${c.assumptions.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></div>`;
+ if(o.warnings.length)h+=`<div class="card"><h2>Warnings</h2>`+o.warnings.map(w=>`<div class="warn warn-${w.severity}"><b>${esc(w.code)}</b> (${w.severity}): ${esc(w.message)}<div class="small">${(w.fields||[]).map(esc).join(", ")}</div></div>`).join("")+`</div>`;
+ const list2=(t,a)=>a&&a.length?`<div class="card"><h2>${t}</h2><ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:"";
+ h+=list2("Compliance notes",o.compliance_notes)+list2("Integration notes",o.integration_notes)+list2("Assumptions",o.assumptions);
+ h+=`<button id="dl" type="button">Download result JSON</button>`;$("out").innerHTML=h;$("dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify(last,null,2)],{type:"application/json"}));a.download="stacksense_result.json";a.click()}}
+async function run(s){$("out").innerHTML='<p class="small">Working...</p>';try{const r=await fetch("/api/recommend",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(s)});render(await r.json())}catch(e){$("out").innerHTML='<p class="st-invalid_input">Request failed: '+esc(e)+'</p>'}}
+$("go").onclick=()=>run(build());
+$("file").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const s=JSON.parse(r.result);fill(s);run(s)}catch(x){$("out").innerHTML='<p class="st-invalid_input">Not valid JSON: '+esc(x)+'</p>'}};r.readAsText(f)};
+$("sample").onclick=()=>fill({project:{name:"Example shop",type:"ecommerce",platforms:["web","android"]},scale:{users_at_launch:1000,users_12_months:20000,peak_concurrent_users:600,traffic_pattern:"seasonal",workload:"read_heavy",data_volume_gb_12_months:30},team:{size:3,experience:"intermediate",languages:["python","typescript"],has_devops:false},budget:{monthly_infra_usd:300},timeline:{mvp_weeks:10},infrastructure:{cloud_preference:"any",deployment_model:"managed_cloud",data_residency:"eu",existing_systems:[]},requirements:{realtime:false,offline_support:false,full_text_search:true,file_media_storage:true,payments:true,auth:"social",multi_tenant:false,ml_features:"none",seo_critical:true,availability:"99.9",p95_latency_ms:600},compliance:["gdpr","pci_dss"],priorities:{cost:3,time_to_market:4,scalability:3,performance:3,maintainability:3,security:4}});
+</script>
+</body>
+</html>

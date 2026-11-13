@@ -22,12 +22,14 @@ def add(layer, name, *, langs=(), regions=(), self_host=False, saas=False, cloud
         cost=((0, 0), (0, 0)), tags=(), fts=False, plat=(), runtimes=(), ws=True, htype="", cap=1_000_000,
         maturity="mature", strengths=(), limits=(), comp=(), src=(), provides=()):
     ttm, cst, scl, prf, mnt, sec = r
+    if layer in ("frontend", "backend"):
+        self_host = True  # frameworks are software you deploy yourself
     verified = [{"url": u, "title": t, "accessed": VERIFIED.get(u, "")} for u, t in src]
     E.append({
         "name": name, "layer": layer, "lifecycle_status": "active", "languages": list(langs), "regions": list(regions),
         "self_hostable": self_host, "saas_only": saas, "cloud": cloud,
-        "cost_model": "estimate: fixed %s + per-1k-users %s USD/month" % (list(cost[0]), list(cost[1])),
-        "cost": {"fixed": list(cost[0]), "per_1k_users": list(cost[1])},
+        "cost_model": "estimate: fixed %s + per-1k-users %s USD/month" % (list(cost[0]), [round(x * 0.1, 3) for x in cost[1]]),
+        "cost": {"fixed": list(cost[0]), "per_1k_users": [round(x * 0.1, 3) for x in cost[1]]},
         "strengths": list(strengths), "limits": list(limits), "ops_burden": ops, "maturity": maturity,
         "provides": list(provides), "fts": fts, "ratings": {"ttm": ttm, "cost": cst, "scale": scl, "perf": prf, "maint": mnt, "sec": sec},
         "tags": list(tags), "platforms": list(plat), "runtimes": list(runtimes), "websockets": ws, "hosting_type": htype,
@@ -146,14 +148,14 @@ add(D, "SQLite", langs=("sql",), r=(5, 5, 2, 4, 4, 3), ops=1, tags=("embedded", 
     strengths=("Zero-ops single-file database with FTS5 search", "Excellent for prototypes, small internal tools and local-first apps"),
     limits=("Single writer; not for concurrent multi-server writes", "Backups/replication are your job"),
     src=[("https://www.sqlite.org/about.html", "About SQLite")])
-add(D, "PostgreSQL", langs=("sql",), r=(4, 5, 4, 4, 5, 4), ops=3, self_host=True, fts=True, tags=("relational", "fts", "json", "multitenant"), cap=50_000_000,
+add(D, "PostgreSQL", langs=("sql",), r=(4, 5, 4, 4, 5, 4), ops=3, self_host=True, cost=((10, 80), (2, 16)), fts=True, tags=("relational", "fts", "json", "multitenant"), cap=50_000_000,
     strengths=("Robust relational engine with JSONB, full-text search, extensions (PostGIS, pgvector)", "No licence cost; every cloud offers it managed"),
     limits=("Self-managed means you own patching, backups and failover", "Vertical scaling first; sharding is complex"),
     src=[("https://www.postgresql.org/about/", "About PostgreSQL")])
-add(D, "MySQL", langs=("sql",), r=(4, 5, 4, 4, 4, 4), ops=3, self_host=True, fts=True, tags=("relational",), cap=20_000_000,
+add(D, "MySQL", langs=("sql",), r=(4, 5, 4, 4, 4, 4), ops=3, self_host=True, cost=((10, 80), (2, 16)), fts=True, tags=("relational",), cap=20_000_000,
     strengths=("Widely known relational database with a huge hosting ecosystem",), limits=("Fewer advanced features than PostgreSQL", "Licence/edition nuances"),
     src=[("https://dev.mysql.com/doc/", "MySQL Community Edition")])
-add(D, "Microsoft SQL Server", langs=("sql", "csharp"), r=(4, 2, 5, 4, 5, 5), ops=3, self_host=True, fts=True, tags=("relational", "dotnet", "enterprise"), cap=50_000_000,
+add(D, "Microsoft SQL Server", langs=("sql", "csharp"), r=(4, 2, 5, 4, 5, 5), ops=3, self_host=True, cost=((150, 900), (4, 32)), fts=True, tags=("relational", "dotnet", "enterprise"), cap=50_000_000,
     strengths=("Deep .NET and Microsoft ecosystem integration", "Mature tooling, reporting and security features"),
     limits=("Licensing cost unless existing licences are reused", "Linux/container operations less common"),
     src=[("https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022", "SQL Server docs")])
@@ -201,13 +203,13 @@ add(D, "Supabase Postgres", langs=("sql", "javascript", "typescript"), regions=(
     strengths=("Managed PostgreSQL with Mumbai and Frankfurt/Ireland regions", "Row-level security supports multi-tenancy"),
     limits=("Smaller operator than hyperscalers; plan limits apply", "Scaling beyond mid-size needs higher tiers"),
     src=[("https://supabase.com/docs/guides/platform/regions", "Supabase regions")])
-add(D, "CouchDB", langs=("javascript",), self_host=True, r=(3, 4, 3, 3, 3, 3), ops=3, tags=("document", "offline_sync"), cap=500_000,
+add(D, "CouchDB", langs=("javascript",), self_host=True, cost=((10, 70), (2, 12)), r=(3, 4, 3, 3, 3, 3), ops=3, tags=("document", "offline_sync"), cap=500_000,
     strengths=("Built-in multi-master replication, a natural fit for offline-first sync with PouchDB",), limits=("You operate and secure it yourself", "Fewer managed offerings"),
     src=[("https://docs.couchdb.org/en/stable/intro/overview.html", "CouchDB overview")])
-add(D, "TimescaleDB", langs=("sql",), self_host=True, r=(3, 4, 4, 4, 4, 4), ops=3, fts=True, tags=("timeseries", "relational", "iot"), cap=20_000_000,
+add(D, "TimescaleDB", langs=("sql",), self_host=True, cost=((15, 100), (3, 16)), r=(3, 4, 4, 4, 4, 4), ops=3, fts=True, tags=("timeseries", "relational", "iot"), cap=20_000_000,
     strengths=("PostgreSQL extension tuned for time-series ingestion and queries",), limits=("Operational burden of self-hosting", "Requires PostgreSQL skills"),
     src=[("https://docs.timescale.com/", "Timescale docs")])
-add(D, "ClickHouse", langs=("sql",), self_host=True, r=(3, 4, 5, 5, 3, 4), ops=4, tags=("analytics", "columnar"), cap=100_000_000,
+add(D, "ClickHouse", langs=("sql",), self_host=True, cost=((30, 300), (4, 20)), r=(3, 4, 5, 5, 3, 4), ops=4, tags=("analytics", "columnar"), cap=100_000_000,
     strengths=("Column-store built for fast analytical queries over huge datasets",), limits=("Not a transactional store", "Needs experienced operators"),
     src=[("https://clickhouse.com/docs/en/intro", "ClickHouse intro")])
 
@@ -272,7 +274,7 @@ add(H, "Azure Virtual Machines", cloud="azure", regions=ALLR, saas=True, htype="
     cost=((15, 300), (3, 25)), comp=("pci_dss", "hipaa", "soc2", "iso27001", "gdpr"),
     strengths=("Full control, Windows and Linux images, hybrid connectivity",), limits=("You operate OS patching and scaling",),
     src=[("https://learn.microsoft.com/en-us/azure/virtual-machines/overview", "Azure Virtual Machines")])
-add(H, "Google Cloud Run", cloud="gcp", regions=ALLR, saas=True, htype="container", runtimes=("any", "docker"), ws=True, r=(5, 4, 5, 4, 4, 5), ops=2, tags=("container", "serverless", "managed"), cap=50_000_000,
+add(H, "Google Cloud Run", cloud="gcp", regions=ALLR, saas=True, htype="container", runtimes=("any", "docker"), ws=True, r=(5, 4, 5, 4, 4, 5), ops=2, tags=("container", "managed"), cap=50_000_000,
     cost=((0, 120), (2, 25)), comp=("pci_dss", "hipaa", "soc2", "iso27001", "gdpr"),
     strengths=("Serverless containers that scale to zero, with websocket support", "Runs in Mumbai (asia-south1) and Delhi (asia-south2)"),
     limits=("Cold starts for scale-to-zero services", "GCP lock-in for surrounding services"),
@@ -406,7 +408,7 @@ sup("realtime", "Pusher Channels", saas=True, regions=("us", "eu"), r=(5, 3, 4, 
     strengths=("Simple hosted websockets with presence channels",), limits=("Connection-based pricing", "Not hosted in India"),
     src=[("https://pusher.com/docs/channels/", "Pusher Channels docs")])
 # payments
-sup("payments", "Razorpay", saas=True, regions=("india",), r=(5, 4, 4, 4, 4, 5), ops=1, tags=("payments", "upi"), cost=((0, 0), (0, 0)), cap=500_000_000, comp=("pci_dss",),
+sup("payments", "Razorpay", saas=True, regions=("india",), r=(5, 4, 5, 5, 5, 5), ops=1, tags=("payments", "upi"), cost=((0, 0), (0, 0)), cap=500_000_000, comp=("pci_dss",),
     strengths=("UPI, cards, netbanking and EMI for Indian merchants", "India-based processing and settlement"),
     limits=("India-focused; limited international coverage", "Transaction-percentage fees"),
     src=[("https://razorpay.com/docs/", "Razorpay docs")])
@@ -491,7 +493,30 @@ sup("observability", "Google Cloud Operations Suite", cloud="gcp", regions=ALLR,
     src=[("https://cloud.google.com/products/operations", "Google Cloud Observability")])
 
 
+LIB = {"Socket.IO", "BullMQ", "Yjs", "scikit-learn (self-hosted inference)", "ONNX Runtime", "ASP.NET Core Identity", "pgvector (PostgreSQL extension)"}
+
+
+# fixed monthly cost calibration for small deployments (min, max) USD; per-user growth comes from per_1k_users
+FIXED_OVR = {"Google Cloud Run": (0, 15), "AWS Lambda": (0, 10), "AWS ECS on Fargate": (30, 120), "Azure App Service": (13, 60),
+             "Azure Container Apps": (0, 40), "Vercel": (0, 20), "Netlify": (0, 19), "Render": (7, 25), "DigitalOcean Droplets": (6, 40),
+             "AWS EC2": (8, 60), "Google Compute Engine": (8, 60), "Azure Virtual Machines": (8, 60), "AWS Amplify Hosting": (0, 15),
+             "Amazon ElastiCache": (13, 60), "Google Cloud Memorystore": (13, 60), "Google Cloud SQL for PostgreSQL": (10, 70),
+             "Amazon RDS for PostgreSQL": (15, 80), "Azure SQL Database": (5, 60), "Azure Database for PostgreSQL": (15, 70),
+             "Amazon CloudWatch": (0, 15), "Azure Monitor": (0, 15), "Google Cloud Operations Suite": (0, 15), "Cloudflare Pages": (0, 0),
+             "Cloudflare CDN": (0, 20), "Azure Static Web Apps": (0, 9), "Amazon CloudFront": (0, 20), "Google Cloud CDN": (0, 20)}
+PER1K_OVR = {"Cloudflare Pages": (0, 0.02), "Netlify": (0, 0.3), "GitHub Pages": (0, 0), "Azure Static Web Apps": (0, 0.1), "AWS Amplify Hosting": (0, 0.3)}
+
+
 def main():
+    for e in E:
+        if e["name"] in FIXED_OVR:
+            e["cost"]["fixed"] = list(FIXED_OVR[e["name"]])
+        if e["name"] in PER1K_OVR:
+            e["cost"]["per_1k_users"] = list(PER1K_OVR[e["name"]])
+        e["cost_model"] = "estimate: fixed %s + per-1k-users %s USD/month" % (e["cost"]["fixed"], e["cost"]["per_1k_users"])
+    for e in E:
+        if e["name"] in LIB and "library" not in e["tags"]:
+            e["tags"].append("library")
     out = ROOT / "data" / "kb"
     out.mkdir(parents=True, exist_ok=True)
     groups = {"frontend": [], "backend": [], "database": [], "hosting": [], "supporting": []}

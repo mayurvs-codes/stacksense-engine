@@ -15,15 +15,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "aws",
-  "cost_model": "estimate: fixed [60, 250] + per-1k-users [10, 60] USD/month",
+  "cost_model": "estimate: fixed [60, 250] + per-1k-users [1.0, 6.0] USD/month",
   "cost": {
    "fixed": [
     60,
     250
    ],
    "per_1k_users": [
-    10,
-    60
+    1.0,
+    6.0
    ]
   },
   "strengths": [
@@ -92,15 +92,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "aws",
-  "cost_model": "estimate: fixed [0, 40] + per-1k-users [3, 40] USD/month",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0.3, 4.0] USD/month",
   "cost": {
    "fixed": [
     0,
     40
    ],
    "per_1k_users": [
-    3,
-    40
+    0.3,
+    4.0
    ]
   },
   "strengths": [
@@ -163,15 +163,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "aws",
-  "cost_model": "estimate: fixed [15, 120] + per-1k-users [4, 30] USD/month",
+  "cost_model": "estimate: fixed [15, 80] + per-1k-users [0.4, 3.0] USD/month",
   "cost": {
    "fixed": [
     15,
-    120
+    80
    ],
    "per_1k_users": [
-    4,
-    30
+    0.4,
+    3.0
    ]
   },
   "strengths": [
@@ -235,15 +235,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "azure",
-  "cost_model": "estimate: fixed [15, 130] + per-1k-users [4, 30] USD/month",
+  "cost_model": "estimate: fixed [15, 70] + per-1k-users [0.4, 3.0] USD/month",
   "cost": {
    "fixed": [
     15,
-    130
+    70
    ],
    "per_1k_users": [
-    4,
-    30
+    0.4,
+    3.0
    ]
   },
   "strengths": [
@@ -305,15 +305,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "azure",
-  "cost_model": "estimate: fixed [5, 150] + per-1k-users [3, 30] USD/month",
+  "cost_model": "estimate: fixed [5, 60] + per-1k-users [0.3, 3.0] USD/month",
   "cost": {
    "fixed": [
     5,
-    150
+    60
    ],
    "per_1k_users": [
-    3,
-    30
+    0.3,
+    3.0
    ]
   },
   "strengths": [
@@ -373,15 +373,15 @@
   "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [30, 300] + per-1k-users [0.4, 2.0] USD/month",
   "cost": {
    "fixed": [
-    0,
-    0
+    30,
+    300
    ],
    "per_1k_users": [
-    0,
-    0
+    0.4,
+    2.0
    ]
   },
   "strengths": [
@@ -432,15 +432,15 @@
   "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [10, 70] + per-1k-users [0.2, 1.2] USD/month",
   "cost": {
    "fixed": [
-    0,
-    0
+    10,
+    70
    ],
    "per_1k_users": [
-    0,
-    0
+    0.2,
+    1.2
    ]
   },
   "strengths": [
@@ -501,15 +501,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "gcp",
-  "cost_model": "estimate: fixed [0, 25] + per-1k-users [2, 25] USD/month",
+  "cost_model": "estimate: fixed [0, 25] + per-1k-users [0.2, 2.5] USD/month",
   "cost": {
    "fixed": [
     0,
     25
    ],
    "per_1k_users": [
-    2,
-    25
+    0.2,
+    2.5
    ]
   },
   "strengths": [
@@ -572,15 +572,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "gcp",
-  "cost_model": "estimate: fixed [10, 120] + per-1k-users [4, 30] USD/month",
+  "cost_model": "estimate: fixed [10, 70] + per-1k-users [0.4, 3.0] USD/month",
   "cost": {
    "fixed": [
     10,
-    120
+    70
    ],
    "per_1k_users": [
-    4,
-    30
+    0.4,
+    3.0
    ]
   },
   "strengths": [
@@ -640,15 +640,15 @@
   "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [150, 900] + per-1k-users [0.4, 3.2] USD/month",
   "cost": {
    "fixed": [
-    0,
-    0
+    150,
+    900
    ],
    "per_1k_users": [
-    0,
-    0
+    0.4,
+    3.2
    ]
   },
   "strengths": [
@@ -708,15 +708,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 60] + per-1k-users [5, 40] USD/month",
+  "cost_model": "estimate: fixed [0, 60] + per-1k-users [0.5, 4.0] USD/month",
   "cost": {
    "fixed": [
     0,
     60
    ],
    "per_1k_users": [
-    5,
-    40
+    0.5,
+    4.0
    ]
   },
   "strengths": [
@@ -767,15 +767,15 @@
   "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [10, 80] + per-1k-users [0.2, 1.6] USD/month",
   "cost": {
    "fixed": [
-    0,
-    0
+    10,
+    80
    ],
    "per_1k_users": [
-    0,
-    0
+    0.2,
+    1.6
    ]
   },
   "strengths": [
@@ -825,15 +825,15 @@
   "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [10, 80] + per-1k-users [0.2, 1.6] USD/month",
   "cost": {
    "fixed": [
-    0,
-    0
+    10,
+    80
    ],
    "per_1k_users": [
-    0,
-    0
+    0.2,
+    1.6
    ]
   },
   "strengths": [
@@ -887,15 +887,15 @@
   "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -953,15 +953,15 @@
   "self_hostable": false,
   "saas_only": true,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 60] + per-1k-users [3, 25] USD/month",
+  "cost_model": "estimate: fixed [0, 60] + per-1k-users [0.3, 2.5] USD/month",
   "cost": {
    "fixed": [
     0,
     60
    ],
    "per_1k_users": [
-    3,
-    25
+    0.3,
+    2.5
    ]
   },
   "strengths": [
@@ -1015,15 +1015,15 @@
   "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [15, 100] + per-1k-users [0.3, 1.6] USD/month",
   "cost": {
    "fixed": [
-    0,
-    0
+    15,
+    100
    ],
    "per_1k_users": [
-    0,
-    0
+    0.3,
+    1.6
    ]
   },
   "strengths": [

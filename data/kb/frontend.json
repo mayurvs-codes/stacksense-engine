@@ -7,18 +7,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -70,18 +70,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -133,18 +133,18 @@
    "csharp"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -199,18 +199,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -261,18 +261,18 @@
    "javascript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -325,18 +325,18 @@
    "dart"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -388,18 +388,18 @@
   "lifecycle_status": "active",
   "languages": [],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -453,18 +453,18 @@
    "java"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -516,18 +516,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -583,18 +583,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -650,18 +650,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -718,18 +718,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -784,18 +784,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -850,18 +850,18 @@
    "swift"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
@@ -913,18 +913,18 @@
    "typescript"
   ],
   "regions": [],
-  "self_hostable": false,
+  "self_hostable": true,
   "saas_only": false,
   "cloud": "neutral",
-  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
   "cost": {
    "fixed": [
     0,
     0
    ],
    "per_1k_users": [
-    0,
-    0
+    0.0,
+    0.0
    ]
   },
   "strengths": [
