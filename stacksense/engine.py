@@ -561,7 +561,7 @@ def build(host, f, kb):
     # frontend
     fe, fe_ranked = None, []
     if not f.api_only:
-        cands = [e for e in kb.layer("frontend") if host_ok_for_frontend(host, e, be) and not (f.rt and f.tier >= 1 and e["name"].startswith("HTMX"))]
+        cands = [e for e in kb.layer("frontend") if host_ok_for_frontend(host, e, be) and not (e["name"].startswith("HTMX") and ((f.rt and f.tier >= 1) or (f.tier >= 3 and f.type != "internal_tool")))]
         if not f.platforms:
             return None
         fe_ranked = pick_top(cands, lambda e: score_frontend(e, f, host, be, kb))
