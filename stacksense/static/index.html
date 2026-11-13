@@ -124,7 +124,7 @@ let last=null;
 function render(o){last=o;let h=`<h2>Result <span class="pill st-${o.status}">${o.status}</span><span class="pill">${esc(o.architecture_style)}</span></h2><p>${esc(o.summary)}</p>`;
  if(o.validation_errors&&o.validation_errors.length)h+=`<h2>Validation errors</h2>`+o.validation_errors.map(e=>`<div class="warn warn-critical"><b>${esc(e.field)}</b>: ${esc(e.message)}</div>`).join("");
  if(o.stack){const s=o.stack;["frontend","backend","database","hosting"].forEach(k=>h+=comp(k,s[k]));(s.supporting||[]).forEach(c=>h+=comp(c.layer,c))}
- const c=o.estimated_monthly_cost_usd;h+=`<div class="card"><h2>Estimated monthly cost: $${c.min} to $${c.max}</h2><ul>${c.assumptions.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></div>`;
+ const c=o.estimated_monthly_cost_usd;if(o.stack)h+=`<div class="card"><h2>Estimated monthly cost: ${c.min===c.max?"$"+c.min:"$"+c.min+" to $"+c.max}</h2><ul>${c.assumptions.map(a=>`<li>${esc(a)}</li>`).join("")}</ul></div>`;
  if(o.warnings.length)h+=`<div class="card"><h2>Warnings</h2>`+o.warnings.map(w=>`<div class="warn warn-${w.severity}"><b>${esc(w.code)}</b> (${w.severity}): ${esc(w.message)}<div class="small">${(w.fields||[]).map(esc).join(", ")}</div></div>`).join("")+`</div>`;
  const list2=(t,a)=>a&&a.length?`<div class="card"><h2>${t}</h2><ul>${a.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`:"";
  h+=list2("Compliance notes",o.compliance_notes)+list2("Integration notes",o.integration_notes)+list2("Assumptions",o.assumptions);
@@ -132,6 +132,10 @@ function render(o){last=o;let h=`<h2>Result <span class="pill st-${o.status}">${
 async function run(s){$("out").innerHTML='<p class="small">Working...</p>';try{const r=await fetch("/api/recommend",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(s)});render(await r.json())}catch(e){$("out").innerHTML='<p class="st-invalid_input">Request failed: '+esc(e)+'</p>'}}
 $("go").onclick=()=>run(build());
 $("file").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const s=JSON.parse(r.result);fill(s);run(s)}catch(x){$("out").innerHTML='<p class="st-invalid_input">Not valid JSON: '+esc(x)+'</p>'}};r.readAsText(f)};
+(function(){const P=new URLSearchParams(location.search);if(P.get("t")==="light"){const r=document.documentElement.style;[["--bg","#f6f7f9"],["--card","#ffffff"],["--ink","#16202a"],["--mute","#5b6773"],["--line","#dfe3e8"],["--accent","#0b6bcb"],["--ok","#177245"],["--warn","#a05a00"],["--crit","#b3261e"]].forEach(([k,v])=>r.setProperty(k,v))}
+if(P.get("v")==="r"||P.get("v")==="w"){$("left").style.display="none";document.querySelector("main").style.gridTemplateColumns="1fr"}
+if(P.get("v")==="w"){const st=document.createElement("style");st.textContent=".comp{display:none}";document.head.appendChild(st)}
+const q=P.get("s");if(!q)return;try{const s=JSON.parse(decodeURIComponent(escape(atob(q.replace(/-/g,"+").replace(/_/g,"/")))));fill(s);run(s)}catch(e){$("out").innerHTML='<p class="st-invalid_input">Bad share link: '+esc(e)+'</p>'}})();
 $("sample").onclick=()=>fill({project:{name:"Example shop",type:"ecommerce",platforms:["web","android"]},scale:{users_at_launch:1000,users_12_months:20000,peak_concurrent_users:600,traffic_pattern:"seasonal",workload:"read_heavy",data_volume_gb_12_months:30},team:{size:3,experience:"intermediate",languages:["python","typescript"],has_devops:false},budget:{monthly_infra_usd:300},timeline:{mvp_weeks:10},infrastructure:{cloud_preference:"any",deployment_model:"managed_cloud",data_residency:"eu",existing_systems:[]},requirements:{realtime:false,offline_support:false,full_text_search:true,file_media_storage:true,payments:true,auth:"social",multi_tenant:false,ml_features:"none",seo_critical:true,availability:"99.9",p95_latency_ms:600},compliance:["gdpr","pci_dss"],priorities:{cost:3,time_to_market:4,scalability:3,performance:3,maintainability:3,security:4}});
 </script>
 </body>

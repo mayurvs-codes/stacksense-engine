@@ -20,13 +20,13 @@ class Handler(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self):
-        if self.path in ("/", "/index.html"):
+        if self.path.split("?")[0] in ("/", "/index.html"):
             self._send(200, (STATIC / "index.html").read_bytes(), "text/html; charset=utf-8")
         else:
             self._send(404, "not found", "text/plain")
 
     def do_POST(self):
-        if self.path != "/api/recommend":
+        if self.path.split("?")[0] != "/api/recommend":
             self._send(404, "not found", "text/plain")
             return
         length = int(self.headers.get("Content-Length") or 0)

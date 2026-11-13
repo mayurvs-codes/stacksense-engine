@@ -699,9 +699,13 @@ def v(path, val):
     return f"{path}={fv(val)}"
 
 
+def money_band(lo, hi):
+    return f"${lo:.0f}" if round(lo) == round(hi) else f"${lo:.0f}-{hi:.0f}"
+
+
 def explain_host(h, f, kb, comp):
     n = f.n
-    comp.why("budget.monthly_infra_usd", f"{h['name']} fits the monthly budget ({v('budget.monthly_infra_usd', f.budget)} USD): estimated ${cost_of(h, f)[0]:.0f}-{cost_of(h, f)[1]:.0f}/month at {v('scale.users_12_months', f.u12)}.")
+    comp.why("budget.monthly_infra_usd", f"{h['name']} fits the monthly budget ({v('budget.monthly_infra_usd', f.budget)} USD): estimated {money_band(*cost_of(h, f))}/month at {v('scale.users_12_months', f.u12)}.")
     if f.deploy != "managed_cloud":
         comp.why("infrastructure.deployment_model", f"It satisfies {v('infrastructure.deployment_model', f.deploy)} ({h['hosting_type']} hosting).")
     if f.cloud != "any":
@@ -1025,7 +1029,7 @@ def assemble(f, kb, n, A, W, best, picks):
         if f.offline:
             cf.why("requirements.offline_support", f"{v('requirements.offline_support', f.offline)}: it supports local storage and offline-first patterns on the device.")
         if f.exp == "beginner" or f.weeks <= 4:
-            cf.why("timeline.mvp_weeks", f"A {v('timeline.mvp_weeks', f.weeks)}-week timeline favours its time-to-market rating of {fe['ratings']['ttm']}/5.")
+            cf.why("timeline.mvp_weeks", f"A {f.weeks}-week MVP timeline ({v('timeline.mvp_weeks', f.weeks)}) favours its time-to-market rating of {fe['ratings']['ttm']}/5.")
         cf.tradeoffs = list(fe["limits"])
         render_alts(cf, fe, best["frontend_ranked"], kb, "frontend", f, host)
         cf.wwc = ["If the target platforms change (today " + fv(f.n["project"]["platforms"]) + "), re-check coverage: " + (best["frontend_ranked"][1][1]["name"] if len(best["frontend_ranked"]) > 1 else "another framework") + " is the next option.",

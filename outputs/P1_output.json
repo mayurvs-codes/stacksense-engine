@@ -7,7 +7,7 @@
   "stack": {
     "frontend": {
       "choice": "Eleventy",
-      "justification": "Eleventy targets web, covering project.platforms=[web]. It reuses the team's skills (team.languages=[css, html, javascript]). requirements.seo_critical=true: it pre-renders or server-renders pages so search engines see full HTML. A timeline.mvp_weeks=2-week timeline favours its time-to-market rating of 5/5.",
+      "justification": "Eleventy targets web, covering project.platforms=[web]. It reuses the team's skills (team.languages=[css, html, javascript]). requirements.seo_critical=true: it pre-renders or server-renders pages so search engines see full HTML. A 2-week MVP timeline (timeline.mvp_weeks=2) favours its time-to-market rating of 5/5.",
       "driven_by": [
         "project.platforms",
         "team.languages",
@@ -76,7 +76,7 @@
     },
     "hosting": {
       "choice": "GitHub Pages",
-      "justification": "GitHub Pages fits the monthly budget (budget.monthly_infra_usd=0 USD): estimated $0-0/month at scale.users_12_months=3000. Availability target requirements.availability=99% is reachable with the platform's managed redundancy. Operations burden 1 vs team capacity 1 (team.has_devops=false, team.experience=beginner). It was also weighed against scale.users_12_months=3000.",
+      "justification": "GitHub Pages fits the monthly budget (budget.monthly_infra_usd=0 USD): estimated $0/month at scale.users_12_months=3000. Availability target requirements.availability=99% is reachable with the platform's managed redundancy. Operations burden 1 vs team capacity 1 (team.has_devops=false, team.experience=beginner). It was also weighed against scale.users_12_months=3000.",
       "driven_by": [
         "budget.monthly_infra_usd",
         "requirements.availability",

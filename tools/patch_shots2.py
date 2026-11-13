@@ -1,0 +1,10 @@
+p='tools/make_screenshots.py'
+s=open(p,encoding='utf-8').read()
+s=s.replace('"--hide-scrollbars", f"--window-size={width},{height}"','"--hide-scrollbars", "--force-device-scale-factor=2", f"--window-size={width},{height}"',1)
+s=s.replace('im = im.crop((0, 0, im.size[0], min(im.size[1], crop)))','im = im.crop((0, 0, im.size[0], min(im.size[1], crop * 2)))',1)
+s=s.replace("bbox[3] + 24","bbox[3] + 48",1)
+open(p,'w',encoding='utf-8').write(s)
+b=open('tools/build_report.py',encoding='utf-8').read()
+b=b.replace(".full{page-break-before:always}.full img{width:13.4cm;border:1px solid #cfd6dd}",".full{break-inside:auto;margin-top:6pt}.full img{width:12.2cm;border:1px solid #cfd6dd}",1)
+b=b.replace("<h2 class='pb'>Appendix A.","<h2 class='pb'>Appendix A.",1)
+open('tools/build_report.py','w',encoding='utf-8').write(b)
