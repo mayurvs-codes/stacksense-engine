@@ -1,0 +1,1278 @@
+[
+ {
+  "name": "AWS Amplify Hosting",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [1, 6] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    1,
+    6
+   ]
+  },
+  "strengths": [
+   "Git-based hosting for static and SSR web apps inside AWS"
+  ],
+  "limits": [
+   "Fewer knobs than Vercel for Next.js",
+   "AWS lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "static",
+   "ssr"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "static",
+   "node"
+  ],
+  "websockets": false,
+  "hosting_type": "static",
+  "scale_cap_users": 5000000,
+  "compliance": [
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html",
+    "title": "AWS Amplify Hosting",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "AWS EC2",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [15, 300] + per-1k-users [3, 25] USD/month",
+  "cost": {
+   "fixed": [
+    15,
+    300
+   ],
+   "per_1k_users": [
+    3,
+    25
+   ]
+  },
+  "strengths": [
+   "Full control over virtual machines",
+   "Wide instance choice in Mumbai and Hyderabad"
+  ],
+  "limits": [
+   "You operate OS, scaling and patching",
+   "Easy to over-provision"
+  ],
+  "ops_burden": 4,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "vm"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any"
+  ],
+  "websockets": true,
+  "hosting_type": "vm",
+  "scale_cap_users": 50000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/ec2/",
+    "title": "Amazon EC2",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "AWS ECS on Fargate",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [40, 400] + per-1k-users [8, 60] USD/month",
+  "cost": {
+   "fixed": [
+    40,
+    400
+   ],
+   "per_1k_users": [
+    8,
+    60
+   ]
+  },
+  "strengths": [
+   "Serverless containers without managing servers",
+   "Runs in Mumbai and Hyderabad; deep IAM/VPC controls"
+  ],
+  "limits": [
+   "AWS complexity: VPC, IAM, load balancers",
+   "Higher floor cost than simple PaaS"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "container",
+   "managed"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "container",
+  "scale_cap_users": 50000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/fargate/",
+    "title": "AWS Fargate",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "AWS Lambda",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [1, 10] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    1,
+    10
+   ]
+  },
+  "strengths": [
+   "Pay-per-invocation scaling to zero",
+   "No servers to patch"
+  ],
+  "limits": [
+   "Cold starts affect tail latency",
+   "No long-lived websocket servers without extra services"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 5,
+   "perf": 3,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "serverless"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "node",
+   "python",
+   "java",
+   "dotnet",
+   "go",
+   "ruby"
+  ],
+  "websockets": false,
+  "hosting_type": "serverless",
+  "scale_cap_users": 100000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/lambda/",
+    "title": "AWS Lambda",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure App Service",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [13, 250] + per-1k-users [3, 25] USD/month",
+  "cost": {
+   "fixed": [
+    13,
+    250
+   ],
+   "per_1k_users": [
+    3,
+    25
+   ]
+  },
+  "strengths": [
+   "Fully managed web hosting with Entra ID integration and slots",
+   "Central India (Pune) and other Indian regions"
+  ],
+  "limits": [
+   "Azure lock-in",
+   "Scaling tiers jump in price"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "paas",
+   "dotnet",
+   "enterprise"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "node",
+   "python",
+   "java",
+   "dotnet",
+   "php",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "paas",
+  "scale_cap_users": 5000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
+    "title": "Azure App Service",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Container Apps",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [20, 300] + per-1k-users [5, 40] USD/month",
+  "cost": {
+   "fixed": [
+    20,
+    300
+   ],
+   "per_1k_users": [
+    5,
+    40
+   ]
+  },
+  "strengths": [
+   "Serverless containers with scale-to-zero and Dapr/KEDA support"
+  ],
+  "limits": [
+   "Younger than App Service",
+   "Azure lock-in"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "container",
+   "managed"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "container",
+  "scale_cap_users": 50000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/container-apps/overview",
+    "title": "Azure Container Apps",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Static Web Apps",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [0, 9] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    9
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Free tier static hosting with managed API functions"
+  ],
+  "limits": [
+   "Limited to static front-ends and functions"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "static",
+   "free"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "static",
+   "node",
+   "python",
+   "dotnet"
+  ],
+  "websockets": false,
+  "hosting_type": "static",
+  "scale_cap_users": 5000000,
+  "compliance": [
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/static-web-apps/overview",
+    "title": "Azure Static Web Apps",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Virtual Machines",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [15, 300] + per-1k-users [3, 25] USD/month",
+  "cost": {
+   "fixed": [
+    15,
+    300
+   ],
+   "per_1k_users": [
+    3,
+    25
+   ]
+  },
+  "strengths": [
+   "Full control, Windows and Linux images, hybrid connectivity"
+  ],
+  "limits": [
+   "You operate OS patching and scaling"
+  ],
+  "ops_burden": 4,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "vm"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any"
+  ],
+  "websockets": true,
+  "hosting_type": "vm",
+  "scale_cap_users": 50000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
+    "title": "Azure Virtual Machines",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Cloudflare Pages",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 1] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    1
+   ]
+  },
+  "strengths": [
+   "Free static hosting on a global edge network",
+   "Git-based deploys with preview builds"
+  ],
+  "limits": [
+   "Static-first; dynamic code runs as edge functions",
+   "Edge network is global, not region-pinned"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "static",
+   "free",
+   "cdn"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "static"
+  ],
+  "websockets": false,
+  "hosting_type": "static",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://developers.cloudflare.com/pages/",
+    "title": "Cloudflare Pages",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "DigitalOcean Droplets",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [12, 120] + per-1k-users [1, 8] USD/month",
+  "cost": {
+   "fixed": [
+    12,
+    120
+   ],
+   "per_1k_users": [
+    1,
+    8
+   ]
+  },
+  "strengths": [
+   "Low-cost Linux VMs with a Bangalore (BLR1) region",
+   "Predictable flat pricing"
+  ],
+  "limits": [
+   "You manage the OS, patching and scaling",
+   "Smaller compliance footprint than hyperscalers"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 5,
+   "scale": 3,
+   "perf": 3,
+   "maint": 3,
+   "sec": 3
+  },
+  "tags": [
+   "vm",
+   "cheap"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any"
+  ],
+  "websockets": true,
+  "hosting_type": "vm",
+  "scale_cap_users": 100000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.digitalocean.com/platform/regional-availability/",
+    "title": "DigitalOcean regional availability",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Docker Compose on a Linux VM",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 60] + per-1k-users [0, 3] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    60
+   ],
+   "per_1k_users": [
+    0,
+    3
+   ]
+  },
+  "strengths": [
+   "Simple, portable deployment you can run anywhere including an air gap"
+  ],
+  "limits": [
+   "Single host unless you add orchestration",
+   "You own patching, backups and failover"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 2,
+   "perf": 3,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "onprem",
+   "simple"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "onprem",
+  "scale_cap_users": 200000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.docker.com/compose/",
+    "title": "Docker Compose",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "GitHub Pages",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Free static hosting directly from a repository"
+  ],
+  "limits": [
+   "Static files only; usage limits apply",
+   "No server-side code or private data"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 4,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "static",
+   "free"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "static"
+  ],
+  "websockets": false,
+  "hosting_type": "static",
+  "scale_cap_users": 2000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages",
+    "title": "About GitHub Pages",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Cloud Run",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [0, 120] + per-1k-users [2, 25] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    120
+   ],
+   "per_1k_users": [
+    2,
+    25
+   ]
+  },
+  "strengths": [
+   "Serverless containers that scale to zero, with websocket support",
+   "Runs in Mumbai (asia-south1) and Delhi (asia-south2)"
+  ],
+  "limits": [
+   "Cold starts for scale-to-zero services",
+   "GCP lock-in for surrounding services"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "container",
+   "serverless",
+   "managed"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "container",
+  "scale_cap_users": 50000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/run/docs/overview/what-is-cloud-run",
+    "title": "What is Cloud Run",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Compute Engine",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [15, 300] + per-1k-users [3, 25] USD/month",
+  "cost": {
+   "fixed": [
+    15,
+    300
+   ],
+   "per_1k_users": [
+    3,
+    25
+   ]
+  },
+  "strengths": [
+   "Flexible VMs with per-second billing"
+  ],
+  "limits": [
+   "You operate OS patching and scaling"
+  ],
+  "ops_burden": 4,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "vm"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any"
+  ],
+  "websockets": true,
+  "hosting_type": "vm",
+  "scale_cap_users": 50000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://docs.cloud.google.com/compute/docs/regions-zones",
+    "title": "Compute Engine regions and zones",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Kubernetes (k3s) on-prem",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 200] + per-1k-users [0, 5] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    200
+   ],
+   "per_1k_users": [
+    0,
+    5
+   ]
+  },
+  "strengths": [
+   "Lightweight certified Kubernetes for self-managed clusters"
+  ],
+  "limits": [
+   "Requires real platform-engineering capacity"
+  ],
+  "ops_burden": 5,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "onprem",
+   "kubernetes"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "onprem",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.k3s.io/",
+    "title": "K3s documentation",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Linux server (systemd + Nginx)",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Minimal moving parts: a process manager plus a reverse proxy"
+  ],
+  "limits": [
+   "Manual scaling and failover",
+   "You own OS hardening"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 2,
+   "perf": 3,
+   "maint": 3,
+   "sec": 3
+  },
+  "tags": [
+   "onprem",
+   "simple"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any"
+  ],
+  "websockets": true,
+  "hosting_type": "onprem",
+  "scale_cap_users": 100000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://nginx.org/en/docs/",
+    "title": "nginx documentation",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Netlify",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 3] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    3
+   ]
+  },
+  "strengths": [
+   "Free tier with git deploys, forms and serverless functions",
+   "Very low operational burden"
+  ],
+  "limits": [
+   "Function execution limits",
+   "Costs rise with bandwidth beyond the free tier"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "static",
+   "free",
+   "serverless_fn"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "static",
+   "node"
+  ],
+  "websockets": false,
+  "hosting_type": "static",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.netlify.com/",
+    "title": "Netlify docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Render",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "eu",
+   "us"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [7, 60] + per-1k-users [2, 12] USD/month",
+  "cost": {
+   "fixed": [
+    7,
+    60
+   ],
+   "per_1k_users": [
+    2,
+    12
+   ]
+  },
+  "strengths": [
+   "Simple git-to-deploy PaaS with managed Postgres and Redis",
+   "Regions: Oregon, Ohio, Virginia, Frankfurt, Singapore"
+  ],
+  "limits": [
+   "No India region",
+   "Fewer compliance attestations than hyperscalers"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 3,
+   "perf": 3,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "paas"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "node",
+   "python",
+   "ruby",
+   "go",
+   "docker",
+   "static"
+  ],
+  "websockets": true,
+  "hosting_type": "paas",
+  "scale_cap_users": 200000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://render.com/docs/regions",
+    "title": "Render regions",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Vercel",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [1, 8] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    1,
+    8
+   ]
+  },
+  "strengths": [
+   "Best-in-class Next.js hosting with preview deployments",
+   "Functions can run in Mumbai (bom1)"
+  ],
+  "limits": [
+   "No persistent websocket servers",
+   "Pricing grows with usage; vendor lock-in for Next.js features"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "serverless",
+   "ssr",
+   "nextjs"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "node",
+   "static"
+  ],
+  "websockets": false,
+  "hosting_type": "serverless",
+  "scale_cap_users": 10000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://vercel.com/docs/regions",
+    "title": "Vercel regions",
+    "accessed": "2026-11-13"
+   }
+  ]
+ }
+]

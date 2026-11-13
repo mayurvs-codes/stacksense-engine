@@ -1,0 +1,1067 @@
+[
+ {
+  "name": "Amazon Aurora PostgreSQL",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [60, 250] + per-1k-users [10, 60] USD/month",
+  "cost": {
+   "fixed": [
+    60,
+    250
+   ],
+   "per_1k_users": [
+    10,
+    60
+   ]
+  },
+  "strengths": [
+   "Managed PostgreSQL-compatible engine with Multi-AZ storage and fast failover",
+   "Available in Mumbai and Hyderabad regions"
+  ],
+  "limits": [
+   "Higher cost than plain RDS at small scale",
+   "AWS lock-in"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 4,
+   "cost": 2,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "relational",
+   "managed",
+   "multitenant"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/rds/aurora/",
+    "title": "Amazon Aurora",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Amazon DynamoDB",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript",
+   "python",
+   "java",
+   "go",
+   "csharp"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [3, 40] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    3,
+    40
+   ]
+  },
+  "strengths": [
+   "Single-digit-millisecond key-value access at any scale",
+   "Serverless capacity modes"
+  ],
+  "limits": [
+   "Access patterns must be designed up front",
+   "No ad-hoc relational queries"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 3,
+   "sec": 5
+  },
+  "tags": [
+   "kv",
+   "serverless"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/dynamodb/",
+    "title": "Amazon DynamoDB",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Amazon RDS for PostgreSQL",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [15, 120] + per-1k-users [4, 30] USD/month",
+  "cost": {
+   "fixed": [
+    15,
+    120
+   ],
+   "per_1k_users": [
+    4,
+    30
+   ]
+  },
+  "strengths": [
+   "Managed PostgreSQL with automated backups and Multi-AZ option",
+   "Low operational burden for small teams"
+  ],
+  "limits": [
+   "Instance sizing is manual",
+   "AWS lock-in"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "relational",
+   "managed",
+   "multitenant"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/rds/postgresql/",
+    "title": "Amazon RDS for PostgreSQL",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Database for PostgreSQL",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [15, 130] + per-1k-users [4, 30] USD/month",
+  "cost": {
+   "fixed": [
+    15,
+    130
+   ],
+   "per_1k_users": [
+    4,
+    30
+   ]
+  },
+  "strengths": [
+   "Managed PostgreSQL flexible server in Azure regions including India"
+  ],
+  "limits": [
+   "Azure lock-in"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "relational",
+   "managed"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/postgresql/",
+    "title": "Azure Database for PostgreSQL",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure SQL Database",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql",
+   "csharp"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [5, 150] + per-1k-users [3, 30] USD/month",
+  "cost": {
+   "fixed": [
+    5,
+    150
+   ],
+   "per_1k_users": [
+    3,
+    30
+   ]
+  },
+  "strengths": [
+   "Managed SQL Server engine with Entra ID integration",
+   "Easy migration path from on-premises SQL Server"
+  ],
+  "limits": [
+   "Azure lock-in",
+   "Cost grows with DTU/vCore tier"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "relational",
+   "managed",
+   "dotnet",
+   "enterprise"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview",
+    "title": "Azure SQL Database",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "ClickHouse",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Column-store built for fast analytical queries over huge datasets"
+  ],
+  "limits": [
+   "Not a transactional store",
+   "Needs experienced operators"
+  ],
+  "ops_burden": 4,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 4,
+   "scale": 5,
+   "perf": 5,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "analytics",
+   "columnar"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://clickhouse.com/docs/en/intro",
+    "title": "ClickHouse intro",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "CouchDB",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Built-in multi-master replication, a natural fit for offline-first sync with PouchDB"
+  ],
+  "limits": [
+   "You operate and secure it yourself",
+   "Fewer managed offerings"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 4,
+   "scale": 3,
+   "perf": 3,
+   "maint": 3,
+   "sec": 3
+  },
+  "tags": [
+   "document",
+   "offline_sync"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.couchdb.org/en/stable/intro/overview.html",
+    "title": "CouchDB overview",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Firestore",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript",
+   "python",
+   "kotlin",
+   "java",
+   "dart"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [0, 25] + per-1k-users [2, 25] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    25
+   ],
+   "per_1k_users": [
+    2,
+    25
+   ]
+  },
+  "strengths": [
+   "Offline persistence and automatic sync in the mobile SDKs",
+   "Mumbai (asia-south1) and EU multi-region locations available"
+  ],
+  "limits": [
+   "Limited querying (no joins/aggregations at scale)",
+   "Per-operation pricing can surprise write-heavy workloads"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "document",
+   "offline_sync",
+   "realtime",
+   "mobile"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://firebase.google.com/docs/firestore/locations",
+    "title": "Firestore locations",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Cloud SQL for PostgreSQL",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [10, 120] + per-1k-users [4, 30] USD/month",
+  "cost": {
+   "fixed": [
+    10,
+    120
+   ],
+   "per_1k_users": [
+    4,
+    30
+   ]
+  },
+  "strengths": [
+   "Managed PostgreSQL in Mumbai (asia-south1) and Delhi (asia-south2)",
+   "Simple pairing with Cloud Run"
+  ],
+  "limits": [
+   "GCP lock-in",
+   "Instance sizing is manual"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "relational",
+   "managed",
+   "multitenant"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/sql/docs/postgres",
+    "title": "Cloud SQL for PostgreSQL",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Microsoft SQL Server",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql",
+   "csharp"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Deep .NET and Microsoft ecosystem integration",
+   "Mature tooling, reporting and security features"
+  ],
+  "limits": [
+   "Licensing cost unless existing licences are reused",
+   "Linux/container operations less common"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 4,
+   "cost": 2,
+   "scale": 5,
+   "perf": 4,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "relational",
+   "dotnet",
+   "enterprise"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022",
+    "title": "SQL Server docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "MongoDB Atlas",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript",
+   "python",
+   "java"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 60] + per-1k-users [5, 40] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    60
+   ],
+   "per_1k_users": [
+    5,
+    40
+   ]
+  },
+  "strengths": [
+   "Flexible document model with managed clusters on AWS, Azure and GCP",
+   "Atlas Search built in"
+  ],
+  "limits": [
+   "Joins/transactions are weaker than relational",
+   "Costs rise quickly with dedicated clusters"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "document"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.mongodb.com/docs/atlas/reference/amazon-aws/",
+    "title": "Atlas on AWS regions",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "MySQL",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Widely known relational database with a huge hosting ecosystem"
+  ],
+  "limits": [
+   "Fewer advanced features than PostgreSQL",
+   "Licence/edition nuances"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "relational"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://dev.mysql.com/doc/",
+    "title": "MySQL Community Edition",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "PostgreSQL",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Robust relational engine with JSONB, full-text search, extensions (PostGIS, pgvector)",
+   "No licence cost; every cloud offers it managed"
+  ],
+  "limits": [
+   "Self-managed means you own patching, backups and failover",
+   "Vertical scaling first; sharding is complex"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 4,
+   "perf": 4,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "relational",
+   "fts",
+   "json",
+   "multitenant"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.postgresql.org/about/",
+    "title": "About PostgreSQL",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "SQLite",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Zero-ops single-file database with FTS5 search",
+   "Excellent for prototypes, small internal tools and local-first apps"
+  ],
+  "limits": [
+   "Single writer; not for concurrent multi-server writes",
+   "Backups/replication are your job"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 2,
+   "perf": 4,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "embedded",
+   "small"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.sqlite.org/about.html",
+    "title": "About SQLite",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Supabase Postgres",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql",
+   "javascript",
+   "typescript"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 60] + per-1k-users [3, 25] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    60
+   ],
+   "per_1k_users": [
+    3,
+    25
+   ]
+  },
+  "strengths": [
+   "Managed PostgreSQL with Mumbai and Frankfurt/Ireland regions",
+   "Row-level security supports multi-tenancy"
+  ],
+  "limits": [
+   "Smaller operator than hyperscalers; plan limits apply",
+   "Scaling beyond mid-size needs higher tiers"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 3,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "relational",
+   "managed",
+   "multitenant",
+   "realtime"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://supabase.com/docs/guides/platform/regions",
+    "title": "Supabase regions",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "TimescaleDB",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "PostgreSQL extension tuned for time-series ingestion and queries"
+  ],
+  "limits": [
+   "Operational burden of self-hosting",
+   "Requires PostgreSQL skills"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": true,
+  "ratings": {
+   "ttm": 3,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "timeseries",
+   "relational",
+   "iot"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.timescale.com/",
+    "title": "Timescale docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ }
+]

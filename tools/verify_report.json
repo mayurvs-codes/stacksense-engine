@@ -1,0 +1,863 @@
+[
+ {
+  "url": "https://ably.com/docs",
+  "status": 200,
+  "title": "Docs | Ably Realtime",
+  "bytes": 199998,
+  "final": "https://ably.com/docs"
+ },
+ {
+  "url": "https://angular.dev/overview",
+  "status": 200,
+  "title": "What is Angular? \u2022 Angular",
+  "bytes": 199881,
+  "final": "https://angular.dev/overview"
+ },
+ {
+  "url": "https://auth0.com/docs",
+  "status": 200,
+  "title": "Auth0 Docs - Auth0 Docs",
+  "bytes": 199984,
+  "final": "https://auth0.com/docs"
+ },
+ {
+  "url": "https://aws.amazon.com/cloudfront/",
+  "status": 200,
+  "title": "Low-Latency Content Delivery Network (CDN) - Amazon CloudFront - Amazon Web Services",
+  "bytes": 199984,
+  "final": "https://aws.amazon.com/cloudfront/"
+ },
+ {
+  "url": "https://aws.amazon.com/cognito/",
+  "status": 200,
+  "title": "Amazon Cognito - Customer Identity and Access Management - Machine Identity and Access Man",
+  "bytes": 199984,
+  "final": "https://aws.amazon.com/cognito/"
+ },
+ {
+  "url": "https://aws.amazon.com/dynamodb/",
+  "status": 200,
+  "title": "Fast NoSQL Key-Value Database \u2013 Amazon DynamoDB \u2013 AWS",
+  "bytes": 199980,
+  "final": "https://aws.amazon.com/dynamodb/"
+ },
+ {
+  "url": "https://aws.amazon.com/ec2/",
+  "status": 200,
+  "title": "Secure and resizable cloud compute \u2013 Amazon EC2 \u2013 Amazon Web Services",
+  "bytes": 199980,
+  "final": "https://aws.amazon.com/ec2/"
+ },
+ {
+  "url": "https://aws.amazon.com/elasticache/",
+  "status": 200,
+  "title": "Valkey-, Memcached-, and Redis OSS-Compatible Cache \u2013 Amazon ElastiCache \u2013 AWS",
+  "bytes": 199978,
+  "final": "https://aws.amazon.com/elasticache/"
+ },
+ {
+  "url": "https://aws.amazon.com/fargate/",
+  "status": 200,
+  "title": "Serverless Compute Engine \u2013 AWS Fargate \u2013 AWS",
+  "bytes": 199980,
+  "final": "https://aws.amazon.com/fargate/"
+ },
+ {
+  "url": "https://aws.amazon.com/lambda/",
+  "status": 200,
+  "title": "Serverless Computing - AWS Lambda - Amazon Web Services",
+  "bytes": 199984,
+  "final": "https://aws.amazon.com/lambda/"
+ },
+ {
+  "url": "https://aws.amazon.com/rds/aurora/",
+  "status": 200,
+  "title": "Relational Database \u2013 Amazon Aurora MySQL PostgreSQL \u2013 AWS",
+  "bytes": 199980,
+  "final": "https://aws.amazon.com/rds/aurora/"
+ },
+ {
+  "url": "https://aws.amazon.com/rds/postgresql/",
+  "status": 200,
+  "title": "Hosted PostgreSQL - Amazon RDS for PostgreSQL - AWS",
+  "bytes": 199984,
+  "final": "https://aws.amazon.com/rds/postgresql/"
+ },
+ {
+  "url": "https://aws.amazon.com/s3/",
+  "status": 200,
+  "title": "Cloud Object Storage \u2013 Amazon S3 \u2013 Amazon Web Services",
+  "bytes": 199980,
+  "final": "https://aws.amazon.com/s3/"
+ },
+ {
+  "url": "https://aws.amazon.com/sagemaker/",
+  "status": 200,
+  "title": "The center for all your data, analytics, and AI \u2013 Amazon SageMaker \u2013 AWS",
+  "bytes": 199976,
+  "final": "https://aws.amazon.com/sagemaker/"
+ },
+ {
+  "url": "https://aws.amazon.com/sqs/",
+  "status": 200,
+  "title": "Fully Managed Message Queuing \u2013 Amazon Simple Queue Service \u2013 Amazon Web Services",
+  "bytes": 199980,
+  "final": "https://aws.amazon.com/sqs/"
+ },
+ {
+  "url": "https://centrifugal.dev/docs/getting-started/introduction",
+  "status": 200,
+  "title": "Centrifugo introduction | Centrifugo",
+  "bytes": 112267,
+  "final": "https://centrifugal.dev/docs/getting-started/introduction"
+ },
+ {
+  "url": "https://clickhouse.com/docs/en/intro",
+  "status": 200,
+  "title": "What is ClickHouse? - ClickHouse Documentation",
+  "bytes": 199590,
+  "final": "https://clickhouse.com/docs/get-started/about/intro"
+ },
+ {
+  "url": "https://cloud.google.com/build/docs/overview",
+  "status": 200,
+  "title": "Overview of Cloud Build &nbsp;|&nbsp; Google Cloud Documentation",
+  "bytes": 172291,
+  "final": "https://docs.cloud.google.com/build/docs/overview"
+ },
+ {
+  "url": "https://cloud.google.com/cdn/docs/overview",
+  "status": 200,
+  "title": "Cloud CDN overview &nbsp;|&nbsp; Google Cloud Documentation",
+  "bytes": 147775,
+  "final": "https://docs.cloud.google.com/cdn/docs/overview"
+ },
+ {
+  "url": "https://cloud.google.com/memorystore/docs",
+  "status": 200,
+  "title": "Memorystore &nbsp;|&nbsp; Google Cloud Documentation",
+  "bytes": 199953,
+  "final": "https://docs.cloud.google.com/memorystore/docs"
+ },
+ {
+  "url": "https://cloud.google.com/products/operations",
+  "status": 200,
+  "title": "Observability: cloud monitoring and logging | Google Cloud",
+  "bytes": 199967,
+  "final": "https://cloud.google.com/products/observability"
+ },
+ {
+  "url": "https://cloud.google.com/pubsub/docs/overview",
+  "status": 200,
+  "title": "What is Pub/Sub? &nbsp;|&nbsp; Google Cloud Documentation",
+  "bytes": 165872,
+  "final": "https://docs.cloud.google.com/pubsub/docs/overview"
+ },
+ {
+  "url": "https://cloud.google.com/run/docs/overview/what-is-cloud-run",
+  "status": 200,
+  "title": "What is Cloud Run &nbsp;|&nbsp; Google Cloud Documentation",
+  "bytes": 199949,
+  "final": "https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run"
+ },
+ {
+  "url": "https://cloud.google.com/sql/docs/postgres",
+  "status": 200,
+  "title": "Cloud SQL for Postgre&#8288;SQL documentation &nbsp;|&nbsp; Cloud SQL for PostgreSQL &nbsp",
+  "bytes": 199953,
+  "final": "https://docs.cloud.google.com/sql/docs/postgres"
+ },
+ {
+  "url": "https://cloud.google.com/storage/docs/introduction",
+  "status": 200,
+  "title": "Cloud Storage overview &nbsp;|&nbsp; Google Cloud Documentation",
+  "bytes": 199953,
+  "final": "https://docs.cloud.google.com/storage/docs/introduction"
+ },
+ {
+  "url": "https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform",
+  "status": 200,
+  "title": "Introduction to machine learning on Gemini Enterprise Agent Platform &nbsp;|&nbsp; Google ",
+  "bytes": 199955,
+  "final": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/machine-learning"
+ },
+ {
+  "url": "https://dev.mysql.com/doc/",
+  "status": 0,
+  "title": "HTTPError: HTTP Error 403: Forbidden",
+  "bytes": 0,
+  "final": ""
+ },
+ {
+  "url": "https://develop.sentry.dev/self-hosted/",
+  "status": 200,
+  "title": "Self-Hosted Sentry | Sentry Docs",
+  "bytes": 199960,
+  "final": "https://develop.sentry.dev/self-hosted/"
+ },
+ {
+  "url": "https://developer.android.com/compose",
+  "status": 200,
+  "title": "Jetpack Compose UI App Development Toolkit - Android Developers",
+  "bytes": 199814,
+  "final": "https://developer.android.com/compose"
+ },
+ {
+  "url": "https://developer.apple.com/swiftui/",
+  "status": 200,
+  "title": "SwiftUI - Apple Developer",
+  "bytes": 115874,
+  "final": "https://developer.apple.com/swiftui/"
+ },
+ {
+  "url": "https://developers.cloudflare.com/cache/",
+  "status": 200,
+  "title": "Cloudflare Cache \u00b7 Cloudflare Cache (CDN) docs",
+  "bytes": 140640,
+  "final": "https://developers.cloudflare.com/cache/"
+ },
+ {
+  "url": "https://developers.cloudflare.com/pages/",
+  "status": 200,
+  "title": "Overview \u00b7 Cloudflare Pages docs",
+  "bytes": 136803,
+  "final": "https://developers.cloudflare.com/pages/"
+ },
+ {
+  "url": "https://developers.cloudflare.com/r2/",
+  "status": 200,
+  "title": "Overview \u00b7 Cloudflare R2 docs",
+  "bytes": 131067,
+  "final": "https://developers.cloudflare.com/r2/"
+ },
+ {
+  "url": "https://docs.adyen.com/",
+  "status": 200,
+  "title": "Home | Adyen Docs",
+  "bytes": 200000,
+  "final": "https://docs.adyen.com/"
+ },
+ {
+  "url": "https://docs.astro.build/en/concepts/why-astro/",
+  "status": 200,
+  "title": "Why Astro? | Docs",
+  "bytes": 159930,
+  "final": "https://docs.astro.build/en/concepts/why-astro/"
+ },
+ {
+  "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",
+  "status": 200,
+  "title": "What is Amazon CloudWatch? - Amazon CloudWatch",
+  "bytes": 30223,
+  "final": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html"
+ },
+ {
+  "url": "https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html",
+  "status": 200,
+  "title": "Welcome to AWS Amplify Hosting - AWS Amplify Hosting",
+  "bytes": 17480,
+  "final": "https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html"
+ },
+ {
+  "url": "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html",
+  "status": 200,
+  "title": "What is AWS CodePipeline? - AWS CodePipeline",
+  "bytes": 12443,
+  "final": "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html"
+ },
+ {
+  "url": "https://docs.bullmq.io/",
+  "status": 200,
+  "title": "What is BullMQ | BullMQ",
+  "bytes": 104953,
+  "final": "https://docs.bullmq.io/"
+ },
+ {
+  "url": "https://docs.cashfree.com/",
+  "status": 200,
+  "title": "Developer Documentation | Cashfree",
+  "bytes": 199996,
+  "final": "https://www.cashfree.com:443/docs"
+ },
+ {
+  "url": "https://docs.cloud.google.com/compute/docs/regions-zones",
+  "status": 200,
+  "title": "Regions and zones &nbsp;|&nbsp; Compute Engine &nbsp;|&nbsp; Google Cloud Documentation",
+  "bytes": 199953,
+  "final": "https://docs.cloud.google.com/compute/docs/regions-zones"
+ },
+ {
+  "url": "https://docs.couchdb.org/en/stable/intro/overview.html",
+  "status": 200,
+  "title": "1.1. Technical Overview &mdash; Apache CouchDB\u00ae 3.5 Documentation",
+  "bytes": 33103,
+  "final": "https://docs.couchdb.org/en/stable/intro/overview.html"
+ },
+ {
+  "url": "https://docs.datadoghq.com/",
+  "status": 200,
+  "title": "",
+  "bytes": 34335,
+  "final": "https://docs.datadoghq.com/"
+ },
+ {
+  "url": "https://docs.digitalocean.com/platform/regional-availability/",
+  "status": 200,
+  "title": "Regional Availability | DigitalOcean Documentation",
+  "bytes": 200000,
+  "final": "https://docs.digitalocean.com/platform/regional-availability/"
+ },
+ {
+  "url": "https://docs.djangoproject.com/en/stable/",
+  "status": 200,
+  "title": "Django documentation | Django documentation | Django",
+  "bytes": 54556,
+  "final": "https://docs.djangoproject.com/en/6.1/"
+ },
+ {
+  "url": "https://docs.docker.com/compose/",
+  "status": 200,
+  "title": "Docker Compose | Docker Docs",
+  "bytes": 199998,
+  "final": "https://docs.docker.com/compose/"
+ },
+ {
+  "url": "https://docs.expo.dev/",
+  "status": 200,
+  "title": "Expo documentation",
+  "bytes": 199993,
+  "final": "https://docs.expo.dev/"
+ },
+ {
+  "url": "https://docs.flutter.dev/",
+  "status": 200,
+  "title": "Flutter documentation",
+  "bytes": 135013,
+  "final": "https://docs.flutter.dev/"
+ },
+ {
+  "url": "https://docs.github.com/en/actions",
+  "status": 200,
+  "title": "GitHub Actions documentation - GitHub Docs",
+  "bytes": 200000,
+  "final": "https://docs.github.com/en/actions"
+ },
+ {
+  "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages",
+  "status": 200,
+  "title": "What is GitHub Pages? - GitHub Docs",
+  "bytes": 93836,
+  "final": "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+ },
+ {
+  "url": "https://docs.gitlab.com/ee/ci/",
+  "status": 200,
+  "title": "Get started with GitLab CI/CD | GitLab Docs",
+  "bytes": 41403,
+  "final": "https://docs.gitlab.com/ci/"
+ },
+ {
+  "url": "https://docs.k3s.io/",
+  "status": 200,
+  "title": "K3s - Lightweight Kubernetes | K3s",
+  "bytes": 21433,
+  "final": "https://docs.k3s.io/"
+ },
+ {
+  "url": "https://docs.nestjs.com/",
+  "status": 200,
+  "title": "Documentation | NestJS - A progressive Node.js framework",
+  "bytes": 179766,
+  "final": "https://docs.nestjs.com/"
+ },
+ {
+  "url": "https://docs.netlify.com/",
+  "status": 200,
+  "title": "Netlify Documentation | Netlify Docs",
+  "bytes": 199994,
+  "final": "https://docs.netlify.com/"
+ },
+ {
+  "url": "https://docs.payu.in/",
+  "status": 200,
+  "title": "PayU Developer Documentation Portal",
+  "bytes": 199996,
+  "final": "https://docs.payu.in/"
+ },
+ {
+  "url": "https://docs.rs/axum/latest/axum/",
+  "status": 200,
+  "title": "axum - Rust",
+  "bytes": 118438,
+  "final": "https://docs.rs/axum/latest/axum/"
+ },
+ {
+  "url": "https://docs.sentry.io/",
+  "status": 200,
+  "title": "Sentry Docs | Application Performance Monitoring &amp; Error Tracking Software",
+  "bytes": 183475,
+  "final": "https://docs.sentry.io/"
+ },
+ {
+  "url": "https://docs.stripe.com/",
+  "status": 200,
+  "title": "Stripe Documentation",
+  "bytes": 188762,
+  "final": "https://docs.stripe.com/"
+ },
+ {
+  "url": "https://docs.timescale.com/",
+  "status": 200,
+  "title": "Tiger Data Documentation | Tiger Data Docs",
+  "bytes": 199968,
+  "final": "https://www.tigerdata.com/docs"
+ },
+ {
+  "url": "https://docs.yjs.dev/",
+  "status": 200,
+  "title": "Introduction | Yjs Docs",
+  "bytes": 199975,
+  "final": "https://docs.yjs.dev/"
+ },
+ {
+  "url": "https://expressjs.com/",
+  "status": 200,
+  "title": "Express.js \u00b7 Node.js web application framework",
+  "bytes": 88838,
+  "final": "https://expressjs.com/"
+ },
+ {
+  "url": "https://fastapi.tiangolo.com/",
+  "status": 200,
+  "title": "FastAPI - FastAPI",
+  "bytes": 155144,
+  "final": "https://fastapi.tiangolo.com/"
+ },
+ {
+  "url": "https://firebase.google.com/docs/auth",
+  "status": 200,
+  "title": "Firebase Authentication",
+  "bytes": 199895,
+  "final": "https://firebase.google.com/docs/auth"
+ },
+ {
+  "url": "https://firebase.google.com/docs/firestore/locations",
+  "status": 200,
+  "title": "Cloud Firestore locations &nbsp;|&nbsp; Firebase",
+  "bytes": 199895,
+  "final": "https://firebase.google.com/docs/firestore/locations"
+ },
+ {
+  "url": "https://gin-gonic.com/",
+  "status": 200,
+  "title": "Gin Web Framework | Gin Web Framework",
+  "bytes": 31133,
+  "final": "https://gin-gonic.com/"
+ },
+ {
+  "url": "https://github.com/ollama/ollama",
+  "status": 200,
+  "title": "GitHub - ollama/ollama: Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwe",
+  "bytes": 199990,
+  "final": "https://github.com/ollama/ollama"
+ },
+ {
+  "url": "https://github.com/pgvector/pgvector",
+  "status": 200,
+  "title": "GitHub - pgvector/pgvector: Open-source vector similarity search for Postgres \u00b7 GitHub",
+  "bytes": 199987,
+  "final": "https://github.com/pgvector/pgvector"
+ },
+ {
+  "url": "https://github.com/seaweedfs/seaweedfs",
+  "status": 200,
+  "title": "GitHub - seaweedfs/seaweedfs: SeaweedFS is a distributed storage system for object storage",
+  "bytes": 199990,
+  "final": "https://github.com/seaweedfs/seaweedfs"
+ },
+ {
+  "url": "https://grafana.com/docs/grafana/latest/",
+  "status": 200,
+  "title": "Grafana OSS and Enterprise | Grafana documentation",
+  "bytes": 199986,
+  "final": "https://grafana.com/docs/grafana/latest/"
+ },
+ {
+  "url": "https://guides.rubyonrails.org/",
+  "status": 200,
+  "title": "Ruby on Rails Guides",
+  "bytes": 41362,
+  "final": "https://guides.rubyonrails.org/"
+ },
+ {
+  "url": "https://htmx.org/docs/",
+  "status": 200,
+  "title": "&lt;/&gt; htmx ~ Documentation",
+  "bytes": 170350,
+  "final": "https://htmx.org/docs/"
+ },
+ {
+  "url": "https://kafka.apache.org/documentation/",
+  "status": 200,
+  "title": "Documentation Redirect | Apache Kafka",
+  "bytes": 20074,
+  "final": "https://kafka.apache.org/documentation/"
+ },
+ {
+  "url": "https://ktor.io/docs/welcome.html",
+  "status": 200,
+  "title": "Welcome | Ktor Documentation",
+  "bytes": 3562,
+  "final": "https://ktor.io/docs/welcome.html"
+ },
+ {
+  "url": "https://laravel.com/docs",
+  "status": 200,
+  "title": "Installation | Laravel 13.x - The clean stack for Artisans and agents",
+  "bytes": 184348,
+  "final": "https://laravel.com/framework/docs"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/",
+  "status": 200,
+  "title": "ASP.NET Core Blazor | Microsoft Learn",
+  "bytes": 69107,
+  "final": "https://learn.microsoft.com/en-us/aspnet/core/blazor/?view=aspnetcore-10.0"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core",
+  "status": 200,
+  "title": "Overview of ASP.NET Core | Microsoft Learn",
+  "bytes": 62248,
+  "final": "https://learn.microsoft.com/en-us/aspnet/core/overview?view=aspnetcore-10.0"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity",
+  "status": 200,
+  "title": "Introduction to Identity on ASP.NET Core | Microsoft Learn",
+  "bytes": 159018,
+  "final": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-10.0"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
+  "status": 200,
+  "title": "Overview of Azure App Service - Azure App Service | Microsoft Learn",
+  "bytes": 54861,
+  "final": "https://learn.microsoft.com/en-us/azure/app-service/overview"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
+  "status": 200,
+  "title": "Azure Monitor overview - Azure Monitor | Microsoft Learn",
+  "bytes": 57553,
+  "final": "https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/overview"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview",
+  "status": 200,
+  "title": "What is the Azure SQL Database service? - Azure SQL Database | Microsoft Learn",
+  "bytes": 89599,
+  "final": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview?view=azuresql"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/container-apps/overview",
+  "status": 200,
+  "title": "Azure Container Apps overview | Microsoft Learn",
+  "bytes": 52090,
+  "final": "https://learn.microsoft.com/en-us/azure/container-apps/overview"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines",
+  "status": 200,
+  "title": "What is Azure Pipelines? - Azure Pipelines | Microsoft Learn",
+  "bytes": 59981,
+  "final": "https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview",
+  "status": 200,
+  "title": "Azure Front Door Overview | Microsoft Learn",
+  "bytes": 57148,
+  "final": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-machine-learning",
+  "status": 200,
+  "title": "What is Azure Machine Learning? - Azure Machine Learning | Microsoft Learn",
+  "bytes": 66750,
+  "final": "https://learn.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/postgresql/",
+  "status": 200,
+  "title": "Azure Database for PostgreSQL documentation landing page | Microsoft Learn",
+  "bytes": 55905,
+  "final": "https://learn.microsoft.com/en-us/azure/postgresql/"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview",
+  "status": 200,
+  "title": "Introduction to Azure Service Bus Messaging - Azure Service Bus | Microsoft Learn",
+  "bytes": 67772,
+  "final": "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/static-web-apps/overview",
+  "status": 200,
+  "title": "What is Azure Static Web Apps? | Microsoft Learn",
+  "bytes": 51701,
+  "final": "https://learn.microsoft.com/en-us/azure/static-web-apps/overview"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction",
+  "status": 200,
+  "title": "Introduction to Blob (object) Storage - Azure Storage | Microsoft Learn",
+  "bytes": 59561,
+  "final": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview",
+  "status": 200,
+  "title": "Overview of virtual machines in Azure - Azure Virtual Machines | Microsoft Learn",
+  "bytes": 72846,
+  "final": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
+  "status": 200,
+  "title": "What is Microsoft Entra? - Microsoft Entra | Microsoft Learn",
+  "bytes": 58940,
+  "final": "https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022",
+  "status": 200,
+  "title": "What&#39;s New in SQL Server 2022 - SQL Server | Microsoft Learn",
+  "bytes": 93888,
+  "final": "https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022?view=sql-server-ver17"
+ },
+ {
+  "url": "https://nextjs.org/docs",
+  "status": 200,
+  "title": "Next.js Docs",
+  "bytes": 199980,
+  "final": "https://nextjs.org/docs"
+ },
+ {
+  "url": "https://nginx.org/en/docs/",
+  "status": 200,
+  "title": "nginx documentation",
+  "bytes": 14042,
+  "final": "https://nginx.org/en/docs/"
+ },
+ {
+  "url": "https://nuxt.com/docs",
+  "status": 200,
+  "title": "Introduction \u00b7 Get Started with Nuxt v4",
+  "bytes": 199991,
+  "final": "https://nuxt.com/docs/4.x/getting-started/introduction"
+ },
+ {
+  "url": "https://onnxruntime.ai/docs/",
+  "status": 200,
+  "title": "ONNX Runtime | onnxruntime",
+  "bytes": 41924,
+  "final": "https://onnxruntime.ai/docs/"
+ },
+ {
+  "url": "https://opensearch.org/docs/latest/",
+  "status": 200,
+  "title": "OpenSearch documentation and user guides | OpenSearch Documentation",
+  "bytes": 55270,
+  "final": "https://docs.opensearch.org/latest/"
+ },
+ {
+  "url": "https://prometheus.io/docs/introduction/overview/",
+  "status": 200,
+  "title": "Overview | Prometheus",
+  "bytes": 173164,
+  "final": "https://prometheus.io/docs/introduction/overview/"
+ },
+ {
+  "url": "https://pusher.com/docs/channels/",
+  "status": 200,
+  "title": "Pusher Channels Docs",
+  "bytes": 62730,
+  "final": "https://pusher.com/docs/channels/"
+ },
+ {
+  "url": "https://qdrant.tech/documentation/",
+  "status": 200,
+  "title": "Documentation - Qdrant",
+  "bytes": 69113,
+  "final": "https://qdrant.tech/documentation/"
+ },
+ {
+  "url": "https://razorpay.com/docs/",
+  "status": 200,
+  "title": "Razorpay Developer Documentation \u2014 API Guides, SDKs &amp; Quickstarts",
+  "bytes": 199595,
+  "final": "https://razorpay.com/docs/home"
+ },
+ {
+  "url": "https://react.dev/",
+  "status": 200,
+  "title": "React",
+  "bytes": 199979,
+  "final": "https://react.dev/"
+ },
+ {
+  "url": "https://redis.io/docs/latest/",
+  "status": 200,
+  "title": "Docs",
+  "bytes": 121384,
+  "final": "https://redis.io/docs/latest/"
+ },
+ {
+  "url": "https://render.com/docs/regions",
+  "status": 200,
+  "title": "Regions \u2013 Render Docs",
+  "bytes": 199970,
+  "final": "https://render.com/docs/regions"
+ },
+ {
+  "url": "https://scikit-learn.org/stable/",
+  "status": 200,
+  "title": "scikit-learn: machine learning in Python &#8212; scikit-learn 1.9.1 documentation",
+  "bytes": 35901,
+  "final": "https://scikit-learn.org/stable/"
+ },
+ {
+  "url": "https://socket.io/docs/v4/",
+  "status": 200,
+  "title": "Introduction | Socket.IO",
+  "bytes": 65603,
+  "final": "https://socket.io/docs/v4/"
+ },
+ {
+  "url": "https://spring.io/projects/spring-boot",
+  "status": 200,
+  "title": "",
+  "bytes": 200000,
+  "final": "https://spring.io/projects/spring-boot/"
+ },
+ {
+  "url": "https://supabase.com/docs/guides/platform/regions",
+  "status": 200,
+  "title": "Available regions | Supabase Docs",
+  "bytes": 144854,
+  "final": "https://supabase.com/docs/guides/platform/regions"
+ },
+ {
+  "url": "https://svelte.dev/docs/kit",
+  "status": 200,
+  "title": "Introduction \u2022 SvelteKit Docs",
+  "bytes": 75988,
+  "final": "https://svelte.dev/docs/kit/introduction"
+ },
+ {
+  "url": "https://tauri.app/start/",
+  "status": 200,
+  "title": "What is Tauri? | Tauri",
+  "bytes": 94020,
+  "final": "https://tauri.app/start/"
+ },
+ {
+  "url": "https://typesense.org/docs/",
+  "status": 200,
+  "title": "Typesense Documentation | Typesense",
+  "bytes": 102715,
+  "final": "https://typesense.org/docs/"
+ },
+ {
+  "url": "https://valkey.io/",
+  "status": 200,
+  "title": "Valkey",
+  "bytes": 57630,
+  "final": "https://valkey.io/"
+ },
+ {
+  "url": "https://vercel.com/docs/regions",
+  "status": 200,
+  "title": "Global network and regions",
+  "bytes": 199976,
+  "final": "https://vercel.com/docs/regions"
+ },
+ {
+  "url": "https://vite.dev/guide/",
+  "status": 200,
+  "title": "Getting Started | Vite",
+  "bytes": 89766,
+  "final": "https://vite.dev/guide/"
+ },
+ {
+  "url": "https://www.11ty.dev/docs/",
+  "status": 200,
+  "title": "Getting Started \u2014 Eleventy",
+  "bytes": 199233,
+  "final": "https://www.11ty.dev/docs/"
+ },
+ {
+  "url": "https://www.algolia.com/doc/",
+  "status": 200,
+  "title": "Algolia documentation | Search API guides, SDK and developer docs - Algolia",
+  "bytes": 199998,
+  "final": "https://www.algolia.com/doc"
+ },
+ {
+  "url": "https://www.electronjs.org/docs/latest/",
+  "status": 200,
+  "title": "Introduction | Electron",
+  "bytes": 64296,
+  "final": "https://www.electronjs.org/docs/latest/"
+ },
+ {
+  "url": "https://www.jenkins.io/doc/",
+  "status": 200,
+  "title": "Jenkins User Documentation",
+  "bytes": 12039,
+  "final": "https://www.jenkins.io/doc/"
+ },
+ {
+  "url": "https://www.keycloak.org/documentation",
+  "status": 200,
+  "title": "Documentation - Keycloak",
+  "bytes": 8052,
+  "final": "https://www.keycloak.org/documentation"
+ },
+ {
+  "url": "https://www.meilisearch.com/docs",
+  "status": 200,
+  "title": "Welcome to Meilisearch - Meilisearch Documentation",
+  "bytes": 199966,
+  "final": "https://www.meilisearch.com/docs/getting_started/overview"
+ },
+ {
+  "url": "https://www.mongodb.com/docs/atlas/reference/amazon-aws/",
+  "status": 200,
+  "title": "Amazon Web Services (AWS) - Atlas - MongoDB Docs",
+  "bytes": 200000,
+  "final": "https://www.mongodb.com/docs/atlas/reference/amazon-aws/"
+ },
+ {
+  "url": "https://www.postgresql.org/about/",
+  "status": 200,
+  "title": "PostgreSQL: About",
+  "bytes": 17107,
+  "final": "https://www.postgresql.org/about/"
+ },
+ {
+  "url": "https://www.rabbitmq.com/docs",
+  "status": 200,
+  "title": "RabbitMQ Documentation | RabbitMQ",
+  "bytes": 22288,
+  "final": "https://www.rabbitmq.com/docs"
+ },
+ {
+  "url": "https://www.sqlite.org/about.html",
+  "status": 200,
+  "title": "About SQLite",
+  "bytes": 9204,
+  "final": "https://www.sqlite.org/about.html"
+ }
+]

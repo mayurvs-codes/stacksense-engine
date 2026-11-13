@@ -1,0 +1,689 @@
+[
+ {
+  "name": "ASP.NET Core",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "csharp"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "High-performance, cross-platform framework with first-class Entra ID and SQL Server support",
+   "Strong tooling and typed end-to-end"
+  ],
+  "limits": [
+   "Smaller open-source ecosystem than Java/JS",
+   "Licensing/hosting choices bias toward Microsoft stack"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 5,
+   "perf": 5,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "enterprise",
+   "api",
+   "dotnet"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "dotnet"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core",
+    "title": "ASP.NET Core",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Axum",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "rust"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Memory-safe, very high performance Rust web framework"
+  ],
+  "limits": [
+   "Steep learning curve and slower iteration",
+   "Small hiring pool"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 5,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "api",
+   "perf"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "rust"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.rs/axum/latest/axum/",
+    "title": "Axum docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Django",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "python"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Batteries-included: ORM, auth, admin, migrations",
+   "Long track record and stable release cadence"
+  ],
+  "limits": [
+   "Monolithic conventions",
+   "Real-time features need Channels/ASGI add-ons"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 4,
+   "perf": 3,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "fullstack",
+   "admin"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "python"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 2000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.djangoproject.com/en/stable/",
+    "title": "Django docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Express",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Minimal and ubiquitous Node web framework",
+   "Largest tutorial and middleware ecosystem"
+  ],
+  "limits": [
+   "No enforced structure; security middleware is your job",
+   "Maintenance burden grows with the codebase"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 3,
+   "maint": 3,
+   "sec": 3
+  },
+  "tags": [
+   "api",
+   "simple",
+   "realtime_ok"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "node"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://expressjs.com/",
+    "title": "Express",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "FastAPI",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "python"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Fast to build typed REST APIs with automatic OpenAPI docs",
+   "Natural fit when ML models are in Python"
+  ],
+  "limits": [
+   "Async ecosystem needs care",
+   "Fewer batteries (admin, ORM) than Django"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "api",
+   "ml_friendly"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "python"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 2000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://fastapi.tiangolo.com/",
+    "title": "FastAPI",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Go (Gin)",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "go"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Very low latency and memory use; single static binary",
+   "Excellent concurrency for websocket/realtime servers"
+  ],
+  "limits": [
+   "More boilerplate than dynamic frameworks",
+   "Smaller batteries-included ecosystem"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 5,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "api",
+   "realtime_ok",
+   "perf"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "go"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://gin-gonic.com/",
+    "title": "Gin docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Ktor",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "kotlin"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Lightweight Kotlin server framework with coroutines"
+  ],
+  "limits": [
+   "Smaller ecosystem than Spring",
+   "Fewer ready-made enterprise modules"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "api",
+   "kotlin"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "java"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://ktor.io/docs/welcome.html",
+    "title": "Ktor docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Laravel",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "php"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Rapid development with auth, queues and ORM built in",
+   "Excellent documentation"
+  ],
+  "limits": [
+   "PHP runtime scaling needs care",
+   "Fewer fintech/ML libraries"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 3,
+   "perf": 3,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "fullstack",
+   "admin"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "php"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://laravel.com/docs",
+    "title": "Laravel docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "NestJS",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "typescript",
+   "javascript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Structured TypeScript architecture with modules and dependency injection",
+   "First-class WebSocket gateways"
+  ],
+  "limits": [
+   "Opinionated and verbose for tiny services",
+   "Node single-thread limits for CPU-bound work"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "api",
+   "enterprise",
+   "realtime_ok"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "node"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 3000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.nestjs.com/",
+    "title": "NestJS docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Ruby on Rails",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "ruby"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Convention-over-configuration speed for CRUD products"
+  ],
+  "limits": [
+   "Throughput limits at very high scale",
+   "Shrinking talent pool"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 3,
+   "perf": 3,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "fullstack",
+   "admin"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "ruby"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://guides.rubyonrails.org/",
+    "title": "Rails Guides",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Spring Boot",
+  "layer": "backend",
+  "lifecycle_status": "active",
+  "languages": [
+   "java",
+   "kotlin"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Mature, security-oriented enterprise framework with huge library support",
+   "Strong transactions and observability integrations"
+  ],
+  "limits": [
+   "Heavier memory/startup footprint",
+   "Steeper learning curve and more boilerplate"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "enterprise",
+   "fintech_ok",
+   "api"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "java"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://spring.io/projects/spring-boot",
+    "title": "Spring Boot",
+    "accessed": "2026-11-13"
+   }
+  ]
+ }
+]

@@ -1,0 +1,968 @@
+[
+ {
+  "name": "Angular",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Opinionated, batteries-included structure that scales across large teams",
+   "Strong typing and long-term support cadence"
+  ],
+  "limits": [
+   "Steeper learning curve",
+   "Heavier for small sites"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "spa",
+   "enterprise"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://angular.dev/overview",
+    "title": "Angular overview",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Astro",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Pre-renders pages to static HTML with minimal client JavaScript",
+   "Markdown/MDX content collections built in"
+  ],
+  "limits": [
+   "Highly interactive apps need islands/hydration",
+   "Not a full application framework"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 4,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "static",
+   "ssg",
+   "seo"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.astro.build/en/concepts/why-astro/",
+    "title": "Why Astro",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Blazor",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "csharp"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Full-stack C# for the UI, reusing .NET skills and libraries",
+   "Tight integration with ASP.NET Core and Entra ID"
+  ],
+  "limits": [
+   "Smaller ecosystem than JavaScript frameworks",
+   "Interactive server mode needs persistent connections"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 3,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "spa",
+   "dotnet",
+   "enterprise"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [
+   "dotnet"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/aspnet/core/blazor/",
+    "title": "Blazor overview",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Electron",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Desktop apps from web skills",
+   "Mature packaging and auto-update tooling"
+  ],
+  "limits": [
+   "Large memory and install footprint",
+   "Security hardening is your responsibility"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 3,
+   "perf": 3,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "desktop"
+  ],
+  "platforms": [
+   "desktop",
+   "web"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.electronjs.org/docs/latest/",
+    "title": "Electron docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Eleventy",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Very small learning curve: templates plus Markdown to static HTML",
+   "No client framework required"
+  ],
+  "limits": [
+   "Little built-in interactivity",
+   "Smaller ecosystem than React-based generators"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "static",
+   "ssg",
+   "seo",
+   "simple"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.11ty.dev/docs/",
+    "title": "Eleventy docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Flutter",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "dart"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "One codebase for Android, iOS, web and desktop",
+   "Consistent UI and good performance"
+  ],
+  "limits": [
+   "Requires Dart",
+   "Web output is weaker for SEO"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "mobile_cross",
+   "offline_ok"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "web",
+   "desktop"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.flutter.dev/",
+    "title": "Flutter docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "HTMX with server-rendered templates",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Server-side templates in the backend's own language with small client footprint",
+   "Great for internal tools and CRUD apps"
+  ],
+  "limits": [
+   "Rich client-side interactions need extra JavaScript",
+   "Offline and mobile use cases are out of scope"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 4,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "ssr",
+   "seo",
+   "simple",
+   "internal"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 2000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://htmx.org/docs/",
+    "title": "htmx docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Kotlin (Jetpack Compose)",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "kotlin",
+   "java"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Native Android performance and full platform API access",
+   "Strong offline storage options"
+  ],
+  "limits": [
+   "Android only",
+   "Separate codebase needed for iOS and web"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 4,
+   "scale": 4,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "mobile_native",
+   "offline_ok"
+  ],
+  "platforms": [
+   "android"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://developer.android.com/compose",
+    "title": "Jetpack Compose",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Next.js",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Server rendering, static generation and API routes in one React framework",
+   "Very large ecosystem and hiring pool"
+  ],
+  "limits": [
+   "Needs a Node runtime for SSR",
+   "Framework complexity and frequent major changes"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ssr",
+   "seo",
+   "react",
+   "fullstack"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [
+   "node"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://nextjs.org/docs",
+    "title": "Next.js docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Nuxt",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Vue meta-framework with SSR, static generation and file-based routing",
+   "Gentle learning curve for Vue teams"
+  ],
+  "limits": [
+   "Smaller hiring pool than React",
+   "SSR needs a Node runtime"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ssr",
+   "seo",
+   "vue",
+   "fullstack"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [
+   "node"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 10000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://nuxt.com/docs",
+    "title": "Nuxt docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "React (Vite)",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Fast dev tooling and the largest component ecosystem",
+   "Deploys as static files behind any CDN"
+  ],
+  "limits": [
+   "Client-side rendering is weak for SEO without extra work",
+   "You assemble routing/state/data libraries yourself"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 3,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "spa",
+   "react"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://react.dev/",
+    "title": "React",
+    "accessed": "2026-11-13"
+   },
+   {
+    "url": "https://vite.dev/guide/",
+    "title": "Vite guide",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "React Native (Expo)",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Shares JavaScript/TypeScript skills across Android, iOS and web",
+   "Managed builds and over-the-air updates via Expo"
+  ],
+  "limits": [
+   "Native modules can force ejecting from the managed workflow",
+   "Lower raw performance than native"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 4,
+   "perf": 3,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "mobile_cross",
+   "offline_ok",
+   "react"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "web"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.expo.dev/",
+    "title": "Expo docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "SvelteKit",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Compiles to small, fast bundles",
+   "Simple reactive model that beginners pick up quickly"
+  ],
+  "limits": [
+   "Smaller ecosystem and talent pool",
+   "Fewer enterprise-grade component libraries"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ssr",
+   "seo",
+   "svelte",
+   "fullstack"
+  ],
+  "platforms": [
+   "web"
+  ],
+  "runtimes": [
+   "node"
+  ],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 10000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://svelte.dev/docs/kit",
+    "title": "SvelteKit docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Swift (SwiftUI)",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "swift"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Native iOS quality and platform integration"
+  ],
+  "limits": [
+   "iOS only",
+   "Requires Apple tooling and Swift skills"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 4,
+   "scale": 4,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "mobile_native",
+   "offline_ok"
+  ],
+  "platforms": [
+   "ios"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://developer.apple.com/swiftui/",
+    "title": "SwiftUI",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Tauri",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "rust",
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": false,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Small, fast desktop bundles using the system webview"
+  ],
+  "limits": [
+   "Rust backend code required for native features",
+   "Younger ecosystem"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 4,
+   "scale": 3,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "desktop"
+  ],
+  "platforms": [
+   "desktop"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://tauri.app/start/",
+    "title": "Tauri docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ }
+]

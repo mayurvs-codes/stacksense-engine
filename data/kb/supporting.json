@@ -1,0 +1,3570 @@
+[
+ {
+  "name": "Amazon Cognito",
+  "layer": "auth",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 8] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    8
+   ]
+  },
+  "strengths": [
+   "Managed user pools with SMS OTP, social and SAML sign-in"
+  ],
+  "limits": [
+   "Customisation limits",
+   "AWS lock-in"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 3,
+   "sec": 5
+  },
+  "tags": [
+   "auth",
+   "phone_otp",
+   "social",
+   "email",
+   "sso"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/cognito/",
+    "title": "Amazon Cognito",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "ASP.NET Core Identity",
+  "layer": "auth",
+  "lifecycle_status": "active",
+  "languages": [
+   "csharp"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Built-in membership system for ASP.NET Core apps"
+  ],
+  "limits": [
+   "Email/password focus; SSO needs extra providers"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "auth",
+   "email",
+   "dotnet"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity",
+    "title": "ASP.NET Core Identity",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Auth0",
+  "layer": "auth",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "us",
+   "eu"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 240] + per-1k-users [3, 40] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    240
+   ],
+   "per_1k_users": [
+    3,
+    40
+   ]
+  },
+  "strengths": [
+   "Full-featured hosted identity with social, SSO and passwordless"
+  ],
+  "limits": [
+   "Per-MAU pricing grows quickly",
+   "Not hosted in India"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 2,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "auth",
+   "social",
+   "email",
+   "sso",
+   "phone_otp"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://auth0.com/docs",
+    "title": "Auth0 docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Firebase Authentication",
+  "layer": "auth",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0, 6] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0,
+    6
+   ]
+  },
+  "strengths": [
+   "Phone OTP, email/password and social sign-in with SDKs for web and mobile"
+  ],
+  "limits": [
+   "Google-operated; SMS cost per verification",
+   "Data location is not region-pinnable on the basic tier"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "auth",
+   "phone_otp",
+   "social",
+   "email"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://firebase.google.com/docs/auth",
+    "title": "Firebase Authentication",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Keycloak",
+  "layer": "auth",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 1] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    1
+   ]
+  },
+  "strengths": [
+   "Self-hostable identity and SSO (OIDC/SAML) with social login"
+  ],
+  "limits": [
+   "You operate and upgrade it",
+   "Phone OTP needs custom SPI/SMS provider"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 5,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "auth",
+   "sso",
+   "enterprise"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.keycloak.org/documentation",
+    "title": "Keycloak docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Microsoft Entra ID",
+  "layer": "auth",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Enterprise single sign-on for Microsoft 365 organisations"
+  ],
+  "limits": [
+   "Designed for workforce identity, not consumer sign-up"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "auth",
+   "sso",
+   "enterprise"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
+    "title": "What is Microsoft Entra ID",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Amazon ElastiCache",
+  "layer": "cache",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [13, 150] + per-1k-users [1, 10] USD/month",
+  "cost": {
+   "fixed": [
+    13,
+    150
+   ],
+   "per_1k_users": [
+    1,
+    10
+   ]
+  },
+  "strengths": [
+   "Managed Redis/Valkey/Memcached in AWS regions"
+  ],
+  "limits": [
+   "AWS lock-in",
+   "Always-on node cost"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "cache"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/elasticache/",
+    "title": "Amazon ElastiCache",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Cloud Memorystore",
+  "layer": "cache",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [15, 150] + per-1k-users [1, 10] USD/month",
+  "cost": {
+   "fixed": [
+    15,
+    150
+   ],
+   "per_1k_users": [
+    1,
+    10
+   ]
+  },
+  "strengths": [
+   "Managed Redis/Valkey on Google Cloud"
+  ],
+  "limits": [
+   "GCP lock-in",
+   "Always-on instance cost"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "cache"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/memorystore/docs",
+    "title": "Memorystore docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Redis (self-hosted)",
+  "layer": "cache",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 1] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    1
+   ]
+  },
+  "strengths": [
+   "In-memory cache, pub/sub and queues in one tool"
+  ],
+  "limits": [
+   "Persistence/failover need configuration",
+   "Memory-bound cost"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 4,
+   "perf": 5,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "cache"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://redis.io/docs/latest/",
+    "title": "Redis docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Valkey (self-hosted)",
+  "layer": "cache",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 1] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    1
+   ]
+  },
+  "strengths": [
+   "Open-source Redis-compatible fork under the Linux Foundation"
+  ],
+  "limits": [
+   "Newer ecosystem than Redis"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 4,
+   "perf": 5,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "cache"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://valkey.io/",
+    "title": "Valkey",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Amazon CloudFront",
+  "layer": "cdn",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 4] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    4
+   ]
+  },
+  "strengths": [
+   "Global CDN tightly integrated with S3 and AWS WAF"
+  ],
+  "limits": [
+   "AWS lock-in",
+   "Egress-based pricing"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "cdn"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/cloudfront/",
+    "title": "Amazon CloudFront",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Front Door",
+  "layer": "cdn",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [35, 120] + per-1k-users [0, 4] USD/month",
+  "cost": {
+   "fixed": [
+    35,
+    120
+   ],
+   "per_1k_users": [
+    0,
+    4
+   ]
+  },
+  "strengths": [
+   "Global CDN and load balancer with WAF for Azure workloads"
+  ],
+  "limits": [
+   "Azure lock-in",
+   "Base fee"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "cdn"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-overview",
+    "title": "Azure Front Door",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Cloudflare CDN",
+  "layer": "cdn",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 1] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    1
+   ]
+  },
+  "strengths": [
+   "Global CDN with a free plan, DDoS protection and caching rules"
+  ],
+  "limits": [
+   "Edge network is global, not region-pinned"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 5,
+   "perf": 5,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "cdn"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://developers.cloudflare.com/cache/",
+    "title": "Cloudflare Cache docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Cloud CDN",
+  "layer": "cdn",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 4] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    4
+   ]
+  },
+  "strengths": [
+   "Edge caching for Google Cloud load-balanced backends"
+  ],
+  "limits": [
+   "GCP lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "cdn"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/cdn/docs/overview",
+    "title": "Cloud CDN overview",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "AWS CodePipeline",
+  "layer": "ci_cd",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Managed release pipelines inside AWS"
+  ],
+  "limits": [
+   "AWS lock-in",
+   "Less ergonomic than repo-native CI"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ci_cd"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html",
+    "title": "AWS CodePipeline",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure DevOps Pipelines",
+  "layer": "ci_cd",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "CI/CD integrated with Azure Boards, Repos and Entra ID"
+  ],
+  "limits": [
+   "Best inside the Microsoft ecosystem"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ci_cd",
+   "enterprise"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines",
+    "title": "Azure Pipelines",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "GitHub Actions",
+  "layer": "ci_cd",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "CI/CD built into the repository with a large action marketplace"
+  ],
+  "limits": [
+   "Hosted runners are SaaS; self-hosted runners needed for air gaps"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ci_cd"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.github.com/en/actions",
+    "title": "GitHub Actions docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "GitLab CI/CD (self-managed)",
+  "layer": "ci_cd",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Complete DevOps platform you can run on-premises"
+  ],
+  "limits": [
+   "Operating GitLab is a real workload"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ci_cd"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.gitlab.com/ee/ci/",
+    "title": "GitLab CI/CD docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Cloud Build",
+  "layer": "ci_cd",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "global"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Serverless CI/CD running in your Google Cloud project"
+  ],
+  "limits": [
+   "GCP lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ci_cd"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/build/docs/overview",
+    "title": "Cloud Build overview",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Jenkins",
+  "layer": "ci_cd",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Self-hosted automation server with a vast plugin ecosystem"
+  ],
+  "limits": [
+   "Plugin maintenance and security upkeep"
+  ],
+  "ops_burden": 4,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 5,
+   "scale": 4,
+   "perf": 3,
+   "maint": 3,
+   "sec": 3
+  },
+  "tags": [
+   "ci_cd"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.jenkins.io/doc/",
+    "title": "Jenkins docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Amazon SageMaker",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [30, 600] + per-1k-users [2, 30] USD/month",
+  "cost": {
+   "fixed": [
+    30,
+    600
+   ],
+   "per_1k_users": [
+    2,
+    30
+   ]
+  },
+  "strengths": [
+   "Managed training and real-time inference endpoints"
+  ],
+  "limits": [
+   "Cost and complexity",
+   "AWS lock-in"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 2,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "ml",
+   "inference",
+   "training"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/sagemaker/",
+    "title": "Amazon SageMaker",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Machine Learning",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [30, 600] + per-1k-users [2, 30] USD/month",
+  "cost": {
+   "fixed": [
+    30,
+    600
+   ],
+   "per_1k_users": [
+    2,
+    30
+   ]
+  },
+  "strengths": [
+   "Managed ML lifecycle integrated with Azure DevOps and Entra ID"
+  ],
+  "limits": [
+   "Cost and complexity",
+   "Azure lock-in"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 2,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "ml",
+   "inference",
+   "training"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/machine-learning/overview-what-is-azure-machine-learning",
+    "title": "What is Azure Machine Learning",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Vertex AI",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [30, 600] + per-1k-users [2, 30] USD/month",
+  "cost": {
+   "fixed": [
+    30,
+    600
+   ],
+   "per_1k_users": [
+    2,
+    30
+   ]
+  },
+  "strengths": [
+   "Managed training, endpoints and model registry"
+  ],
+  "limits": [
+   "Cost and complexity",
+   "GCP lock-in"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 2,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "ml",
+   "inference",
+   "training"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001"
+  ],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform",
+    "title": "Vertex AI introduction",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Ollama",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 200] + per-1k-users [0, 5] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    200
+   ],
+   "per_1k_users": [
+    0,
+    5
+   ]
+  },
+  "strengths": [
+   "Runs open-weight language models locally or on-premises"
+  ],
+  "limits": [
+   "Needs GPU/CPU capacity; smaller models than hosted APIs"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 2,
+   "perf": 3,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ml",
+   "llm",
+   "llm_rag",
+   "inference"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://github.com/ollama/ollama",
+    "title": "Ollama",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "ONNX Runtime",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Portable, fast inference for models exported from many frameworks"
+  ],
+  "limits": [
+   "Model export step required"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 4,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ml",
+   "inference"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://onnxruntime.ai/docs/",
+    "title": "ONNX Runtime docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "pgvector (PostgreSQL extension)",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0, 1] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0,
+    1
+   ]
+  },
+  "strengths": [
+   "Vector similarity search inside PostgreSQL for retrieval-augmented generation"
+  ],
+  "limits": [
+   "Large vector workloads outgrow it"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ml",
+   "vector",
+   "llm_rag"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://github.com/pgvector/pgvector",
+    "title": "pgvector",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Qdrant",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 50] + per-1k-users [0, 3] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    50
+   ],
+   "per_1k_users": [
+    0,
+    3
+   ]
+  },
+  "strengths": [
+   "Dedicated open-source vector database"
+  ],
+  "limits": [
+   "An extra datastore to operate"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ml",
+   "vector",
+   "llm_rag"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://qdrant.tech/documentation/",
+    "title": "Qdrant docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "scikit-learn (self-hosted inference)",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [
+   "python"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Classical ML (scoring, classification) trained and served in-process"
+  ],
+  "limits": [
+   "Not for deep learning or large models"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 3,
+   "perf": 3,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ml",
+   "inference"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://scikit-learn.org/stable/",
+    "title": "scikit-learn",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Amazon CloudWatch",
+  "layer": "observability",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 4] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    4
+   ]
+  },
+  "strengths": [
+   "Native metrics, logs and alarms for AWS"
+  ],
+  "limits": [
+   "AWS only",
+   "Log ingestion costs"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "observability"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",
+    "title": "What is CloudWatch",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Monitor",
+  "layer": "observability",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 4] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    4
+   ]
+  },
+  "strengths": [
+   "Native monitoring, Application Insights and alerts for Azure"
+  ],
+  "limits": [
+   "Azure only"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "observability"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/azure-monitor/overview",
+    "title": "Azure Monitor overview",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Datadog",
+  "layer": "observability",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "us",
+   "eu"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [20, 500] + per-1k-users [2, 30] USD/month",
+  "cost": {
+   "fixed": [
+    20,
+    500
+   ],
+   "per_1k_users": [
+    2,
+    30
+   ]
+  },
+  "strengths": [
+   "Full-stack monitoring, APM and logs in one product"
+  ],
+  "limits": [
+   "Expensive at scale",
+   "Data stored in US/EU/other Datadog sites"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 2,
+   "scale": 5,
+   "perf": 5,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "observability",
+   "enterprise"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.datadoghq.com/",
+    "title": "Datadog docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Cloud Operations Suite",
+  "layer": "observability",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 4] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    4
+   ]
+  },
+  "strengths": [
+   "Native logging, monitoring and tracing for Google Cloud"
+  ],
+  "limits": [
+   "GCP only"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "observability"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/products/operations",
+    "title": "Google Cloud Observability",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Grafana + Prometheus",
+  "layer": "observability",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Open-source metrics and dashboards that run anywhere"
+  ],
+  "limits": [
+   "You operate storage and alerting"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 5,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "observability"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 1000000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://prometheus.io/docs/introduction/overview/",
+    "title": "Prometheus overview",
+    "accessed": "2026-11-13"
+   },
+   {
+    "url": "https://grafana.com/docs/grafana/latest/",
+    "title": "Grafana docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Sentry",
+  "layer": "observability",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "us",
+   "eu"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 80] + per-1k-users [0, 5] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    80
+   ],
+   "per_1k_users": [
+    0,
+    5
+   ]
+  },
+  "strengths": [
+   "Hosted error and performance monitoring with generous free tier"
+  ],
+  "limits": [
+   "Data stored in US/EU only"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "observability",
+   "errors"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.sentry.io/",
+    "title": "Sentry docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Sentry (self-hosted)",
+  "layer": "observability",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Error and performance monitoring you can host yourself"
+  ],
+  "limits": [
+   "Resource-hungry to self-host"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 3,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "observability",
+   "errors"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://develop.sentry.dev/self-hosted/",
+    "title": "Sentry self-hosted",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Adyen",
+  "layer": "payments",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "us",
+   "eu"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Single platform for global enterprise payments"
+  ],
+  "limits": [
+   "Onboarding aimed at larger merchants"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "payments",
+   "enterprise",
+   "global"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss"
+  ],
+  "sources": [
+   {
+    "url": "https://docs.adyen.com/",
+    "title": "Adyen docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Cashfree Payments",
+  "layer": "payments",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "UPI collections and payouts for Indian businesses"
+  ],
+  "limits": [
+   "India-focused",
+   "Transaction-percentage fees"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "payments",
+   "upi",
+   "payouts"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss"
+  ],
+  "sources": [
+   {
+    "url": "https://docs.cashfree.com/",
+    "title": "Cashfree docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "PayU",
+  "layer": "payments",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Established Indian payment gateway with wide method coverage"
+  ],
+  "limits": [
+   "Integration experience varies",
+   "Transaction fees"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "payments",
+   "upi"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss"
+  ],
+  "sources": [
+   {
+    "url": "https://docs.payu.in/",
+    "title": "PayU docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Razorpay",
+  "layer": "payments",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "UPI, cards, netbanking and EMI for Indian merchants",
+   "India-based processing and settlement"
+  ],
+  "limits": [
+   "India-focused; limited international coverage",
+   "Transaction-percentage fees"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "payments",
+   "upi"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss"
+  ],
+  "sources": [
+   {
+    "url": "https://razorpay.com/docs/",
+    "title": "Razorpay docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Stripe",
+  "layer": "payments",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "us",
+   "eu"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Best-in-class developer experience; subscriptions and per-seat billing",
+   "PCI DSS Level 1 service provider"
+  ],
+  "limits": [
+   "Transaction-percentage fees",
+   "Not the default choice for India-only UPI flows"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 5,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "payments",
+   "subscriptions",
+   "global"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss"
+  ],
+  "sources": [
+   {
+    "url": "https://docs.stripe.com/",
+    "title": "Stripe docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Amazon SQS",
+  "layer": "queue",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0, 1] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0,
+    1
+   ]
+  },
+  "strengths": [
+   "Zero-ops managed queue with generous free tier"
+  ],
+  "limits": [
+   "AWS lock-in",
+   "At-least-once semantics"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "queue"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/sqs/",
+    "title": "Amazon SQS",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Apache Kafka",
+  "layer": "queue",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [50, 600] + per-1k-users [0, 10] USD/month",
+  "cost": {
+   "fixed": [
+    50,
+    600
+   ],
+   "per_1k_users": [
+    0,
+    10
+   ]
+  },
+  "strengths": [
+   "Durable high-throughput event streaming"
+  ],
+  "limits": [
+   "Heavy operations burden",
+   "Overkill for small systems"
+  ],
+  "ops_burden": 5,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "queue",
+   "streaming"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://kafka.apache.org/documentation/",
+    "title": "Kafka documentation",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Service Bus",
+  "layer": "queue",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Enterprise messaging with topics, sessions and dead-lettering"
+  ],
+  "limits": [
+   "Azure lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "queue",
+   "enterprise"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview",
+    "title": "Azure Service Bus",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "BullMQ",
+  "layer": "queue",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    0
+   ]
+  },
+  "strengths": [
+   "Redis-backed job queue for Node with retries and scheduling"
+  ],
+  "limits": [
+   "Requires Redis",
+   "Node ecosystem only"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 4,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "queue"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 2000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.bullmq.io/",
+    "title": "BullMQ docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Cloud Pub/Sub",
+  "layer": "queue",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [0, 20] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    20
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Managed global messaging with push and pull delivery"
+  ],
+  "limits": [
+   "GCP lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "queue"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/pubsub/docs/overview",
+    "title": "Pub/Sub overview",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "RabbitMQ",
+  "layer": "queue",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Mature message broker with flexible routing"
+  ],
+  "limits": [
+   "Clustering/HA operations are your job"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "queue"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.rabbitmq.com/docs",
+    "title": "RabbitMQ docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Ably",
+  "layer": "realtime",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "us",
+   "eu"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 120] + per-1k-users [5, 40] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    120
+   ],
+   "per_1k_users": [
+    5,
+    40
+   ]
+  },
+  "strengths": [
+   "Managed pub/sub and presence with global edge"
+  ],
+  "limits": [
+   "Cost scales with messages and connections",
+   "Not hosted in India"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 2,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "realtime"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://ably.com/docs",
+    "title": "Ably docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Centrifugo",
+  "layer": "realtime",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Standalone real-time messaging server for any backend language"
+  ],
+  "limits": [
+   "An extra service to run"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "realtime"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://centrifugal.dev/docs/getting-started/introduction",
+    "title": "Centrifugo introduction",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Pusher Channels",
+  "layer": "realtime",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "us",
+   "eu"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 100] + per-1k-users [3, 30] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    100
+   ],
+   "per_1k_users": [
+    3,
+    30
+   ]
+  },
+  "strengths": [
+   "Simple hosted websockets with presence channels"
+  ],
+  "limits": [
+   "Connection-based pricing",
+   "Not hosted in India"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 3,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "realtime"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 10000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://pusher.com/docs/channels/",
+    "title": "Pusher Channels docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Socket.IO",
+  "layer": "realtime",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Battle-tested websocket library with rooms and reconnection"
+  ],
+  "limits": [
+   "Scaling out needs a Redis adapter and sticky sessions"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 4,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "realtime"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://socket.io/docs/v4/",
+    "title": "Socket.IO docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Yjs",
+  "layer": "realtime",
+  "lifecycle_status": "active",
+  "languages": [
+   "javascript",
+   "typescript"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 40] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    40
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "CRDT library for conflict-free collaborative editing with live presence"
+  ],
+  "limits": [
+   "Needs a websocket provider/persistence layer"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 5,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "realtime",
+   "crdt",
+   "collab"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 10000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://docs.yjs.dev/",
+    "title": "Yjs docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Algolia",
+  "layer": "search",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "us",
+   "eu"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 100] + per-1k-users [5, 60] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    100
+   ],
+   "per_1k_users": [
+    5,
+    60
+   ]
+  },
+  "strengths": [
+   "Hosted search with excellent relevance tooling"
+  ],
+  "limits": [
+   "Usage-based pricing grows fast",
+   "Data leaves your infrastructure"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 2,
+   "scale": 5,
+   "perf": 5,
+   "maint": 5,
+   "sec": 4
+  },
+  "tags": [
+   "search"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 50000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.algolia.com/doc/",
+    "title": "Algolia docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Meilisearch",
+  "layer": "search",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Typo-tolerant instant search that is simple to run"
+  ],
+  "limits": [
+   "Single-node scaling limits",
+   "Less analytics than OpenSearch"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 5,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "search"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://www.meilisearch.com/docs",
+    "title": "Meilisearch docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "OpenSearch",
+  "layer": "search",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [30, 400] + per-1k-users [1, 10] USD/month",
+  "cost": {
+   "fixed": [
+    30,
+    400
+   ],
+   "per_1k_users": [
+    1,
+    10
+   ]
+  },
+  "strengths": [
+   "Scalable full-text and analytics search under Apache 2.0"
+  ],
+  "limits": [
+   "Cluster operations are heavy"
+  ],
+  "ops_burden": 4,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 3,
+   "sec": 4
+  },
+  "tags": [
+   "search",
+   "analytics"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://opensearch.org/docs/latest/",
+    "title": "OpenSearch docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Typesense",
+  "layer": "search",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Fast in-memory typo-tolerant search with a clean API"
+  ],
+  "limits": [
+   "RAM-bound indexes"
+  ],
+  "ops_burden": 2,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 5,
+   "maint": 4,
+   "sec": 3
+  },
+  "tags": [
+   "search"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 5000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://typesense.org/docs/",
+    "title": "Typesense docs",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Amazon S3",
+  "layer": "storage",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0.5, 3] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0.5,
+    3
+   ]
+  },
+  "strengths": [
+   "Durable object storage with regions in Mumbai and Hyderabad"
+  ],
+  "limits": [
+   "Egress costs",
+   "AWS lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "storage"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/s3/",
+    "title": "Amazon S3",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Blob Storage",
+  "layer": "storage",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0.5, 3] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0.5,
+    3
+   ]
+  },
+  "strengths": [
+   "Object storage with Indian regions and Entra ID access control"
+  ],
+  "limits": [
+   "Azure lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "storage"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction",
+    "title": "Azure Blob Storage",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Cloudflare R2",
+  "layer": "storage",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "eu",
+   "us"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0.3, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0.3,
+    2
+   ]
+  },
+  "strengths": [
+   "S3-compatible storage with zero egress fees and EU jurisdiction option"
+  ],
+  "limits": [
+   "No India jurisdiction"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 5,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "storage"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://developers.cloudflare.com/r2/",
+    "title": "Cloudflare R2",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Cloud Storage",
+  "layer": "storage",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [0, 10] + per-1k-users [0.5, 3] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    10
+   ],
+   "per_1k_users": [
+    0.5,
+    3
+   ]
+  },
+  "strengths": [
+   "Object storage with Mumbai (asia-south1) and Delhi buckets"
+  ],
+  "limits": [
+   "GCP lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 4,
+   "scale": 5,
+   "perf": 4,
+   "maint": 5,
+   "sec": 5
+  },
+  "tags": [
+   "storage"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/storage/docs/introduction",
+    "title": "Cloud Storage introduction",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "SeaweedFS",
+  "layer": "storage",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 30] + per-1k-users [0, 2] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    30
+   ],
+   "per_1k_users": [
+    0,
+    2
+   ]
+  },
+  "strengths": [
+   "Open-source distributed object/file store with an S3-compatible API that runs on-premises or in an air gap"
+  ],
+  "limits": [
+   "You operate durability, upgrades and backups",
+   "Smaller community than the hyperscaler services"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 5,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "storage"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 100000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://github.com/seaweedfs/seaweedfs",
+    "title": "SeaweedFS repository",
+    "accessed": "2026-11-13"
+   }
+  ]
+ }
+]

@@ -1,0 +1,237 @@
+{
+ "seaweedfs/seaweedfs": [
+  false,
+  "2026-11-13",
+  36047
+ ],
+ "garage-s3/garage": [
+  "ERR",
+  "HTTP Error 404: Not Found",
+  0
+ ],
+ "valkey-io/valkey": [
+  false,
+  "2026-11-13",
+  27711
+ ],
+ "meilisearch/meilisearch": [
+  false,
+  "2026-11-12",
+  59853
+ ],
+ "typesense/typesense": [
+  false,
+  "2026-11-11",
+  27125
+ ],
+ "centrifugal/centrifugo": [
+  false,
+  "2026-11-11",
+  10976
+ ],
+ "yjs/yjs": [
+  false,
+  "2026-11-09",
+  23056
+ ],
+ "taskforcesh/bullmq": [
+  false,
+  "2026-11-13",
+  9593
+ ],
+ "socketio/socket.io": [
+  false,
+  "2026-11-13",
+  63246
+ ],
+ "apache/couchdb": [
+  false,
+  "2026-11-13",
+  7011
+ ],
+ "keycloak/keycloak": [
+  false,
+  "2026-11-13",
+  37848
+ ],
+ "qdrant/qdrant": [
+  false,
+  "2026-11-13",
+  35531
+ ],
+ "ollama/ollama": [
+  false,
+  "2026-11-13",
+  186851
+ ],
+ "pgvector/pgvector": [
+  false,
+  "2026-11-13",
+  23665
+ ],
+ "bigbluebutton/bigbluebutton": [
+  false,
+  "2026-11-12",
+  9275
+ ],
+ "redis/redis": [
+  false,
+  "2026-11-12",
+  77485
+ ],
+ "rabbitmq/rabbitmq-server": [
+  false,
+  "2026-11-13",
+  13969
+ ],
+ "apache/kafka": [
+  false,
+  "2026-11-12",
+  34213
+ ],
+ "opensearch-project/OpenSearch": [
+  false,
+  "2026-11-12",
+  14004
+ ],
+ "getsentry/self-hosted": [
+  false,
+  "2026-11-13",
+  9652
+ ],
+ "grafana/grafana": [
+  false,
+  "2026-11-13",
+  77873
+ ],
+ "prometheus/prometheus": [
+  false,
+  "2026-11-13",
+  67598
+ ],
+ "jenkinsci/jenkins": [
+  false,
+  "2026-11-12",
+  26772
+ ],
+ "k3s-io/k3s": [
+  false,
+  "2026-11-12",
+  34412
+ ],
+ "timescale/timescaledb": [
+  false,
+  "2026-11-13",
+  23853
+ ],
+ "ClickHouse/ClickHouse": [
+  false,
+  "2026-11-13",
+  50921
+ ],
+ "expressjs/express": [
+  false,
+  "2026-11-02",
+  69677
+ ],
+ "nestjs/nest": [
+  false,
+  "2026-11-13",
+  77119
+ ],
+ "tiangolo/fastapi": [
+  false,
+  "2026-11-11",
+  104680
+ ],
+ "gin-gonic/gin": [
+  false,
+  "2026-10-10",
+  89541
+ ],
+ "ktorio/ktor": [
+  false,
+  "2026-11-12",
+  14565
+ ],
+ "tokio-rs/axum": [
+  false,
+  "2026-11-12",
+  27829
+ ],
+ "withastro/astro": [
+  false,
+  "2026-11-13",
+  63940
+ ],
+ "11ty/eleventy": [
+  false,
+  "2026-11-12",
+  20038
+ ],
+ "sveltejs/kit": [
+  false,
+  "2026-11-12",
+  20908
+ ],
+ "nuxt/nuxt": [
+  false,
+  "2026-11-13",
+  61065
+ ],
+ "tauri-apps/tauri": [
+  false,
+  "2026-11-12",
+  112881
+ ],
+ "electron/electron": [
+  false,
+  "2026-11-13",
+  123883
+ ],
+ "expo/expo": [
+  false,
+  "2026-11-13",
+  53508
+ ],
+ "flutter/flutter": [
+  false,
+  "2026-11-13",
+  181251
+ ],
+ "htmx-org/htmx": [
+  "ERR",
+  "HTTP Error 404: Not Found",
+  0
+ ],
+ "laravel/framework": [
+  false,
+  "2026-11-12",
+  34998
+ ],
+ "rails/rails": [
+  false,
+  "2026-11-13",
+  59093
+ ],
+ "django/django": [
+  false,
+  "2026-11-13",
+  91730
+ ],
+ "spring-projects/spring-boot": [
+  false,
+  "2026-11-13",
+  81911
+ ],
+ "dotnet/aspnetcore": [
+  false,
+  "2026-11-13",
+  38515
+ ],
+ "dotnet/blazor": [
+  true,
+  "2021-02-23",
+  9244
+ ]
+}
