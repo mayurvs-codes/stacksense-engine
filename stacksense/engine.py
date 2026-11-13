@@ -137,12 +137,16 @@ def exclusion(e, layer, f, host=None):
         if f.eff_res == "india" and "india" not in e["regions"]:
             return "payment processing must stay in India (RBI/DPDP data residency)"
     elif f.eff_res != "none" and not e["self_hostable"]:
-        if f.eff_res not in e["regions"] and "global" not in e["regions"]:
-            return f"no verified {f.eff_res} region (data_residency={f.eff_res})"
+        for needed in sorted({f.eff_res, f.res} - {"none"}):  # a conflicting pair (e.g. RBI + eu) must satisfy both
+            if needed not in e["regions"] and "global" not in e["regions"]:
+                return f"no verified {needed} region (data_residency={needed})"
     if f.att and layer in ("hosting", "database", "storage", "ml") and not e["self_hostable"]:
         miss = [a for a in f.att if a not in e["compliance"]]
         if miss:
             return f"vendor attestation for {', '.join(miss)} is not recorded in the knowledge base"
+    strict = [a for a in f.att if a in ("hipaa", "pci_dss")]
+    if strict and layer in ("auth", "search", "observability", "realtime", "queue", "cache") and e["saas_only"] and e["cloud"] == "neutral" and not e["compliance"]:
+        return f"SaaS vendor without a recorded {'/'.join(strict)} attestation would process regulated data"
     if K8S.search(e["name"]) and not (f.devops and f.team >= 4):
         return "Kubernetes-class platform needs has_devops=true and team.size>=4"
     if layer == "hosting":
@@ -220,6 +224,8 @@ def cloud_affinity(e, host):
 def host_ok_for_backend(host, be):
     if be is None:
         return True
+    if host["hosting_type"] == "static":
+        return False  # static hosts serve files; a framework backend needs a real runtime
     rts = set(host["runtimes"])
     if "any" in rts or "docker" in rts:
         return True
@@ -237,6 +243,19 @@ def host_ok_for_frontend(host, fe, be):
     if "dotnet" in fe["runtimes"]:
         return bool(rts & {"dotnet", "any", "docker"})
     return True
+
+
+def upgrade_db(f, kb):
+    """Database engines already in use whose version is end of life: staying on the same engine (current version) is the lowest-risk upgrade."""
+    names = []
+    for sysname in f.existing:
+        low = sysname.lower()
+        if not kbmod.lifecycle_issue(sysname):
+            continue
+        for pat, name in (("mongodb", "MongoDB Atlas"), ("postgres", "PostgreSQL"), ("mysql", "MySQL"), ("sql server", "Microsoft SQL Server")):
+            if pat in low and kb.get("database", name) is not None and name not in names:
+                names.append(name)
+    return names
 
 
 def existing_db(f, kb):
@@ -348,10 +367,15 @@ def score_database(e, f, host, kb, reuse):
     if (f.type in ("fintech", "ecommerce", "marketplace") or f.pay) and "relational" in t:
         s += 0.7
     nonrel = bool(t & {"document", "kv"})
+    if e["name"] in getattr(f, "upgrade", ()):
+        s += 1.0  # same engine, current version: smallest migration
+        nonrel = False
     if nonrel and not (f.offline or f.type in ("gaming", "social", "iot") or (f.workload == "write_heavy" and f.tier >= 3) or (f.rt and "realtime" in t)):
         s -= 1.8  # relational integrity, ad-hoc queries and reporting are the sensible default
     if nonrel and (f.mt or f.fts or f.type in ("internal_tool", "saas_b2b", "healthtech", "data_analytics")):
         s -= 0.6
+    if nonrel and (f.pay or f.type in ("fintech", "ecommerce", "marketplace")):
+        s -= 1.0  # money movement needs ACID transactions
     if "relational" in t and f.type in ("saas_b2b", "internal_tool", "healthtech", "web_app", "api_platform", "other"):
         s += 0.4
     if "sql" in f.langs and "relational" in t:
@@ -568,7 +592,7 @@ def build(host, f, kb):
             continue
         ranked = pick_top(cands, lambda e: score_support(e, layer, f, host, be, db, sup, role))
         sup.append({"layer": layer, "role": role, "entry": ranked[0][1], "ranked": ranked})
-        total += 0.5 * ranked[0][0]
+        total += 0.5 * (ranked[0][0] - 3.0)  # relative to a neutral component, so merely having more components never raises the total
     pick["supporting"] = sup
     pick["score"] = total
     return pick
@@ -820,7 +844,7 @@ def compliance_notes(f, host, db, picks, kb):
             notes.append("DPDP Act (India): collect verifiable consent, honour access/erasure rights and notify breaches; the DPDP Act does not by itself require in-country storage, but the chosen India-capable regions keep options open.")
         elif c == "hipaa":
             notes.append(f"HIPAA: sign a BAA with every vendor that touches PHI (hosting {host['name']}"
-                         + (", database " + db["name"] if db else "") + "); encrypt data at rest and in transit and keep audit logs.")
+                         + (", database " + db["name"] if db else "") + "); confirm every service you use is inside the provider's BAA scope; encrypt data at rest and in transit and keep audit logs.")
         elif c == "pci_dss":
             notes.append("PCI DSS: keep card data off your servers by using the gateway's hosted fields/redirect so your scope stays at SAQ A or A-EP; the hosting and gateway providers are PCI service providers.")
         elif c == "rbi_localisation":
@@ -849,6 +873,7 @@ def recommend_dict(raw):
     kb = kbmod.load()
     f = derive(n, A)
     f.reuse = existing_db(f, kb)
+    f.upgrade = upgrade_db(f, kb)
     W = []
     contradiction_warnings(f, W, A)
     hosts = [h for h in kb.layer("hosting") if exclusion(h, "hosting", f) is None]

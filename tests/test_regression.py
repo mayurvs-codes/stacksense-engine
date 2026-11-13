@@ -128,3 +128,40 @@ class Round2Regressions(unittest.TestCase):
     def test_internal_tool_gets_no_cdn_unless_users_are_spread(self):
         o = run(project__type="internal_tool", requirements__file_media_storage=True, scale__peak_concurrent_users=300, scale__users_12_months=1500)
         self.assertEqual(sup(o, "cdn"), [])
+
+
+class Round4Regressions(unittest.TestCase):
+    def test_huge_static_site_uses_a_static_cdn_host(self):
+        o = run(project__type="content_site", requirements__auth="none", scale__users_12_months=30_000_000, scale__workload="read_heavy",
+                budget__monthly_infra_usd=3000, team__size=3, team__languages=["javascript"])
+        self.assertEqual(o["stack"]["hosting"]["choice"], "Cloudflare Pages")
+        self.assertLessEqual(o["estimated_monthly_cost_usd"]["max"], 100)
+
+    def test_end_of_life_mongodb_is_upgraded_not_abandoned(self):
+        o = run(infrastructure__existing_systems=["MongoDB 4.2 cluster"], team__languages=["javascript"], budget__monthly_infra_usd=500)
+        self.assertIn("EOL_EXISTING_SYSTEM", {w["code"] for w in o["warnings"]})
+        self.assertEqual(o["stack"]["database"]["choice"], "MongoDB Atlas")
+
+    def test_hipaa_excludes_unattested_saas_auth(self):
+        o = run(compliance=["hipaa"], requirements__auth="phone_otp", infrastructure__cloud_preference="gcp", infrastructure__data_residency="india")
+        self.assertNotIn("Firebase Authentication", sup(o, "auth"))
+        self.assertNotIn("Auth0", sup(o, "auth"))
+
+    def test_hipaa_note_tells_you_to_check_baa_scope(self):
+        o = run(compliance=["hipaa"])
+        self.assertTrue(any("BAA scope" in n for n in o["compliance_notes"]))
+
+    def test_framework_backends_never_run_on_static_hosts(self):
+        k = kbmod.load()
+        from stacksense import engine
+        for host in ("Azure Static Web Apps", "Netlify", "Cloudflare Pages", "GitHub Pages", "AWS Amplify Hosting"):
+            self.assertFalse(engine.host_ok_for_backend(k.get("hosting", host), k.get("backend", "Django")), host)
+
+    def test_conflicting_rbi_and_residency_keeps_both_constraints(self):
+        k = kbmod.load()
+        o = run(compliance=["rbi_localisation"], infrastructure__data_residency="other", infrastructure__cloud_preference="none", infrastructure__deployment_model="self_hosted_cloud_vm")
+        if o["stack"] is None:
+            self.assertEqual(o["status"], "infeasible")  # no VM host covers both india and other: honest infeasibility
+            return
+        db = k.get("database", o["stack"]["database"]["choice"])
+        self.assertTrue(db["self_hostable"] or {"india", "other"} <= set(db["regions"]))

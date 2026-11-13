@@ -628,7 +628,7 @@
   ],
   "websockets": false,
   "hosting_type": "static",
-  "scale_cap_users": 20000000,
+  "scale_cap_users": 1000000000,
   "compliance": [],
   "sources": [
    {

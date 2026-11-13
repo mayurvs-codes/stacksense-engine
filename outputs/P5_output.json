@@ -115,8 +115,8 @@
           "why_not": "Ranked 0.5 points lower: weaker on time to market (rated 4 vs 5, which your priorities weight at 5/5)."
         },
         {
-          "choice": "Azure Static Web Apps",
-          "why_not": "Ranked 2.6 points lower: weaker on maintainability (rated 4 vs 5, which your priorities weight at 5/5)."
+          "choice": "Azure Virtual Machines",
+          "why_not": "Ranked 2.6 points lower: weaker on time to market (rated 2 vs 5, which your priorities weight at 5/5); needs more operations effort (burden 4) than the team can absorb (capacity 2)."
         },
         {
           "choice": "Cloudflare Pages",

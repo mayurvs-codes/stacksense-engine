@@ -79,7 +79,7 @@
         },
         {
           "choice": "Firestore",
-          "why_not": "Ranked 1.0 points lower: weaker on maintainability (rated 3 vs 4, which your priorities weight at 3/5)."
+          "why_not": "Ranked 2.0 points lower: weaker on maintainability (rated 3 vs 4, which your priorities weight at 3/5)."
         }
       ],
       "tradeoffs": [

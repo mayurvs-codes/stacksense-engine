@@ -218,7 +218,7 @@ H = "hosting"
 add(H, "GitHub Pages", regions=("global",), saas=True, htype="static", runtimes=("static",), ws=False, r=(5, 5, 3, 4, 4, 3), ops=1, tags=("static", "free"), cap=2_000_000,
     cost=((0, 0), (0, 0)), strengths=("Free static hosting directly from a repository",), limits=("Static files only; usage limits apply", "No server-side code or private data"),
     src=[("https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages", "About GitHub Pages")])
-add(H, "Cloudflare Pages", regions=("global",), saas=True, htype="static", runtimes=("static",), ws=False, r=(5, 5, 5, 5, 4, 4), ops=1, tags=("static", "free", "cdn"), cap=20_000_000,
+add(H, "Cloudflare Pages", regions=("global",), saas=True, htype="static", runtimes=("static",), ws=False, r=(5, 5, 5, 5, 4, 4), ops=1, tags=("static", "free", "cdn"), cap=1_000_000_000,
     cost=((0, 20), (0, 1)), strengths=("Free static hosting on a global edge network", "Git-based deploys with preview builds"),
     limits=("Static-first; dynamic code runs as edge functions", "Edge network is global, not region-pinned"),
     src=[("https://developers.cloudflare.com/pages/", "Cloudflare Pages")])

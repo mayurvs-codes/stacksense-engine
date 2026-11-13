@@ -78,7 +78,7 @@
         },
         {
           "choice": "Amazon DynamoDB",
-          "why_not": "Ranked 2.3 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
+          "why_not": "Ranked 3.3 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5)."
         },
         {
           "choice": "Azure SQL Database",
@@ -147,12 +147,12 @@
         ],
         "alternatives": [
           {
-            "choice": "Firebase Authentication",
-            "why_not": "Ranked 0.7 points lower: weaker on security (rated 4 vs 5, which your priorities weight at 5/5)."
+            "choice": "Keycloak",
+            "why_not": "Ranked 3.8 points lower: weaker on scalability (rated 4 vs 5, which your priorities weight at 4/5)."
           },
           {
             "choice": "Microsoft Entra ID",
-            "why_not": "Ranked 2.8 points lower: scored slightly lower overall on the weighted criteria, skill fit and ecosystem coupling."
+            "why_not": "Excluded by a hard constraint: SaaS vendor without a recorded pci_dss attestation would process regulated data."
           },
           {
             "choice": "Auth0",
