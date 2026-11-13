@@ -65,7 +65,7 @@ def derive(n, A):
     f.geo = x.get("geo_distribution", "single_region")
     f.lock = x.get("vendor_lock_in_tolerance", "medium")
     f.sens = x.get("data_sensitivity", "internal")
-    f.licences = " ".join(x.get("existing_licences", []))
+    f.licences = " ".join(x.get("existing_licences", [])).lower()
     f.integr = x.get("integration_needs", [])
     f.sync = x.get("sync_conflict_tolerance", "last_write_wins")
     for key, val in x.items():
@@ -175,15 +175,18 @@ def penalties(e, f):
     if f.weeks <= 6 and e["ops_burden"] >= 4:
         p += 0.3
     if f.u12 > e["scale_cap_users"]:
-        p += min(3.0, 1.0 + math.log10(f.u12 / float(e["scale_cap_users"])))
+        p += min(3.5, 1.5 + math.log10(f.u12 / float(e["scale_cap_users"])))
     cmin, cmax = cost_of(e, f)
     mid = (cmin + cmax) / 2.0
     if f.budget <= 0:
-        p += 2.0 if cmax > 0 else 0.0
+        p += min(3.0, 0.8 + cmin / 10.0 + cmax / 60.0) if cmax > 0 else 0.0
     else:
         p += max(0.0, min(3.0, (mid / f.budget - 0.15) * 3.0)) * (0.4 + 0.12 * f.prio["cost"])
-    if f.lock == "low" and (e["cloud"] != "neutral" or e["saas_only"]):
-        p += 0.7
+    if f.lock == "low":
+        if "proprietary" in e["tags"]:
+            p += 1.2
+        elif e["cloud"] != "neutral" or e["saas_only"]:
+            p += 0.4
     elif f.lock == "high" and e["saas_only"]:
         p -= 0.2
     if f.sens in ("confidential", "restricted") and not e["self_hostable"] and not e["compliance"] and e["layer"] in ("hosting", "database", "storage"):
@@ -298,6 +301,8 @@ def score_frontend(e, f, host, be, kb):
         s += 0.6
     if f.static_like and "ssr" in t:
         s -= 0.8
+    if f.dynamic and f.type != "content_site" and t & {"static", "ssg"} and not t & {"ssr", "spa"}:
+        s -= 1.6  # content-first generators are the wrong tool for an interactive application
     if ("dotnet" in t) and ("sql server" in f.ex_low or "microsoft" in f.ex_low or "entra" in f.ex_low):
         s += 0.5
     return s
@@ -333,6 +338,13 @@ def score_database(e, f, host, kb, reuse):
         s += 0.3
     if (f.type in ("fintech", "ecommerce", "marketplace") or f.pay) and "relational" in t:
         s += 0.7
+    nonrel = bool(t & {"document", "kv"})
+    if nonrel and not (f.offline or f.type in ("gaming", "social", "iot") or (f.workload == "write_heavy" and f.tier >= 3) or (f.rt and "realtime" in t)):
+        s -= 1.2  # relational integrity, ad-hoc queries and reporting are the sensible default
+    if nonrel and (f.mt or f.fts or f.type in ("internal_tool", "saas_b2b", "healthtech", "data_analytics")):
+        s -= 0.6
+    if "relational" in t and f.type in ("saas_b2b", "internal_tool", "healthtech", "web_app", "api_platform", "other"):
+        s += 0.4
     if "sql" in f.langs and "relational" in t:
         s += 0.3
     if f.avail in ("99.9", "99.95", "99.99") and "managed" not in t and not e["saas_only"] and e["name"] not in reuse:
@@ -375,7 +387,29 @@ def score_host(h, f, kb):
     return s
 
 
-def score_support(e, layer, f, host, be, db, picked):
+def compat_support(e, layer, role, f, be, fe, db):
+    """Hard compatibility between a supporting component and the chosen core components."""
+    t = set(e["tags"])
+    if "library" in t and e["languages"]:
+        allowed = set(x.lower() for x in (be["languages"] if be else []))
+        if "client_lib" in t and fe:
+            allowed |= set(x.lower() for x in fe["languages"])
+        if not set(x.lower() for x in e["languages"]) & allowed:
+            return False
+    if e["name"].startswith("pgvector") and not (db and "postgres" in db["name"].lower()):
+        return False
+    if layer == "ml":
+        vec = "vector" in t
+        if role == "retrieval" and not vec:
+            return False
+        if role == "generation" and (vec or not t & {"llm", "inference"}):
+            return False
+        if role == "model" and vec:
+            return False
+    return True
+
+
+def score_support(e, layer, f, host, be, db, picked, role=None):
     s = base_score(e, f) + skill(e, f, 0.3) - penalties(e, f) + cloud_affinity(e, host)
     t = set(e["tags"])
     ex = f.ex_low
@@ -395,11 +429,9 @@ def score_support(e, layer, f, host, be, db, picked):
         if f.ml == "inference_api" and "inference" in t:
             s += 1.0
         if f.ml == "llm_rag":
-            s += 1.2 if "llm_rag" in t else -0.5
-            if e["name"].startswith("pgvector") and db and "PostgreSQL" in db["name"]:
+            s += 0.8 if "llm_rag" in t else 0.0
+            if e["name"].startswith("pgvector"):
                 s += 1.0
-            if e["name"].startswith("pgvector") and not (db and "PostgreSQL" in db["name"]):
-                s -= 1.5
         if f.ml == "training":
             s += 1.2 if "training" in t else -0.5
         if f.deploy == "air_gapped" and "llm" in t and f.ml == "llm_rag":
@@ -441,20 +473,23 @@ def needed_supporting(f, be, db, host):
     if f.pay and f.deploy != "air_gapped":
         L.append("payments")
     if f.ml != "none":
-        L.append("ml")
+        L.append("ml_retrieval" if f.ml == "llm_rag" else "ml")
+        if f.ml == "llm_rag":
+            L.append("ml_generation")
     if f.fts and not (db is not None and db["fts"] and f.tier < 3):
         L.append("search")
     if has_be and (f.tier >= 2 or (f.p95 is not None and f.p95 <= 150) or (f.rps is not None and f.rps >= 200) or (f.rt and f.tier >= 1)):
         L.append("cache")
     if has_be and (f.tier >= 3 or "erp" in f.integr or "sms" in f.integr or "crm" in f.integr or (f.workload == "write_heavy" and f.tier >= 2) or f.ml == "training"):
         L.append("queue")
-    if f.deploy not in ("on_premise", "air_gapped") and host["hosting_type"] != "static" and (f.seo or f.geo in ("global", "regional") or (f.files and f.tier >= 1)):
+    web = "web" in f.platforms
+    if f.deploy not in ("on_premise", "air_gapped") and host["hosting_type"] != "static" and (((f.seo or (f.files and f.tier >= 1)) and web) or f.geo in ("global", "regional")):
         L.append("cdn")
     if (has_be or f.team_eff >= 2) and host["hosting_type"] != "static":
         L.append("ci_cd")
     if has_be and (f.tier >= 1 or f.avail in ("99.9", "99.95", "99.99")):
         L.append("observability")
-    return L
+    return [("ml", x[3:]) if x.startswith("ml_") else ("ml", "model") if x == "ml" else (x, None) for x in L]
 
 
 def build(host, f, kb):
@@ -468,7 +503,7 @@ def build(host, f, kb):
         if not cands:
             return None
         overlap = [e for e in cands if f.real_langs and set(x.lower() for x in e["languages"]) & set(f.real_langs)]
-        pool = overlap if overlap else cands
+        pool = overlap if overlap else ([e for e in cands if "mainstream" in e["tags"]] if f.real_langs else []) or cands
         be_ranked = pick_top(pool, lambda e: score_backend(e, f, host, kb))
         be = be_ranked[0][1]
         pick["backend_mismatch"] = bool(f.real_langs) and not overlap
@@ -509,16 +544,17 @@ def build(host, f, kb):
         total += fe_ranked[0][0]
     if db is not None:
         total += db_ranked[0][0]
-    for layer in needed_supporting(f, be, db, host):
-        cands = [e for e in kb.layer(layer) if exclusion(e, layer, f, host) is None]
-        if layer == "ml" and f.ml == "training" and f.deploy not in ("on_premise", "air_gapped"):
-            pass
+    for layer, role in needed_supporting(f, be, db, host):
+        cands = [e for e in kb.layer(layer) if exclusion(e, layer, f, host) is None and compat_support(e, layer, role, f, be, fe, db)]
+        if layer == "ml" and role == "model" and f.ml == "training":
+            trainable = [e for e in cands if "training" in e["tags"]]
+            cands = trainable or cands
         if not cands:
-            sup.append({"layer": layer, "entry": None, "ranked": []})
+            sup.append({"layer": layer, "role": role, "entry": None, "ranked": []})
             total -= 2.0
             continue
-        ranked = pick_top(cands, lambda e: score_support(e, layer, f, host, be, db, sup))
-        sup.append({"layer": layer, "entry": ranked[0][1], "ranked": ranked})
+        ranked = pick_top(cands, lambda e: score_support(e, layer, f, host, be, db, sup, role))
+        sup.append({"layer": layer, "role": role, "entry": ranked[0][1], "ranked": ranked})
         total += 0.5 * ranked[0][0]
     pick["supporting"] = sup
     pick["score"] = total
@@ -685,9 +721,14 @@ def contradiction_warnings(f, W, A):
         add_warn(W, "AVAILABILITY_VS_TEAM", "warning", "99.95% availability needs on-call discipline that a beginner team without DevOps rarely has.",
                  ["requirements.availability", "team.experience", "team.has_devops"])
     if f.u12 >= 1_000_000 and f.budget < 500:
-        add_warn(W, "SCALE_VS_BUDGET", "critical",
-                 f"{f.u12:,} users in 12 months cannot be served on ${f.budget:,.0f}/month; expect the budget to be exceeded by an order of magnitude or the scale target to slip.",
-                 ["budget.monthly_infra_usd", "scale.users_12_months"])
+        if f.static_like:
+            add_warn(W, "SCALE_VS_BUDGET", "warning",
+                     f"{f.u12:,} users on ${f.budget:,.0f}/month is only realistic because this is a static site on a CDN-backed host; any dynamic feature (accounts, search, payments) would break the budget.",
+                     ["budget.monthly_infra_usd", "scale.users_12_months"])
+        else:
+            add_warn(W, "SCALE_VS_BUDGET", "critical",
+                     f"{f.u12:,} users in 12 months cannot be served on ${f.budget:,.0f}/month; expect the budget to be exceeded by an order of magnitude or the scale target to slip.",
+                     ["budget.monthly_infra_usd", "scale.users_12_months"])
     if f.weeks <= 3 and len(f.n["project"]["platforms"]) >= 3:
         add_warn(W, "TIMELINE_VS_PLATFORMS", "warning",
                  f"An MVP in {f.weeks} week(s) across {len(f.n['project']['platforms'])} platforms is unrealistic; ship one platform first.",
@@ -972,7 +1013,7 @@ def assemble(f, kb, n, A, W, best, picks):
             rp = region_phrase(db, f, kb)
             cd.why("infrastructure.data_residency", f"For {v('infrastructure.data_residency', f.res)}: {rp or 'residency coverage is recorded in the knowledge base'}.")
         if f.comp:
-            cd.why("compliance", f"It is acceptable under {v('compliance', f.comp)}" + (f" (attestations: {', '.join(db['compliance'])})." if db["compliance"] else " as a self-managed store you must harden and audit."))
+            cd.why("compliance", f"It is acceptable under {v('compliance', f.comp)}" + (f" (attestations: {', '.join(db['compliance'])})." if db["compliance"] else (" as a managed service whose vendor reports you should review." if db["saas_only"] else " as a self-managed store you must harden and audit.")))
         cd.why("scale.users_12_months", f"Its comfortable range ({db['scale_cap_users']:,} users) covers {v('scale.users_12_months', f.u12)}.")
         if f.type in ("fintech", "ecommerce", "marketplace") or f.pay:
             cd.why("requirements.payments", f"{v('requirements.payments', f.pay)}: transactional integrity favours a relational engine." if "relational" in db["tags"] else f"{v('requirements.payments', f.pay)}: money-movement logic must tolerate this store's weaker transactions.")
@@ -1005,7 +1046,8 @@ def assemble(f, kb, n, A, W, best, picks):
             if f.att and "pci_dss" in f.comp:
                 c.why("compliance", f"{v('compliance', f.comp)}: card data stays with the PCI-certified gateway ({e['name']}).")
         elif layer == "ml":
-            c.why("requirements.ml_features", f"{v('requirements.ml_features', f.ml)} is covered by {e['name']}" + (" (self-hostable)." if e["self_hostable"] else "."))
+            part = {"retrieval": "the retrieval (vector search) half of", "generation": "the model-serving half of", "model": ""}.get(sp.get("role") or "model", "")
+            c.why("requirements.ml_features", f"{v('requirements.ml_features', f.ml)}: {e['name']} provides {part + ' ' if part else ''}the ML capability" + (" (self-hostable)." if e["self_hostable"] else "."))
         elif layer == "search":
             c.why("requirements.full_text_search", f"{v('requirements.full_text_search', f.fts)} at {v('scale.users_12_months', f.u12)} warrants a dedicated search engine" + (" because the database has no full-text search." if db is None or not db["fts"] else " at this scale."))
         elif layer == "cache":
@@ -1034,8 +1076,9 @@ def assemble(f, kb, n, A, W, best, picks):
         if f.lock == "low" and e["self_hostable"]:
             c.why("extra.vendor_lock_in_tolerance", f"{v('extra.vendor_lock_in_tolerance', f.lock)}: it is open source/portable.")
         lo_c, hi_c = cost_of(e, f)
+        money = "no fixed fee (usage- or transaction-based pricing)" if hi_c <= 0 else f"${lo_c:.0f}" if round(lo_c) == round(hi_c) else f"${lo_c:.0f}-{hi_c:.0f}/month"
         c.why("", f"{e['name']}: {e['strengths'][0]}. Sized for {f.u12:,} users ({f.peak:,} concurrent), a team of {f.team} ({f.exp}), {f.avail}% availability and "
-                  f"{f.deploy.replace('_', ' ')} deployment; estimated ${lo_c:.0f}-{hi_c:.0f}/month.")
+                  f"{f.deploy.replace('_', ' ')} deployment; estimated {money}.")
         c.tradeoffs = list(e["limits"])
         top = sp["ranked"][0][0] if sp["ranked"] else 0.0
         c.alts = alternatives(e, sp["ranked"], excluded_list(kb, layer, f, host, e), f)
@@ -1085,6 +1128,8 @@ def assemble(f, kb, n, A, W, best, picks):
         A.append("extra.sync_conflict_tolerance was provided but requirements.offline_support is false, so it did not change the stack.")
     if f.p95 is not None and f.p95 <= 150 and "serverless" in host["tags"]:
         add_warn(W, "COLD_START_LATENCY", "warning", f"{host['name']} may hit cold starts that break a {f.p95} ms p95 target; keep instances warm or use containers.", ["requirements.p95_latency_ms"])
+    if host["hosting_type"] in ("vm", "onprem") and f.u12 > host["scale_cap_users"]:
+        add_warn(W, "SINGLE_NODE_CAPACITY", "warning", f"{host['name']} is a single-node setup whose comfortable range is {host['scale_cap_users']:,} users; scale.users_12_months={f.u12:,} needs a load balancer and several nodes (or an orchestrator).", ["scale.users_12_months"])
     if f.avail in ("99.95", "99.99") and host["hosting_type"] == "vm":
         add_warn(W, "SINGLE_VM_AVAILABILITY", "warning", f"A single VM cannot deliver {f.avail}% availability; run at least two instances behind a load balancer.", ["requirements.availability"])
     if f.deploy in ("on_premise", "air_gapped") and f.auth == "phone_otp":
@@ -1149,7 +1194,7 @@ def make_summary(f, host, be, fe, db, style, sup):
         s += f" with {db['name']}" if db else ""
         s += f" and a {fe['name']} client" if fe else " exposing an API only"
         s += "."
-    s += f" Chosen for a {f.exp} team of {f.team} with a ${f.budget:g}/month budget and {f.u12:,} users in 12 months."
+    s += f" Chosen for {'an' if f.exp[0] in 'aeiou' else 'a'} {f.exp} team of {f.team} with a ${f.budget:g}/month budget and {f.u12:,} users in 12 months."
     return s
 
 

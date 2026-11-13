@@ -122,7 +122,7 @@
   "url": "https://cloud.google.com/build/docs/overview",
   "status": 200,
   "title": "Overview of Cloud Build &nbsp;|&nbsp; Google Cloud Documentation",
-  "bytes": 172291,
+  "bytes": 172287,
   "final": "https://docs.cloud.google.com/build/docs/overview"
  },
  {
@@ -514,7 +514,7 @@
   "url": "https://laravel.com/docs",
   "status": 200,
   "title": "Installation | Laravel 13.x - The clean stack for Artisans and agents",
-  "bytes": 184348,
+  "bytes": 184328,
   "final": "https://laravel.com/framework/docs"
  },
  {
@@ -686,6 +686,13 @@
   "final": "https://pusher.com/docs/channels/"
  },
  {
+  "url": "https://pytorch.org/docs/stable/index.html",
+  "status": 200,
+  "title": "Redirecting&hellip;",
+  "bytes": 1817,
+  "final": "https://docs.pytorch.org/docs/stable/index.html"
+ },
+ {
   "url": "https://qdrant.tech/documentation/",
   "status": 200,
   "title": "Documentation - Qdrant",
@@ -843,7 +850,7 @@
   "url": "https://www.postgresql.org/about/",
   "status": 200,
   "title": "PostgreSQL: About",
-  "bytes": 17107,
+  "bytes": 16809,
   "final": "https://www.postgresql.org/about/"
  },
  {

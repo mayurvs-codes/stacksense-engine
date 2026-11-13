@@ -125,7 +125,8 @@
   },
   "tags": [
    "kv",
-   "serverless"
+   "serverless",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -536,7 +537,8 @@
    "document",
    "offline_sync",
    "realtime",
-   "mobile"
+   "mobile",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],

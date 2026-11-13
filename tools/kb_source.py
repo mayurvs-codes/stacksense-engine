@@ -450,6 +450,9 @@ sup("ml", "Qdrant", self_host=True, r=(4, 4, 5, 5, 4, 4), ops=2, tags=("ml", "ve
 sup("ml", "Ollama", self_host=True, r=(4, 5, 2, 3, 4, 4), ops=3, tags=("ml", "llm", "llm_rag", "inference"), cost=((0, 200), (0, 5)), cap=500_000,
     strengths=("Runs open-weight language models locally or on-premises",), limits=("Needs GPU/CPU capacity; smaller models than hosted APIs",),
     src=[("https://github.com/ollama/ollama", "Ollama")])
+sup("ml", "PyTorch", langs=("python",), self_host=True, r=(3, 5, 5, 5, 4, 4), ops=3, tags=("ml", "training", "inference", "library"), cost=((0, 200), (0, 5)), cap=500_000_000,
+    strengths=("Open-source deep-learning framework for training and serving models on your own hardware",), limits=("GPU capacity and MLOps are your job", "Python-only integration"),
+    src=[("https://pytorch.org/docs/stable/index.html", "PyTorch documentation")])
 # ci_cd
 sup("ci_cd", "GitHub Actions", saas=True, regions=("global",), r=(5, 5, 4, 4, 4, 4), ops=1, tags=("ci_cd",), cost=((0, 10), (0, 0)), cap=1_000_000_000,
     strengths=("CI/CD built into the repository with a large action marketplace",), limits=("Hosted runners are SaaS; self-hosted runners needed for air gaps",),
@@ -494,6 +497,10 @@ sup("observability", "Google Cloud Operations Suite", cloud="gcp", regions=ALLR,
 
 
 LIB = {"Socket.IO", "BullMQ", "Yjs", "scikit-learn (self-hosted inference)", "ONNX Runtime", "ASP.NET Core Identity", "pgvector (PostgreSQL extension)"}
+CLIENT_LIB = {"Yjs"}
+MAINSTREAM = {"Django", "NestJS", "Spring Boot"}  # default picks when the team's languages match no backend
+PROPRIETARY = {"Firestore", "Amazon DynamoDB", "AWS Lambda", "AWS Amplify Hosting", "Azure Static Web Apps", "Firebase Authentication", "Amazon Cognito",
+               "Google Cloud Pub/Sub", "Amazon SQS", "Azure Service Bus", "Amazon SageMaker", "Google Vertex AI", "Azure Machine Learning", "Cloudflare Pages", "Vercel"}
 
 
 # fixed monthly cost calibration for small deployments (min, max) USD; per-user growth comes from per_1k_users
@@ -504,7 +511,7 @@ FIXED_OVR = {"Google Cloud Run": (0, 15), "AWS Lambda": (0, 10), "AWS ECS on Far
              "Amazon RDS for PostgreSQL": (15, 80), "Azure SQL Database": (5, 60), "Azure Database for PostgreSQL": (15, 70),
              "Amazon CloudWatch": (0, 15), "Azure Monitor": (0, 15), "Google Cloud Operations Suite": (0, 15), "Cloudflare Pages": (0, 0),
              "Cloudflare CDN": (0, 20), "Azure Static Web Apps": (0, 9), "Amazon CloudFront": (0, 20), "Google Cloud CDN": (0, 20)}
-PER1K_OVR = {"Cloudflare Pages": (0, 0.02), "Netlify": (0, 0.3), "GitHub Pages": (0, 0), "Azure Static Web Apps": (0, 0.1), "AWS Amplify Hosting": (0, 0.3)}
+PER1K_OVR = {"Cloudflare Pages": (0, 0.002), "Netlify": (0, 0.3), "GitHub Pages": (0, 0), "Azure Static Web Apps": (0, 0.1), "AWS Amplify Hosting": (0, 0.3)}
 
 
 def main():
@@ -517,6 +524,14 @@ def main():
     for e in E:
         if e["name"] in LIB and "library" not in e["tags"]:
             e["tags"].append("library")
+        if e["name"] in MAINSTREAM:
+            e["tags"].append("mainstream")
+        if e["name"] in CLIENT_LIB:
+            e["tags"].append("client_lib")
+        if e["name"] in PROPRIETARY:
+            e["tags"].append("proprietary")
+        if e["name"].startswith("scikit-learn") and "training" not in e["tags"]:
+            e["tags"].append("training")
     out = ROOT / "data" / "kb"
     out.mkdir(parents=True, exist_ok=True)
     groups = {"frontend": [], "backend": [], "database": [], "hosting": [], "supporting": []}

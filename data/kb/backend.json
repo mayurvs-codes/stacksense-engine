@@ -167,7 +167,8 @@
   },
   "tags": [
    "fullstack",
-   "admin"
+   "admin",
+   "mainstream"
   ],
   "platforms": [],
   "runtimes": [
@@ -543,7 +544,8 @@
   "tags": [
    "api",
    "enterprise",
-   "realtime_ok"
+   "realtime_ok",
+   "mainstream"
   ],
   "platforms": [],
   "runtimes": [
@@ -668,7 +670,8 @@
   "tags": [
    "enterprise",
    "fintech_ok",
-   "api"
+   "api",
+   "mainstream"
   ],
   "platforms": [],
   "runtimes": [

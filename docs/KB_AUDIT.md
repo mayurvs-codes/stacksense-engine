@@ -102,6 +102,7 @@ Generated 2026-11-13 by `tools/gen_kb_audit.py` from `data/kb/*.json`, `tools/ve
 | ml | Ollama | [Ollama](https://github.com/ollama/ollama) (2026-11-13) | ollama/ollama: archived=False, last push 2026-11-13 |
 | ml | ONNX Runtime | [ONNX Runtime docs](https://onnxruntime.ai/docs/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | ml | pgvector (PostgreSQL extension) | [pgvector](https://github.com/pgvector/pgvector) (2026-11-13) | pgvector/pgvector: archived=False, last push 2026-11-13 |
+| ml | PyTorch | [PyTorch documentation](https://pytorch.org/docs/stable/index.html) (2026-11-13) | n/a (commercial/managed service or standard) |
 | ml | Qdrant | [Qdrant docs](https://qdrant.tech/documentation/) (2026-11-13) | qdrant/qdrant: archived=False, last push 2026-11-13 |
 | ml | scikit-learn (self-hosted inference) | [scikit-learn](https://scikit-learn.org/stable/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | observability | Amazon CloudWatch | [What is CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html) (2026-11-13) | n/a (commercial/managed service or standard) |

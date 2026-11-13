@@ -48,7 +48,8 @@
    "phone_otp",
    "social",
    "email",
-   "sso"
+   "sso",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -232,7 +233,8 @@
    "auth",
    "phone_otp",
    "social",
-   "email"
+   "email",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -1215,7 +1217,8 @@
   "tags": [
    "ml",
    "inference",
-   "training"
+   "training",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -1283,7 +1286,8 @@
   "tags": [
    "ml",
    "inference",
-   "training"
+   "training",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -1351,7 +1355,8 @@
   "tags": [
    "ml",
    "inference",
-   "training"
+   "training",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -1546,6 +1551,67 @@
   ]
  },
  {
+  "name": "PyTorch",
+  "layer": "ml",
+  "lifecycle_status": "active",
+  "languages": [
+   "python"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 200] + per-1k-users [0.0, 0.5] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    200
+   ],
+   "per_1k_users": [
+    0.0,
+    0.5
+   ]
+  },
+  "strengths": [
+   "Open-source deep-learning framework for training and serving models on your own hardware"
+  ],
+  "limits": [
+   "GPU capacity and MLOps are your job",
+   "Python-only integration"
+  ],
+  "ops_burden": 3,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 5,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "ml",
+   "training",
+   "inference",
+   "library"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 500000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://pytorch.org/docs/stable/index.html",
+    "title": "PyTorch documentation",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
   "name": "Qdrant",
   "layer": "ml",
   "lifecycle_status": "active",
@@ -1645,7 +1711,8 @@
   "tags": [
    "ml",
    "inference",
-   "library"
+   "library",
+   "training"
   ],
   "platforms": [],
   "runtimes": [],
@@ -2433,7 +2500,8 @@
    "sec": 4
   },
   "tags": [
-   "queue"
+   "queue",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -2551,7 +2619,8 @@
   },
   "tags": [
    "queue",
-   "enterprise"
+   "enterprise",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -2671,7 +2740,8 @@
    "sec": 4
   },
   "tags": [
-   "queue"
+   "queue",
+   "proprietary"
   ],
   "platforms": [],
   "runtimes": [],
@@ -3019,7 +3089,8 @@
    "realtime",
    "crdt",
    "collab",
-   "library"
+   "library",
+   "client_lib"
   ],
   "platforms": [],
   "runtimes": [],
