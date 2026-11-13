@@ -1168,7 +1168,7 @@ def assemble(f, kb, n, A, W, best, picks):
         add_warn(W, "COLD_START_LATENCY", "warning", f"{host['name']} may hit cold starts that break a {f.p95} ms p95 target; keep instances warm or use containers.", ["requirements.p95_latency_ms"])
     if host["hosting_type"] in ("vm", "onprem") and f.u12 > host["scale_cap_users"]:
         add_warn(W, "SINGLE_NODE_CAPACITY", "warning", f"{host['name']} is a single-node setup whose comfortable range is {host['scale_cap_users']:,} users; scale.users_12_months={f.u12:,} needs a load balancer and several nodes (or an orchestrator).", ["scale.users_12_months"])
-    if f.avail in ("99.95", "99.99") and host["hosting_type"] == "vm":
+    if f.avail in ("99.95", "99.99") and (host["hosting_type"] == "vm" or (host["hosting_type"] == "onprem" and "kubernetes" not in host["tags"])):
         add_warn(W, "SINGLE_VM_AVAILABILITY", "warning", f"A single VM cannot deliver {f.avail}% availability; run at least two instances behind a load balancer.", ["requirements.availability"])
     if f.deploy in ("on_premise", "air_gapped") and f.auth == "phone_otp":
         add_warn(W, "PHONE_OTP_OFFLINE", "warning", "Phone OTP needs an SMS gateway, which is an external dependency under this deployment model.", ["requirements.auth", "infrastructure.deployment_model"])

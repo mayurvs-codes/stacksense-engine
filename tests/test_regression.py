@@ -165,3 +165,7 @@ class Round4Regressions(unittest.TestCase):
             return
         db = k.get("database", o["stack"]["database"]["choice"])
         self.assertTrue(db["self_hostable"] or {"india", "other"} <= set(db["regions"]))
+
+    def test_single_onprem_server_cannot_promise_high_availability(self):
+        o = run(infrastructure__deployment_model="on_premise", requirements__availability="99.95", team__size=3, team__experience="senior", team__has_devops=False)
+        self.assertIn("SINGLE_VM_AVAILABILITY", {w["code"] for w in o["warnings"]})

@@ -11,7 +11,7 @@ Built locally on 2026-11-13 (the cloud run never started). Branch `overnight/eng
 - Fixed while building: frameworks wrongly filtered by region rules; self-managed databases on serverless hosts; cost bands too high; list order
   made explanations non-deterministic; SQL Server reuse; compliance notes naming every regime.
 
-## Rounds 2-5: adversarial review (`review/round_1` ... `review/round_5`)
+## Rounds 2-6: adversarial review (`review/round_1` ... `review/round_6`)
 - 32 + 25 + 25 hand-designed scenarios and 8 fuzz scans of 600 scenarios each (`tools/scan.py`), outputs read critically (critique file in each folder).
 - Round 4 additionally fixed: a scoring bug that rewarded stacks for merely having more components (a 30M-user static site landed on Cloud Run),
   backends on static hosts, EOL databases (MongoDB) abandoned instead of upgraded, unattested SaaS under HIPAA/PCI, RBI + residency conflicts.
@@ -20,7 +20,7 @@ Built locally on 2026-11-13 (the cloud run never started). Branch `overnight/eng
   single ML slot for RAG apps; no trainable framework on-premises; static-site budget warning wording; $0-budget cost bands; licence matching;
   low lock-in tolerance; single-node capacity; load tier ignoring peak concurrency; SQLite on ephemeral hosts; Azure without a managed cache;
   HTMX at high scale or realtime.
-- 116 unit and property tests (`python -m unittest discover -s tests -q`): all pass.
+- 117 unit and property tests (`python -m unittest discover -s tests -q`): all pass.
 - `outputs/P1_output.json` ... `P6_output.json` generated from `outputs/inputs/`.
 
 ### Full gate output (verbatim tail of `python gate/run_gate.py`, no --quick)
@@ -29,12 +29,12 @@ PASS structure (0.0s)
 PASS knowledge_base (0.0s)
 PASS public_scenarios (0.2s)
 PASS determinism_and_invariance (2.9s)
-PASS llm_off_and_offline (2.9s)
+PASS llm_off_and_offline (3.0s)
 PASS anti_hardcoding (0.0s)
 PASS invalid_inputs (3.1s)
-PASS minimal_input_defaults (0.1s)
+PASS minimal_input_defaults (0.2s)
 PASS contradictions_and_hard_constraints (0.6s)
-PASS extras_change_outputs (15.4s)
+PASS extras_change_outputs (15.2s)
 PASS fuzz_and_diversity (4.2s)
 PASS local_sensitivity (5.0s)
 PASS unit_tests (1.5s)
@@ -46,10 +46,11 @@ GATE: PASSED
 ```
 
 ## FINAL STATUS (honest)
-- Gate: passes (output above). Unit tests: 116 pass.
+- Gate: passes (output above). Unit tests: 117 pass.
 - Exit condition (b): the last hand-written round (4) still found defects, which were fixed. After the last fix, 7 further fuzz scans (4,200 scenarios)
-  found 0 oracle violations and only a borderline heuristic hit (about 1% Firestore-for-realtime/GCP choices, judged defensible). A fresh hand-written round
-  after the last fix has NOT been done, so the "two consecutive clean rounds" condition is not formally proven.
+  found 0 oracle violations and only a borderline heuristic hit (about 1% Firestore-for-realtime/GCP choices, judged defensible). Round 6 (15 fresh hand-written scenarios after those fixes) found one small defect (single on-premises server
+  and 99.95% availability, fixed). So the "two consecutive clean rounds" condition is still not formally proven: a further hand-written round after
+  the round 6 fix is recommended.
 - Exit condition (c): every KB source page was opened and logged on 2026-11-13, but vendor compliance attestations, EU/US regions of several vendors and
   all ratings/costs are NOT verified claim by claim (see `docs/KB_AUDIT.md`, section "What was verified, honestly").
 - Not done by design (owner's job): screenshots from the running engine, the PDF report, the Drive folder, the public GitHub link.
