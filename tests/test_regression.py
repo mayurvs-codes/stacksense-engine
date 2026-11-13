@@ -217,3 +217,17 @@ class Round9Regressions(unittest.TestCase):
         o = run(infrastructure__cloud_preference="aws", scale__users_12_months=300000, team__size=8, team__has_devops=True, budget__monthly_infra_usd=6000)
         text = " ".join(o["stack"]["hosting"]["what_would_change"])
         self.assertNotIn("move to a container or serverless platform on a hyperscaler", text)
+
+
+class KubernetesJustification(unittest.TestCase):
+    def test_kubernetes_needs_high_load_or_big_team(self):
+        o = run(infrastructure__cloud_preference="aws", team__size=8, team__has_devops=True, team__experience="senior", scale__users_12_months=300000,
+                scale__peak_concurrent_users=9000, budget__monthly_infra_usd=6000)
+        self.assertNotIn("EKS", o["stack"]["hosting"]["choice"])
+
+    def test_kubernetes_is_available_and_explained_at_very_high_load(self):
+        o = run(infrastructure__cloud_preference="aws", team__size=14, team__has_devops=True, team__experience="senior", scale__users_12_months=8_000_000,
+                scale__peak_concurrent_users=200000, budget__monthly_infra_usd=200000, team__languages=["java"])
+        host = o["stack"]["hosting"]
+        if "EKS" in host["choice"]:
+            self.assertIn("Kubernetes is justified", host["justification"])

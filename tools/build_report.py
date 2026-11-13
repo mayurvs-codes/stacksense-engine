@@ -157,17 +157,17 @@ Kubernetes-class platforms need DevOps and four engineers; self-managed database
 {edge_html}
 
 <h2>8. Validation</h2>
-<p><b>Automated tests:</b> 130 unit and property tests (<code>python -m unittest discover -s tests</code>): validation rules, determinism, order/id/description independence, hard-constraint invariants over fuzzed scenarios, CLI and web API behaviour, and a regression test for every defect found in review.
+<p><b>Automated tests:</b> 132 unit and property tests (<code>python -m unittest discover -s tests</code>): validation rules, determinism, order/id/description independence, hard-constraint invariants over fuzzed scenarios, CLI and web API behaviour, and a regression test for every defect found in review.
 <b>Independent gate</b> (<code>gate/run_gate.py</code>, written separately from the engine and kept unmodified during the build): public scenarios, byte-identical reruns across hash seeds, independence from id/name/description, LLM-off and no-network runs, anti-hard-coding scans, 21 invalid-input cases, minimal-input defaults, contradiction and hard-constraint cases, extras that must change output, 120 fuzzed scenarios (hard constraints, diversity, skill fit, templated-text detection), local sensitivity, web UI, documentation, and protected-file integrity.
 <b>Adversarial review:</b> 127 hand-designed scenarios in six rounds (invalid inputs, contradictions, over-engineering traps, regulated systems, legacy/EOL systems, air-gapped and on-premises, skill mismatches, offline-first, realtime at scale, ML/LLM, extreme budgets, extras-heavy files, and modified versions of the public scenarios), about 9,000 fuzzed scenarios scanned for known-bad patterns, and 6,000 malformed inputs (0 crashes). Each output was read critically and every defect fixed at its root cause (examples: a scoring bug that rewarded stacks for having more components, .NET-only libraries recommended to non-.NET teams, SQLite on ephemeral containers, unattested SaaS under HIPAA).
 Defects per hand-written round were roughly 12, 6, 5, 1, 3 and 1, so the engine stabilised but review never reached a formally clean round. <b>Sanity checks:</b> outputs were compared by the author with common industry patterns (static sites on free CDN hosts, Indian fintech on a hyperscaler's Mumbai region with an Indian gateway, Microsoft shops on Azure with Entra ID, offline field apps on sync-capable stores); no formal comparison with published case studies was done.</p>
 
 <h2>9. Limitations and future work</h2>
 <ul><li>Ratings and costs are author estimates, not measurements; cost bands are order-of-magnitude. Vendor compliance attestations are recorded coarsely from public programmes and were not verified claim by claim; EU/US regions of several vendors are general knowledge.</li>
-<li>The knowledge base is finite ({n_kb} entries): no globally distributed SQL, managed Kubernetes services, media pipelines or .NET desktop clients; Neon, PlanetScale, Hetzner and Fly.io are absent because their regions or lifecycle could not be verified in time.</li>
+<li>The knowledge base is finite ({n_kb} entries): no media pipelines, and few niche or regional vendors; Neon, PlanetScale, Hetzner, Fly.io and CockroachDB are absent because their regions or lifecycle could not be verified in time.</li>
 <li>Reuse of existing systems relies on name patterns; an on-premises Oracle estate cannot be reused (no Oracle entry).</li>
 <li><code>on_premise</code> combined with payments is reported infeasible because no self-hostable payment processor exists (documented in <code>GATE_ISSUES.md</code>).</li>
-<li>The Docker image was not built on the development machine.</li>
+<li>The Docker image was built and run once on the development machine (UI and API answered); it was not tested on other platforms.</li>
 <li><b>Future work:</b> weights learned from public developer surveys, more regions and multi-region designs, live price APIs for the cost model, a larger audited knowledge base.</li></ul>
 
 <h2>10. References and third-party tools</h2>

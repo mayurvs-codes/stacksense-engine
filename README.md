@@ -85,7 +85,7 @@ in `stacksense/engine.py` over the data in `data/kb/`. `project.description` is 
 | `stacksense/kb.py` | Loads the knowledge base, verified region notes and the end-of-life lifecycle rules. |
 | `stacksense/engine.py` | Feature derivation, hard-constraint filters, scoring, joint selection, warnings, cost model, explanations and output assembly. |
 | `stacksense/cli.py`, `server.py`, `static/index.html` | Command line, local HTTP server and offline web UI. |
-| `data/kb/*.json` | 124 curated technologies (frontend, backend, database, hosting and 11 supporting layers) with strengths, limits, regions, ratings, cost estimates and source URLs. |
+| `data/kb/*.json` | 129 curated technologies (frontend, backend, database, hosting and 11 supporting layers) with strengths, limits, regions, ratings, cost estimates and source URLs. |
 | `tools/` | Knowledge-base generator and audit scripts (`kb_source.py`, `verify_sources.py`, `gen_kb_audit.py`). |
 | `gate/` | Independent validation gate used during development. |
 

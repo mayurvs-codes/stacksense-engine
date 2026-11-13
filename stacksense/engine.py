@@ -420,6 +420,8 @@ def score_host(h, f, kb):
         s += 0.3
     if f.rps is not None and f.rps >= 1000 and "serverless" in t:
         s -= 0.3
+    if "kubernetes" in t and not (f.tier >= 3 or f.team >= 10):
+        s -= 1.5  # Kubernetes needs a justification: very high load or a large platform team
     return s
 
 
@@ -733,6 +735,8 @@ def explain_host(h, f, kb, comp):
         comp.why("extra.expected_rps", f"The stated {v('extra.expected_rps', f.rps)} drives the compute tier and cost band.")
     if f.lock != "medium":
         comp.why("extra.vendor_lock_in_tolerance", f"{v('extra.vendor_lock_in_tolerance', f.lock)} shifted the score {'against' if f.lock == 'low' else 'towards'} proprietary managed services.")
+    if "kubernetes" in h["tags"]:
+        comp.why("scale.users_12_months", f"Kubernetes is justified here by load tier {f.tier} ({v('scale.users_12_months', f.u12)}, peak {f.peak:,} concurrent) and a platform-capable team (team.size={f.team}, has_devops={fv(f.devops)}).")
     comp.tradeoffs = list(h["limits"])
     return comp
 

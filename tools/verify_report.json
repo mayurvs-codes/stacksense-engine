@@ -49,6 +49,13 @@
   "final": "https://aws.amazon.com/ec2/"
  },
  {
+  "url": "https://aws.amazon.com/eks/",
+  "status": 200,
+  "title": "Managed Kubernetes Service - Amazon EKS - AWS",
+  "bytes": 199984,
+  "final": "https://aws.amazon.com/eks/"
+ },
+ {
   "url": "https://aws.amazon.com/elasticache/",
   "status": 200,
   "title": "Valkey-, Memcached-, and Redis OSS-Compatible Cache \u2013 Amazon ElastiCache \u2013 AWS",
@@ -129,8 +136,15 @@
   "url": "https://cloud.google.com/cdn/docs/overview",
   "status": 200,
   "title": "Cloud CDN overview &nbsp;|&nbsp; Google Cloud Documentation",
-  "bytes": 147589,
+  "bytes": 147775,
   "final": "https://docs.cloud.google.com/cdn/docs/overview"
+ },
+ {
+  "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview",
+  "status": 200,
+  "title": "GKE overview &nbsp;|&nbsp; Google Kubernetes Engine (GKE) &nbsp;|&nbsp; Google Cloud Docum",
+  "bytes": 199953,
+  "final": "https://docs.cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview"
  },
  {
   "url": "https://cloud.google.com/memorystore/docs",
@@ -150,7 +164,7 @@
   "url": "https://cloud.google.com/pubsub/docs/overview",
   "status": 200,
   "title": "What is Pub/Sub? &nbsp;|&nbsp; Google Cloud Documentation",
-  "bytes": 165868,
+  "bytes": 165872,
   "final": "https://docs.cloud.google.com/pubsub/docs/overview"
  },
  {
@@ -159,6 +173,20 @@
   "title": "What is Cloud Run &nbsp;|&nbsp; Google Cloud Documentation",
   "bytes": 199949,
   "final": "https://docs.cloud.google.com/run/docs/overview/what-is-cloud-run"
+ },
+ {
+  "url": "https://cloud.google.com/spanner/docs/instance-configurations",
+  "status": 200,
+  "title": "Regional, dual-region, and multi-region configurations &nbsp;|&nbsp; Spanner &nbsp;|&nbsp;",
+  "bytes": 199953,
+  "final": "https://docs.cloud.google.com/spanner/docs/instance-configurations"
+ },
+ {
+  "url": "https://cloud.google.com/spanner/docs/overview",
+  "status": 200,
+  "title": "Spanner: Always-on, virtually unlimited scale database | Google Cloud",
+  "bytes": 199967,
+  "final": "https://cloud.google.com/spanner"
  },
  {
   "url": "https://cloud.google.com/sql/docs/postgres",
@@ -514,7 +542,7 @@
   "url": "https://laravel.com/docs",
   "status": 200,
   "title": "Installation | Laravel 13.x - The clean stack for Artisans and agents",
-  "bytes": 184348,
+  "bytes": 184336,
   "final": "https://laravel.com/framework/docs"
  },
  {
@@ -537,6 +565,13 @@
   "title": "Introduction to Identity on ASP.NET Core | Microsoft Learn",
   "bytes": 159018,
   "final": "https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-10.0"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/azure/aks/what-is-aks",
+  "status": 200,
+  "title": "What is Azure Kubernetes Service (AKS)? - Azure Kubernetes Service | Microsoft Learn",
+  "bytes": 64904,
+  "final": "https://learn.microsoft.com/en-us/azure/aks/what-is-aks"
  },
  {
   "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
@@ -628,6 +663,13 @@
   "title": "Overview of virtual machines in Azure - Azure Virtual Machines | Microsoft Learn",
   "bytes": 72846,
   "final": "https://learn.microsoft.com/en-us/azure/virtual-machines/overview"
+ },
+ {
+  "url": "https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui",
+  "status": 200,
+  "title": "What is .NET MAUI? - .NET MAUI | Microsoft Learn",
+  "bytes": 58296,
+  "final": "https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui?view=net-maui-10.0"
  },
  {
   "url": "https://learn.microsoft.com/en-us/entra/fundamentals/whatis",
@@ -864,7 +906,7 @@
   "url": "https://www.postgresql.org/about/",
   "status": 200,
   "title": "PostgreSQL: About",
-  "bytes": 16851,
+  "bytes": 16845,
   "final": "https://www.postgresql.org/about/"
  },
  {

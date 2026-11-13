@@ -5,7 +5,7 @@ come from the repository. Screenshots must be taken by the owner from the runnin
 
 ## 1. Abstract (draft, under 150 words)
 StackSense is a deterministic tech-stack recommendation engine. It validates a scenario, derives features (scale tier, operations capacity,
-priority weights), filters a curated 124-entry knowledge base with hard constraints (data residency, compliance, deployment model, explicit
+priority weights), filters a curated 129-entry knowledge base with hard constraints (data residency, compliance, deployment model, explicit
 cloud preference), jointly scores hosting, backend, frontend, database and supporting services, and explains every choice with the input fields
 that drove it, alternatives, trade-offs and counterfactuals. Contradictions become severity-labelled warnings, the budget is treated as a soft
 constraint with explicit relaxations, and costs are reported as bands with assumptions. No LLM is used, output is byte-for-byte deterministic,
@@ -47,7 +47,7 @@ Research: sources are listed per knowledge-base entry and audited in `docs/KB_AU
 ## 5. Knowledge base and decision logic
 - Representation: each entry has layer, languages, regions, self-hosting and SaaS flags, cloud, ratings (time to market, cost, scalability,
   performance, maintainability, security; 1-5 author judgements), operations burden, comfortable scale cap, cost band (fixed + per-1k-users), tags,
-  attestations, strengths, limits and sources. 124 entries: 15 frontend, 11 backend, 16 database, 19 hosting, 63 supporting.
+  attestations, strengths, limits and sources. 129 entries: 16 frontend, 11 backend, 17 database, 22 hosting, 63 supporting.
 - Hard constraints filter candidates (cloud tag must match an explicit preference; deployment model must be satisfied; data residency requires a
   verified region or self-hosting; attestation sets must be covered; no Kubernetes without DevOps and a team of 4; websocket support for realtime).
 - Soft scoring: weighted rating sum using priority weights, plus skill fit (a hard preference for backends in the team's languages), requirement and
@@ -93,7 +93,7 @@ the results as `outputs/P1_output.json ... P6_output.json`. Current engine resul
 
 ## 9. Limitations and future work
 - Ratings and costs are author estimates, not measurements; bands are order-of-magnitude.
-- The knowledge base has 124 entries; many valid options (for example Kubernetes services, Neon, PlanetScale, Hetzner, Fly.io) are absent because their
+- The knowledge base has 129 entries; many valid options (for example Neon, PlanetScale, Hetzner, Fly.io, CockroachDB) are absent because their
   regions or lifecycle could not be verified within the time available.
 - Vendor compliance attestations are taken from public programmes and recorded coarsely.
 - Reuse detection of existing systems relies on name patterns; an on-premises Oracle estate cannot be reused because the KB has no Oracle entry.

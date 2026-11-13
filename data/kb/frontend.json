@@ -1,5 +1,71 @@
 [
  {
+  "name": ".NET MAUI",
+  "layer": "frontend",
+  "lifecycle_status": "active",
+  "languages": [
+   "csharp"
+  ],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0.0,
+    0.0
+   ]
+  },
+  "strengths": [
+   "One C# and XAML codebase for Android, iOS, macOS and Windows",
+   "Reuses .NET skills and libraries; natural pairing with ASP.NET Core"
+  ],
+  "limits": [
+   "No web target (pair with Blazor)",
+   "Smaller community than Flutter or React Native"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 4,
+   "cost": 4,
+   "scale": 4,
+   "perf": 4,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "mobile_cross",
+   "offline_ok",
+   "dotnet",
+   "enterprise"
+  ],
+  "platforms": [
+   "android",
+   "ios",
+   "desktop"
+  ],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 20000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui",
+    "title": "What is .NET MAUI",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
   "name": "Angular",
   "layer": "frontend",
   "lifecycle_status": "active",

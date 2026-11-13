@@ -55,6 +55,7 @@ Generated 2026-11-13 by `tools/gen_kb_audit.py` from `data/kb/*.json`, `tools/ve
 | database | ClickHouse | [ClickHouse intro](https://clickhouse.com/docs/en/intro) (2026-11-13) | ClickHouse/ClickHouse: archived=False, last push 2026-11-13 |
 | database | CouchDB | [CouchDB overview](https://docs.couchdb.org/en/stable/intro/overview.html) (2026-11-13) | apache/couchdb: archived=False, last push 2026-11-13 |
 | database | Firestore | [Firestore locations](https://firebase.google.com/docs/firestore/locations) (2026-11-13) | n/a (commercial/managed service or standard) |
+| database | Google Cloud Spanner | [Cloud Spanner overview](https://cloud.google.com/spanner/docs/overview) (2026-11-13); [Spanner instance configurations](https://cloud.google.com/spanner/docs/instance-configurations) (2026-11-13) | n/a (commercial/managed service or standard) |
 | database | Google Cloud SQL for PostgreSQL | [Cloud SQL for PostgreSQL](https://cloud.google.com/sql/docs/postgres) (2026-11-13) | n/a (commercial/managed service or standard) |
 | database | Microsoft SQL Server | [SQL Server docs](https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2022) (2026-11-13) | n/a (commercial/managed service or standard) |
 | database | MongoDB Atlas | [Atlas on AWS regions](https://www.mongodb.com/docs/atlas/reference/amazon-aws/) (2026-11-13) | n/a (commercial/managed service or standard) |
@@ -63,6 +64,7 @@ Generated 2026-11-13 by `tools/gen_kb_audit.py` from `data/kb/*.json`, `tools/ve
 | database | SQLite | [About SQLite](https://www.sqlite.org/about.html) (2026-11-13) | n/a (commercial/managed service or standard) |
 | database | Supabase Postgres | [Supabase regions](https://supabase.com/docs/guides/platform/regions) (2026-11-13) | n/a (commercial/managed service or standard) |
 | database | TimescaleDB | [Timescale docs](https://docs.timescale.com/) (2026-11-13) | timescale/timescaledb: archived=False, last push 2026-11-13 |
+| frontend | .NET MAUI | [What is .NET MAUI](https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui) (2026-11-13) | n/a (commercial/managed service or standard) |
 | frontend | Angular | [Angular overview](https://angular.dev/overview) (2026-11-13) | n/a (commercial/managed service or standard) |
 | frontend | Astro | [Why Astro](https://docs.astro.build/en/concepts/why-astro/) (2026-11-13) | withastro/astro: archived=False, last push 2026-11-13 |
 | frontend | Blazor | [Blazor overview](https://learn.microsoft.com/en-us/aspnet/core/blazor/) (2026-11-13) | n/a (commercial/managed service or standard) |
@@ -78,12 +80,14 @@ Generated 2026-11-13 by `tools/gen_kb_audit.py` from `data/kb/*.json`, `tools/ve
 | frontend | SvelteKit | [SvelteKit docs](https://svelte.dev/docs/kit) (2026-11-13) | sveltejs/kit: archived=False, last push 2026-11-12 |
 | frontend | Swift (SwiftUI) | [SwiftUI](https://developer.apple.com/swiftui/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | frontend | Tauri | [Tauri docs](https://tauri.app/start/) (2026-11-13) | tauri-apps/tauri: archived=False, last push 2026-11-12 |
+| hosting | Amazon EKS | [Amazon EKS](https://aws.amazon.com/eks/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | AWS Amplify Hosting | [AWS Amplify Hosting](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | AWS EC2 | [Amazon EC2](https://aws.amazon.com/ec2/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | AWS ECS on Fargate | [AWS Fargate](https://aws.amazon.com/fargate/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | AWS Lambda | [AWS Lambda](https://aws.amazon.com/lambda/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Azure App Service | [Azure App Service](https://learn.microsoft.com/en-us/azure/app-service/overview) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Azure Container Apps | [Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/overview) (2026-11-13) | n/a (commercial/managed service or standard) |
+| hosting | Azure Kubernetes Service (AKS) | [What is AKS](https://learn.microsoft.com/en-us/azure/aks/what-is-aks) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Azure Static Web Apps | [Azure Static Web Apps](https://learn.microsoft.com/en-us/azure/static-web-apps/overview) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Azure Virtual Machines | [Azure Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Cloudflare Pages | [Cloudflare Pages](https://developers.cloudflare.com/pages/) (2026-11-13) | n/a (commercial/managed service or standard) |
@@ -92,6 +96,7 @@ Generated 2026-11-13 by `tools/gen_kb_audit.py` from `data/kb/*.json`, `tools/ve
 | hosting | GitHub Pages | [About GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Google Cloud Run | [What is Cloud Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Google Compute Engine | [Compute Engine regions and zones](https://docs.cloud.google.com/compute/docs/regions-zones) (2026-11-13) | n/a (commercial/managed service or standard) |
+| hosting | Google Kubernetes Engine (GKE) | [GKE overview](https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Kubernetes (k3s) on-prem | [K3s documentation](https://docs.k3s.io/) (2026-11-13) | k3s-io/k3s: archived=False, last push 2026-11-12 |
 | hosting | Linux server (systemd + Nginx) | [nginx documentation](https://nginx.org/en/docs/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | hosting | Netlify | [Netlify docs](https://docs.netlify.com/) (2026-11-13) | n/a (commercial/managed service or standard) |

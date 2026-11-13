@@ -75,6 +75,10 @@ add(F, "HTMX with server-rendered templates", langs=(), plat=("web",), r=(5, 5, 
     strengths=("Server-side templates in the backend's own language with small client footprint", "Great for internal tools and CRUD apps"),
     limits=("Rich client-side interactions need extra JavaScript", "Offline and mobile use cases are out of scope"),
     src=[("https://htmx.org/docs/", "htmx docs")])
+add(F, ".NET MAUI", langs=("csharp",), plat=("android", "ios", "desktop"), r=(4, 4, 4, 4, 4, 4), ops=1, tags=("mobile_cross", "offline_ok", "dotnet", "enterprise"), cap=20_000_000,
+    strengths=("One C# and XAML codebase for Android, iOS, macOS and Windows", "Reuses .NET skills and libraries; natural pairing with ASP.NET Core"),
+    limits=("No web target (pair with Blazor)", "Smaller community than Flutter or React Native"),
+    src=[("https://learn.microsoft.com/en-us/dotnet/maui/what-is-maui", "What is .NET MAUI")])
 add(F, "Flutter", langs=("dart",), plat=("android", "ios", "web", "desktop"), r=(4, 4, 4, 4, 4, 4), ops=1, tags=("mobile_cross", "offline_ok"), cap=20_000_000,
     strengths=("One codebase for Android, iOS, web and desktop", "Consistent UI and good performance"),
     limits=("Requires Dart", "Web output is weaker for SEO"),
@@ -198,6 +202,11 @@ add(D, "Amazon DynamoDB", langs=("javascript", "typescript", "python", "java", "
     strengths=("Single-digit-millisecond key-value access at any scale", "Serverless capacity modes"),
     limits=("Access patterns must be designed up front", "No ad-hoc relational queries"),
     src=[("https://aws.amazon.com/dynamodb/", "Amazon DynamoDB")])
+add(D, "Google Cloud Spanner", langs=("sql", "java", "go", "python", "typescript"), cloud="gcp", regions=ALLR, saas=True, r=(3, 1, 5, 5, 4, 5), ops=1, tags=("relational", "managed", "multitenant", "global"), cap=2_000_000_000,
+    cost=((65, 900), (8, 60)), comp=("pci_dss", "hipaa", "soc2", "iso27001", "gdpr"),
+    strengths=("Horizontally scalable relational database with strong consistency, including multi-region configurations", "Instance configurations in Mumbai (asia-south1) and Delhi (asia-south2)"),
+    limits=("Highest cost floor of the managed SQL options", "Google-specific dialect and features; GCP lock-in"),
+    src=[("https://cloud.google.com/spanner/docs/overview", "Cloud Spanner overview"), ("https://cloud.google.com/spanner/docs/instance-configurations", "Spanner instance configurations")])
 add(D, "Supabase Postgres", langs=("sql", "javascript", "typescript"), regions=("india", "eu", "us"), saas=True, r=(5, 4, 3, 4, 4, 4), ops=1, fts=True,
     tags=("relational", "managed", "multitenant", "realtime"), cap=1_000_000, cost=((0, 60), (3, 25)),
     strengths=("Managed PostgreSQL with Mumbai and Frankfurt/Ireland regions", "Row-level security supports multi-tenancy"),
@@ -283,6 +292,21 @@ add(H, "Google Compute Engine", cloud="gcp", regions=ALLR, saas=True, htype="vm"
     cost=((15, 300), (3, 25)), comp=("pci_dss", "hipaa", "soc2", "iso27001", "gdpr"),
     strengths=("Flexible VMs with per-second billing",), limits=("You operate OS patching and scaling",),
     src=[("https://docs.cloud.google.com/compute/docs/regions-zones", "Compute Engine regions and zones")])
+add(H, "Amazon EKS", cloud="aws", regions=ALLR, saas=True, htype="container", runtimes=("any", "docker"), ws=True, r=(2, 3, 5, 5, 4, 5), ops=5, tags=("container", "kubernetes", "managed"), cap=500_000_000,
+    cost=((90, 500), (6, 40)), comp=("pci_dss", "hipaa", "soc2", "iso27001", "gdpr"),
+    strengths=("Managed Kubernetes control plane for very large, multi-service workloads", "Runs in Mumbai and Hyderabad; full AWS ecosystem"),
+    limits=("Needs real platform-engineering skills", "Control-plane fee plus node costs; slow to set up"),
+    src=[("https://aws.amazon.com/eks/", "Amazon EKS")])
+add(H, "Google Kubernetes Engine (GKE)", cloud="gcp", regions=ALLR, saas=True, htype="container", runtimes=("any", "docker"), ws=True, r=(2, 3, 5, 5, 4, 5), ops=5, tags=("container", "kubernetes", "managed"), cap=500_000_000,
+    cost=((75, 450), (6, 40)), comp=("pci_dss", "hipaa", "soc2", "iso27001", "gdpr"),
+    strengths=("Mature managed Kubernetes with autopilot mode", "Clusters in Mumbai (asia-south1) and Delhi (asia-south2)"),
+    limits=("Needs real platform-engineering skills", "Overkill below a handful of services"),
+    src=[("https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview", "GKE overview")])
+add(H, "Azure Kubernetes Service (AKS)", cloud="azure", regions=ALLR, saas=True, htype="container", runtimes=("any", "docker"), ws=True, r=(2, 3, 5, 5, 4, 5), ops=5, tags=("container", "kubernetes", "managed"), cap=500_000_000,
+    cost=((70, 450), (6, 40)), comp=("pci_dss", "hipaa", "soc2", "iso27001", "gdpr"),
+    strengths=("Managed Kubernetes integrated with Entra ID and Azure networking", "Indian Azure regions available"),
+    limits=("Needs real platform-engineering skills", "Overkill for small teams"),
+    src=[("https://learn.microsoft.com/en-us/azure/aks/what-is-aks", "What is AKS")])
 add(H, "Docker Compose on a Linux VM", self_host=True, htype="onprem", runtimes=("any", "docker"), ws=True, r=(4, 5, 2, 3, 4, 3), ops=3, tags=("onprem", "simple"), cap=200_000,
     cost=((0, 60), (0, 3)), strengths=("Simple, portable deployment you can run anywhere including an air gap",), limits=("Single host unless you add orchestration", "You own patching, backups and failover"),
     src=[("https://docs.docker.com/compose/", "Docker Compose")])

@@ -72,12 +72,12 @@
       ],
       "alternatives": [
         {
-          "choice": "Supabase Postgres",
-          "why_not": "Ranked 0.2 points lower: weaker on scalability (rated 3 vs 4, which your priorities weight at 5/5)."
+          "choice": "Google Cloud Spanner",
+          "why_not": "Ranked 0.1 points lower: weaker on time to market (rated 3 vs 5, which your priorities weight at 3/5); costs more (about $105-1500/mo vs $30-275)."
         },
         {
-          "choice": "Firestore",
-          "why_not": "Ranked 1.9 points lower: weaker on maintainability (rated 3 vs 4, which your priorities weight at 4/5)."
+          "choice": "Supabase Postgres",
+          "why_not": "Ranked 0.2 points lower: weaker on scalability (rated 3 vs 4, which your priorities weight at 5/5)."
         }
       ],
       "tradeoffs": [

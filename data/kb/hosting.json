@@ -1,5 +1,78 @@
 [
  {
+  "name": "Amazon EKS",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "aws",
+  "cost_model": "estimate: fixed [90, 500] + per-1k-users [0.6, 4.0] USD/month",
+  "cost": {
+   "fixed": [
+    90,
+    500
+   ],
+   "per_1k_users": [
+    0.6,
+    4.0
+   ]
+  },
+  "strengths": [
+   "Managed Kubernetes control plane for very large, multi-service workloads",
+   "Runs in Mumbai and Hyderabad; full AWS ecosystem"
+  ],
+  "limits": [
+   "Needs real platform-engineering skills",
+   "Control-plane fee plus node costs; slow to set up"
+  ],
+  "ops_burden": 5,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "container",
+   "kubernetes",
+   "managed"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "container",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://aws.amazon.com/eks/",
+    "title": "Amazon EKS",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
   "name": "AWS Amplify Hosting",
   "layer": "hosting",
   "lifecycle_status": "active",
@@ -431,6 +504,79 @@
    {
     "url": "https://learn.microsoft.com/en-us/azure/container-apps/overview",
     "title": "Azure Container Apps",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Azure Kubernetes Service (AKS)",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "azure",
+  "cost_model": "estimate: fixed [70, 450] + per-1k-users [0.6, 4.0] USD/month",
+  "cost": {
+   "fixed": [
+    70,
+    450
+   ],
+   "per_1k_users": [
+    0.6,
+    4.0
+   ]
+  },
+  "strengths": [
+   "Managed Kubernetes integrated with Entra ID and Azure networking",
+   "Indian Azure regions available"
+  ],
+  "limits": [
+   "Needs real platform-engineering skills",
+   "Overkill for small teams"
+  ],
+  "ops_burden": 5,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "container",
+   "kubernetes",
+   "managed"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "container",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://learn.microsoft.com/en-us/azure/aks/what-is-aks",
+    "title": "What is AKS",
     "accessed": "2026-11-13"
    }
   ]
@@ -959,6 +1105,79 @@
    {
     "url": "https://docs.cloud.google.com/compute/docs/regions-zones",
     "title": "Compute Engine regions and zones",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
+  "name": "Google Kubernetes Engine (GKE)",
+  "layer": "hosting",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [75, 450] + per-1k-users [0.6, 4.0] USD/month",
+  "cost": {
+   "fixed": [
+    75,
+    450
+   ],
+   "per_1k_users": [
+    0.6,
+    4.0
+   ]
+  },
+  "strengths": [
+   "Mature managed Kubernetes with autopilot mode",
+   "Clusters in Mumbai (asia-south1) and Delhi (asia-south2)"
+  ],
+  "limits": [
+   "Needs real platform-engineering skills",
+   "Overkill below a handful of services"
+  ],
+  "ops_burden": 5,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 2,
+   "cost": 3,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "container",
+   "kubernetes",
+   "managed"
+  ],
+  "platforms": [],
+  "runtimes": [
+   "any",
+   "docker"
+  ],
+  "websockets": true,
+  "hosting_type": "container",
+  "scale_cap_users": 500000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview",
+    "title": "GKE overview",
     "accessed": "2026-11-13"
    }
   ]

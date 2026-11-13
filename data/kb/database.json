@@ -559,6 +559,88 @@
   ]
  },
  {
+  "name": "Google Cloud Spanner",
+  "layer": "database",
+  "lifecycle_status": "active",
+  "languages": [
+   "sql",
+   "java",
+   "go",
+   "python",
+   "typescript"
+  ],
+  "regions": [
+   "india",
+   "eu",
+   "us",
+   "other"
+  ],
+  "self_hostable": false,
+  "saas_only": true,
+  "cloud": "gcp",
+  "cost_model": "estimate: fixed [65, 900] + per-1k-users [0.8, 6.0] USD/month",
+  "cost": {
+   "fixed": [
+    65,
+    900
+   ],
+   "per_1k_users": [
+    0.8,
+    6.0
+   ]
+  },
+  "strengths": [
+   "Horizontally scalable relational database with strong consistency, including multi-region configurations",
+   "Instance configurations in Mumbai (asia-south1) and Delhi (asia-south2)"
+  ],
+  "limits": [
+   "Highest cost floor of the managed SQL options",
+   "Google-specific dialect and features; GCP lock-in"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 3,
+   "cost": 1,
+   "scale": 5,
+   "perf": 5,
+   "maint": 4,
+   "sec": 5
+  },
+  "tags": [
+   "relational",
+   "managed",
+   "multitenant",
+   "global"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 2000000000,
+  "compliance": [
+   "pci_dss",
+   "hipaa",
+   "soc2",
+   "iso27001",
+   "gdpr"
+  ],
+  "sources": [
+   {
+    "url": "https://cloud.google.com/spanner/docs/overview",
+    "title": "Cloud Spanner overview",
+    "accessed": "2026-11-13"
+   },
+   {
+    "url": "https://cloud.google.com/spanner/docs/instance-configurations",
+    "title": "Spanner instance configurations",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
   "name": "Google Cloud SQL for PostgreSQL",
   "layer": "database",
   "lifecycle_status": "active",
