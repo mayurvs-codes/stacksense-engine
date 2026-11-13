@@ -129,7 +129,7 @@
   "url": "https://cloud.google.com/cdn/docs/overview",
   "status": 200,
   "title": "Cloud CDN overview &nbsp;|&nbsp; Google Cloud Documentation",
-  "bytes": 147723,
+  "bytes": 147589,
   "final": "https://docs.cloud.google.com/cdn/docs/overview"
  },
  {
@@ -150,7 +150,7 @@
   "url": "https://cloud.google.com/pubsub/docs/overview",
   "status": 200,
   "title": "What is Pub/Sub? &nbsp;|&nbsp; Google Cloud Documentation",
-  "bytes": 165872,
+  "bytes": 165868,
   "final": "https://docs.cloud.google.com/pubsub/docs/overview"
  },
  {
@@ -248,21 +248,21 @@
   "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",
   "status": 200,
   "title": "What is Amazon CloudWatch? - Amazon CloudWatch",
-  "bytes": 30223,
+  "bytes": 30255,
   "final": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html"
  },
  {
   "url": "https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html",
   "status": 200,
   "title": "Welcome to AWS Amplify Hosting - AWS Amplify Hosting",
-  "bytes": 17480,
+  "bytes": 17564,
   "final": "https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html"
  },
  {
   "url": "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html",
   "status": 200,
   "title": "What is AWS CodePipeline? - AWS CodePipeline",
-  "bytes": 12443,
+  "bytes": 12475,
   "final": "https://docs.aws.amazon.com/codepipeline/latest/userguide/welcome.html"
  },
  {
@@ -514,7 +514,7 @@
   "url": "https://laravel.com/docs",
   "status": 200,
   "title": "Installation | Laravel 13.x - The clean stack for Artisans and agents",
-  "bytes": 184340,
+  "bytes": 184348,
   "final": "https://laravel.com/framework/docs"
  },
  {
@@ -677,6 +677,13 @@
   "title": "OpenSearch documentation and user guides | OpenSearch Documentation",
   "bytes": 55270,
   "final": "https://docs.opensearch.org/latest/"
+ },
+ {
+  "url": "https://pagefind.app/",
+  "status": 200,
+  "title": "Pagefind",
+  "bytes": 22393,
+  "final": "https://pagefind.app/"
  },
  {
   "url": "https://prometheus.io/docs/introduction/overview/",
@@ -857,7 +864,7 @@
   "url": "https://www.postgresql.org/about/",
   "status": 200,
   "title": "PostgreSQL: About",
-  "bytes": 17134,
+  "bytes": 16851,
   "final": "https://www.postgresql.org/about/"
  },
  {

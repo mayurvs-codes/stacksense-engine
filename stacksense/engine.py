@@ -420,9 +420,13 @@ def score_host(h, f, kb):
     return s
 
 
-def compat_support(e, layer, role, f, be, fe, db):
+def compat_support(e, layer, role, f, be, fe, db, host=None):
     """Hard compatibility between a supporting component and the chosen core components."""
     t = set(e["tags"])
+    if "client_only" in t and be is not None:
+        return False  # client-side search only makes sense for backend-less sites
+    if host is not None and host["hosting_type"] == "static" and e["self_hostable"] and not e["saas_only"] and not t & {"library", "client_only"}:
+        return False  # a static host cannot run a server component
     if "library" in t and e["languages"]:
         allowed = set(x.lower() for x in (be["languages"] if be else []))
         if "client_lib" in t and fe:
@@ -582,7 +586,7 @@ def build(host, f, kb):
     if db is not None:
         total += db_ranked[0][0]
     for layer, role in needed_supporting(f, be, db, host):
-        cands = [e for e in kb.layer(layer) if exclusion(e, layer, f, host) is None and compat_support(e, layer, role, f, be, fe, db)]
+        cands = [e for e in kb.layer(layer) if exclusion(e, layer, f, host) is None and compat_support(e, layer, role, f, be, fe, db, host)]
         if layer == "ml" and role == "model" and f.ml == "training":
             trainable = [e for e in cands if "training" in e["tags"]]
             cands = trainable or cands

@@ -343,6 +343,9 @@ sup("search", "Typesense", self_host=True, r=(5, 5, 3, 5, 4, 3), ops=2, tags=("s
 sup("search", "OpenSearch", self_host=True, r=(3, 4, 5, 4, 3, 4), ops=4, tags=("search", "analytics"), cost=((30, 400), (1, 10)), cap=500_000_000,
     strengths=("Scalable full-text and analytics search under Apache 2.0",), limits=("Cluster operations are heavy",),
     src=[("https://opensearch.org/docs/latest/", "OpenSearch docs")])
+sup("search", "Pagefind", self_host=True, r=(5, 5, 3, 5, 4, 4), ops=1, tags=("search", "client_only", "static_search"), cost=((0, 0), (0, 0)), cap=2_000_000,
+    strengths=("Static client-side search index built at deploy time: no search server to run, works on any static host",), limits=("Index lives in the browser: suits documentation and content sites, not large or access-controlled datasets",),
+    src=[("https://pagefind.app/", "Pagefind")])
 sup("search", "Algolia", saas=True, regions=("us", "eu"), r=(5, 2, 5, 5, 5, 4), ops=1, tags=("search",), cost=((0, 100), (5, 60)), cap=50_000_000,
     strengths=("Hosted search with excellent relevance tooling",), limits=("Usage-based pricing grows fast", "Data leaves your infrastructure"),
     src=[("https://www.algolia.com/doc/", "Algolia docs")])

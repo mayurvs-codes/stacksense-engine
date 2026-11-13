@@ -20,7 +20,7 @@ GH = {"Valkey (self-hosted)": "valkey-io/valkey", "Meilisearch": "meilisearch/me
       "FastAPI": "tiangolo/fastapi", "Go (Gin)": "gin-gonic/gin", "Ktor": "ktorio/ktor", "Axum": "tokio-rs/axum", "Astro": "withastro/astro",
       "Eleventy": "11ty/eleventy", "SvelteKit": "sveltejs/kit", "Nuxt": "nuxt/nuxt", "Tauri": "tauri-apps/tauri", "Electron": "electron/electron",
       "React Native (Expo)": "expo/expo", "Flutter": "flutter/flutter", "Laravel": "laravel/framework", "Ruby on Rails": "rails/rails",
-      "Django": "django/django", "Spring Boot": "spring-projects/spring-boot", "ASP.NET Core": "dotnet/aspnetcore", "SeaweedFS": "seaweedfs/seaweedfs"}
+      "Django": "django/django", "Spring Boot": "spring-projects/spring-boot", "ASP.NET Core": "dotnet/aspnetcore", "SeaweedFS": "seaweedfs/seaweedfs", "Pagefind": "CloudCannon/pagefind", "PyTorch": "pytorch/pytorch"}
 today = datetime.date.today().isoformat()
 L = ["# Knowledge-base audit", "",
      f"Generated {today} by `tools/gen_kb_audit.py` from `data/kb/*.json`, `tools/verified.json` (written by `tools/verify_sources.py`) and "

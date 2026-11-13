@@ -132,6 +132,7 @@ Generated 2026-11-13 by `tools/gen_kb_audit.py` from `data/kb/*.json`, `tools/ve
 | search | Algolia | [Algolia docs](https://www.algolia.com/doc/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | search | Meilisearch | [Meilisearch docs](https://www.meilisearch.com/docs) (2026-11-13) | meilisearch/meilisearch: archived=False, last push 2026-11-12 |
 | search | OpenSearch | [OpenSearch docs](https://opensearch.org/docs/latest/) (2026-11-13) | opensearch-project/OpenSearch: archived=False, last push 2026-11-12 |
+| search | Pagefind | [Pagefind](https://pagefind.app/) (2026-11-13) | CloudCannon/pagefind: archived=False, last push 2026-11-11 |
 | search | Typesense | [Typesense docs](https://typesense.org/docs/) (2026-11-13) | typesense/typesense: archived=False, last push 2026-11-11 |
 | storage | Amazon S3 | [Amazon S3](https://aws.amazon.com/s3/) (2026-11-13) | n/a (commercial/managed service or standard) |
 | storage | Azure Blob Storage | [Azure Blob Storage](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction) (2026-11-13) | n/a (commercial/managed service or standard) |

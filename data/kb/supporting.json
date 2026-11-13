@@ -3343,6 +3343,63 @@
   ]
  },
  {
+  "name": "Pagefind",
+  "layer": "search",
+  "lifecycle_status": "active",
+  "languages": [],
+  "regions": [],
+  "self_hostable": true,
+  "saas_only": false,
+  "cloud": "neutral",
+  "cost_model": "estimate: fixed [0, 0] + per-1k-users [0.0, 0.0] USD/month",
+  "cost": {
+   "fixed": [
+    0,
+    0
+   ],
+   "per_1k_users": [
+    0.0,
+    0.0
+   ]
+  },
+  "strengths": [
+   "Static client-side search index built at deploy time: no search server to run, works on any static host"
+  ],
+  "limits": [
+   "Index lives in the browser: suits documentation and content sites, not large or access-controlled datasets"
+  ],
+  "ops_burden": 1,
+  "maturity": "mature",
+  "provides": [],
+  "fts": false,
+  "ratings": {
+   "ttm": 5,
+   "cost": 5,
+   "scale": 3,
+   "perf": 5,
+   "maint": 4,
+   "sec": 4
+  },
+  "tags": [
+   "search",
+   "client_only",
+   "static_search"
+  ],
+  "platforms": [],
+  "runtimes": [],
+  "websockets": true,
+  "hosting_type": "",
+  "scale_cap_users": 2000000,
+  "compliance": [],
+  "sources": [
+   {
+    "url": "https://pagefind.app/",
+    "title": "Pagefind",
+    "accessed": "2026-11-13"
+   }
+  ]
+ },
+ {
   "name": "Typesense",
   "layer": "search",
   "lifecycle_status": "active",

@@ -188,3 +188,15 @@ class Round7Regressions(unittest.TestCase):
         raw = mod(requirements__auth="social", infrastructure__cloud_preference="aws", infrastructure__deployment_model="self_hosted_cloud_vm", team__size=5, team__has_devops=True, budget__monthly_infra_usd=2000, scale__users_12_months=40000)
         raw["extra"] = {"vendor_lock_in_tolerance": "low"}
         self.assertEqual(sup(recommend(raw), "auth"), ["Keycloak"])
+
+
+class Round8Regressions(unittest.TestCase):
+    def test_static_host_never_gets_a_search_server(self):
+        o = run(project__type="content_site", requirements__auth="none", requirements__full_text_search=True, budget__monthly_infra_usd=0,
+                team__size=1, team__experience="beginner", team__languages=["javascript"], scale__users_12_months=3000)
+        self.assertEqual(sup(o, "search"), ["Pagefind"])
+        self.assertLessEqual(o["estimated_monthly_cost_usd"]["max"], 25)
+
+    def test_client_side_search_not_used_with_a_backend(self):
+        o = run(requirements__full_text_search=True, scale__users_12_months=200000, budget__monthly_infra_usd=3000)
+        self.assertNotIn("Pagefind", sup(o, "search"))

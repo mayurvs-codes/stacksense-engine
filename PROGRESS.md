@@ -4,14 +4,14 @@ Built locally on 2026-11-13 (the cloud run never started). Branch `overnight/eng
 
 ## Round 1: build
 - Scaffolded `stacksense/` (validator, knowledge-base loader, decision engine, CLI, offline web UI) and the knowledge base
-  (`tools/kb_source.py` writes `data/kb/*.json`; 123 entries after round 2).
+  (`tools/kb_source.py` writes `data/kb/*.json`; 124 entries after round 8).
 - Opened every KB source URL (`tools/verify_sources.py`), read the official region pages for AWS, Azure, Google Cloud, DigitalOcean, Vercel, Render,
   Supabase, Firestore and MongoDB Atlas, and checked open-source lifecycle through the GitHub API. This found that MinIO's repository is no longer
   maintained, so it was replaced by SeaweedFS. Details and limits of what was verified: `docs/KB_AUDIT.md`.
 - Fixed while building: frameworks wrongly filtered by region rules; self-managed databases on serverless hosts; cost bands too high; list order
   made explanations non-deterministic; SQL Server reuse; compliance notes naming every regime.
 
-## Rounds 2-7: adversarial review (`review/round_1` ... `review/round_7`)
+## Rounds 2-8: adversarial review (`review/round_1` ... `review/round_8`)
 - 32 + 25 + 25 hand-designed scenarios and 8 fuzz scans of 600 scenarios each (`tools/scan.py`), outputs read critically (critique file in each folder).
 - Round 4 additionally fixed: a scoring bug that rewarded stacks for merely having more components (a 30M-user static site landed on Cloud Run),
   backends on static hosts, EOL databases (MongoDB) abandoned instead of upgraded, unattested SaaS under HIPAA/PCI, RBI + residency conflicts.
@@ -20,7 +20,7 @@ Built locally on 2026-11-13 (the cloud run never started). Branch `overnight/eng
   single ML slot for RAG apps; no trainable framework on-premises; static-site budget warning wording; $0-budget cost bands; licence matching;
   low lock-in tolerance; single-node capacity; load tier ignoring peak concurrency; SQLite on ephemeral hosts; Azure without a managed cache;
   HTMX at high scale or realtime.
-- 120 unit and property tests (`python -m unittest discover -s tests -q`): all pass.
+- 122 unit and property tests (`python -m unittest discover -s tests -q`): all pass.
 - `outputs/P1_output.json` ... `P6_output.json` generated from `outputs/inputs/`.
 
 ### Full gate output (verbatim tail of `python gate/run_gate.py`, no --quick)
@@ -35,8 +35,8 @@ PASS invalid_inputs (3.1s)
 PASS minimal_input_defaults (0.2s)
 PASS contradictions_and_hard_constraints (0.6s)
 PASS extras_change_outputs (15.3s)
-PASS fuzz_and_diversity (4.2s)
-PASS local_sensitivity (4.9s)
+PASS fuzz_and_diversity (4.1s)
+PASS local_sensitivity (5.0s)
 PASS unit_tests (1.5s)
 PASS web_ui (0.7s)
 PASS docs (0.0s)
@@ -46,10 +46,10 @@ GATE: PASSED
 ```
 
 ## FINAL STATUS (honest)
-- Gate: passes (output above). Unit tests: 120 pass.
+- Gate: passes (output above). Unit tests: 122 pass.
 - Exit condition (b): the last hand-written round (4) still found defects, which were fixed. After the last fix, 7 further fuzz scans (4,200 scenarios)
   found 0 oracle violations and only a borderline heuristic hit (about 1% Firestore-for-realtime/GCP choices, judged defensible). Round 6 found one small defect (fixed) and round 7 (15 more hand-written scenarios) found three (docs-site search, HTMX for realtime,
-  low lock-in identity; all fixed). Defects per hand-written round: 12+, 6, 5, 1, 3, so the "two consecutive clean rounds" condition is NOT met; diminishing
+  low lock-in identity; all fixed). Round 8 (15 modified versions of the public scenarios, the kind the judges said they would run) found one (static host given a search server; fixed with Pagefind). Defects per hand-written round: 12+, 6, 5, 1, 3, 1, so the "two consecutive clean rounds" condition is NOT met; diminishing
   but non-zero returns. Fuzz scans after the final fixes (3 more seeds) were clean for the oracle.
 - Exit condition (c): every KB source page was opened and logged on 2026-11-13, but vendor compliance attestations, EU/US regions of several vendors and
   all ratings/costs are NOT verified claim by claim (see `docs/KB_AUDIT.md`, section "What was verified, honestly").
